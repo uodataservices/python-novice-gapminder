@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://swcarpentry.github.io/python-novice-gapminder/00-installing-jupyter.html</loc>
+  </url>
+  <url>
     <loc>https://swcarpentry.github.io/python-novice-gapminder/01-run-quit.html</loc>
   </url>
   <url>
@@ -86,6 +89,9 @@
   </url>
   <url>
     <loc>https://swcarpentry.github.io/python-novice-gapminder/index.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/python-novice-gapminder/instructor/00-installing-jupyter.html</loc>
   </url>
   <url>
     <loc>https://swcarpentry.github.io/python-novice-gapminder/instructor/01-run-quit.html</loc>
