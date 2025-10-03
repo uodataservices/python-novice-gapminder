@@ -1,5 +1,5 @@
 ---
-title: Installing JupyterLab Desktop
+title: "Installing JupyterLab Desktop"
 teaching: 15
 exercises: 0
 ---
@@ -15,8 +15,8 @@ exercises: 0
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- What steps do I need to take to prepare for this workshop series?
 - How do I install JupyterLab Desktop?
+- How do I set up JupyterLab Desktop so I can find my files again?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -117,223 +117,114 @@ From the **Windows (10, 11)** column, select the *x64 Installer*.
 Click to download the file to your computer. 
 
 
-## The Notebook has Command and Edit modes.
+## The JupyterLab Interface
 
-- If you press <kbd>Esc</kbd> and <kbd>Return</kbd> alternately, the outer border of your code cell will change from gray to blue.
-- These are the **Command** (gray) and **Edit** (blue) modes of your notebook.
-- Command mode allows you to edit notebook-level features, and Edit mode changes the content of cells.
-- When in Command mode (esc/gray),
-  - The <kbd>b</kbd> key will make a new cell below the currently selected cell.
-  - The <kbd>a</kbd> key will make one above.
-  - The <kbd>x</kbd> key will delete the current cell.
-  - The <kbd>z</kbd> key will undo your last cell operation (which could be a deletion, creation, etc).
-- All actions can be done using the menus, but there are lots of keyboard shortcuts to speed things up.
+JupyterLab has many features found in traditional integrated development environments (IDEs) but
+is focused on providing flexible building blocks for interactive, exploratory computing.
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+The [JupyterLab Interface][jupyterlab-ui]
+consists of the Menu Bar, a collapsable Left Side Bar, and the Main Work Area which contains tabs
+of documents and activities.
 
-## Command Vs. Edit
+### Menu Bar
 
-In the Jupyter notebook page are you currently in Command or Edit mode?  
-Switch between the modes.
-Use the shortcuts to generate a new cell.
-Use the shortcuts to delete a cell.
-Use the shortcuts to undo the last cell operation you performed.
+The Menu Bar at the top of JupyterLab has the top-level menus that expose various actions
+available in JupyterLab along with their keyboard shortcuts (where applicable). 
 
-:::::::::::::::  solution
+A screenshot of the default Menu Bar is provided below.
 
-## Solution
-
-Command mode has a grey border and Edit mode has a blue border.
-Use <kbd>Esc</kbd> and <kbd>Return</kbd> to switch between modes.
-You need to be in Command mode (Press <kbd>Esc</kbd> if your cell is blue).  Type <kbd>b</kbd> or <kbd>a</kbd>.
-You need to be in Command mode (Press <kbd>Esc</kbd> if your cell is blue).  Type <kbd>x</kbd>.
-You need to be in Command mode (Press <kbd>Esc</kbd> if your cell is blue).  Type <kbd>z</kbd>.
+<p align='center'>   <img alt="JupyterLab Menu Bar" src="fig/0_jupyterlab_menu_bar.png" width="750"/>
+</p>
 
 
+### Main Work Area
 
-:::::::::::::::::::::::::
+The main work area in JupyterLab enables you to arrange documents (notebooks, text files, etc.)
+and other activities (terminals, code consoles, etc.) into panels of tabs that can be resized or
+subdivided. A screenshot of the default Main Work Area is provided below.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+If you do not see the Launcher tab, click the blue plus sign under the "File" and "Edit" menus and it will appear.
 
-### Use the keyboard and mouse to select and edit cells.
+<p align='center'>   <img alt="JupyterLab Main Work Area" src="fig/0_jupyterlab_main_work_area.png" width="750"/>
+</p>
 
-- Pressing the <kbd>Return</kbd> key turns the border blue and engages Edit mode, which allows
-  you to type within the cell.
-- Because we want to be able to write many lines of code in a single cell,
-  pressing the <kbd>Return</kbd> key when in Edit mode (blue) moves the cursor to the next line
-  in the cell just like in a text editor.
-- We need some other way to tell the Notebook we want to run what's in the cell.
-- Pressing <kbd>Shift</kbd>\+<kbd>Return</kbd> together will execute the contents of the cell.
-- Notice that the <kbd>Return</kbd> and <kbd>Shift</kbd> keys on the right of the keyboard are
-  right next to each other.
+### Left Sidebar
 
-### The Notebook will turn Markdown into pretty-printed documentation.
+The left sidebar contains a number of commonly used tabs. Most importantly for us, it has a file browser (showing the
+contents of the directory where the JupyterLab server was launched). The directory where the JupyterLab server was launched will function as your working directory. This matters because if you want to reference other data files in your code, JupyterLab will look for them here by default. A screenshot of
+the default Left Side Bar is provided below.
 
-- Notebooks can also render [Markdown][markdown].
-  - A simple plain-text format for writing lists, links,
-    and other things that might go into a web page.
-  - Equivalently, a subset of HTML that looks like what you'd send in an old-fashioned email.
-- Turn the current cell into a Markdown cell by entering the Command mode (<kbd>Esc</kbd>/gray)
-  and press the <kbd>M</kbd> key.
-- `In [ ]:` will disappear to show it is no longer a code cell and you will be able to write in
-  Markdown.
-- Turn the current cell into a Code cell by entering the Command mode (<kbd>Esc</kbd>/gray) and
-  press the <kbd>y</kbd> key.
+<p align='center'>   <img alt="JupyterLab Left Side Bar" src="fig/0_jupyterlab_left_side_bar.png" width="250"/>
+</p>
 
-### Markdown does most of what HTML does.
+The left sidebar can be collapsed or expanded by selecting "Show Left Sidebar" in the View menu or
+by clicking on the active sidebar tab.
 
-Table: Showing some markdown syntax and its rendered output.
+On Macs, the file browser displays automatically, but on Windows this file browser view is often hidden by default. We recommend that you turn it on using the following steps.
 
-+---------------------------------------+------------------------------------------------+
-| Markdown code                         | Rendered output                                |
-+=======================================+================================================+
-+---------------------------------------+------------------------------------------------+
-| ```                                   | <p></p>                                        |
-| *   Use asterisks                     | -   Use asterisks                              |
-| *   to create                         | -   to create                                  |
-| *   bullet lists.                     | -   bullet lists.                              |
-| ```                                   |                                                |
-+---------------------------------------+------------------------------------------------+
-+---------------------------------------+------------------------------------------------+
-| ```                                   | <p></p>                                        |
-| 1.   Use numbers                      | 1.   Use numbers                               |
-| 1.   to create                        | 2.   to create                                 |
-| 1.   bullet lists.                    | 3.   numbered lists.                           |
-| ```                                   |                                                |
-+---------------------------------------+------------------------------------------------+
-+---------------------------------------+------------------------------------------------+
-| ```                                   | <p></p>                                        |
-| *  You can use indents                | - You can use indents                          |
-|   *  To create sublists               |   - To create sublists                         |
-|   *  of the same type                 |   - of the same type                           |
-| *  Or sublists                        | - Or sublists                                  |
-|   1. Of different                     |   1. Of different                              |
-|   1. types                            |   2. types                                     |
-| ```                                   |                                                |
-+---------------------------------------+------------------------------------------------+
-+---------------------------------------+------------------------------------------------+
-| ```                                   | <p></p>                                        |
-| # A Level-1 Heading                   | ## A Level-1 Heading                           |
-| ```                                   |                                                |
-+---------------------------------------+------------------------------------------------+
-+---------------------------------------+------------------------------------------------+
-| ```                                   | <p></p>                                        |
-| ## A Level-2 Heading (etc.)           | ### A Level-2 Heading (etc.)                   |
-| ```                                   |                                                |
-+---------------------------------------+------------------------------------------------+
-+---------------------------------------+------------------------------------------------+
-| ```                                   | <p></p>                                        |
-| Line breaks                           | Line breaks                                    |
-| don't matter.                         | don't matter.                                  |
-|                                       |                                                |
-| But blank lines                       | But blank lines                                |
-| create new paragraphs.                | create new paragraphs.                         |
-| ```                                   |                                                |
-+---------------------------------------+------------------------------------------------+
-+---------------------------------------+------------------------------------------------+
-| ```                                   | <p></p>                                        |
-| [Links](http://software-carpentry.org)| [Links](https://software-carpentry.org)        |
-| are created with `[...](...)`.        | are created with `[...](...)`.                 |
-| Or use [named links][data-carp].      | Or use [named links][data_carpentry].          |
-|                                       |                                                |
-| [data-carp]: http://datacarpentry.org |                                                |
-| ```                                   |                                                |
-+---------------------------------------+------------------------------------------------+
+Step 1: Click on view in the menu bar. This opens a drop down menu of options. 	Select “File Browser”  
+<p align='center'>   <img alt="Show File Browser in Menu" src="fig/0_jupyterlab_show_filebrowser.png" width="750"/>
+</p>
+ 
+Step 2: When you click on File Browser, this will open up the file directory as shown above.  
 
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+## Create your JupyterLab Working Directory
 
-## Creating Lists in Markdown
+* When you save files in Jupyter Lab, they will be saved automatically to your working directory (also known as a folder). You will also put data files you will use in this course in the same folder, to make it easier for you to tell the Python interpreter how to find the files.  
+* **The best way to avoid confusion about your working directory is to set it properly when you start your session.** As [explained on the JupyterLab Desktop ReadMe](https://github.com/jupyterlab/jupyterlab-desktop?tab=readme-ov-file#sessions-and-projects) (https://github.com/jupyterlab/jupyterlab-desktop?tab=readme-ov-file\#sessions-and-projects), you can start a new session by opening JupyterLab Desktop (double clicking on the JupyterLab Desktop icon) and then using the links at the Start section of the Welcome Page.
 
-Create a nested list in a Markdown cell in a notebook that looks like this:
+<p align='center'>   <img alt="JupyterLab Start Session" src="fig/0_jupyterlab_start-session.png" width="750"/>
+</p>
 
-1. Get funding.
-2. Do work.
-  - Design experiment.
-  - Collect data.
-  - Analyze.
-3. Write up.
-4. Publish.
+1. Close and re-open JupyterLab Desktop  
+2. Choose `Open...` (`Open Folder...` on Windows) and create a new directory (folder) that you will use to keep all of your workshop materials in. This directory (folder) should be specific to this workshop. Be sure to put it somewhere on your computer, such as your Documents folder or Desktop, where you will be able to find it again. If you have already created a folder for this workshop, you can select that instead of creating a new one.
 
-:::::::::::::::  solution
+## Create and save a Jupyter Notebook file to your Working Directory
 
-## Solution
+Now that JupyterLab is reopened, click on Python 3 in the Launcher to create a new Jupyter Notebook: 
 
-This challenge integrates both the numbered list and bullet list.
-Note that the bullet list is indented 2 spaces so that it is inline with the items of the numbered list.
+<p align='center'>   <img alt="Launch a New Python3 Notebook" src="fig/0_jupyterlab_new_notebook.png" width="750"/>
+</p>
 
-```
-1.  Get funding.
-2.  Do work.
-    *   Design experiment.
-    *   Collect data.
-    *   Analyze.
-3.  Write up.
-4.  Publish.
-```
+Use the menu or save icon to save this blank notebook. Make sure to name it something helpful\! For example, `PythonWorkshop` or `PythonDay1`. Notice that JupyterLab will append `.ipynb` to the end of the name of the notebook. This is the file extension for Jupyter Notebooks.
 
-:::::::::::::::::::::::::
+In the future, you can open to this working directory by any of the following:
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+* Double click in finder to open this file.  
+* Open JupyterLab Desktop, and from the Start screen click on the relevant item in the Recent sessions list to restore this session.
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+<p align='center'>   <img alt="Recent Sessions" src="fig/0_jupyterlab_recent_sessions.png" width="750"/>
+</p>
 
-## More Math
+## Verify your Working Directory
 
-What is displayed when a Python cell in a notebook
-that contains several calculations is executed?
-For example, what happens when this cell is executed?
+You can verify that you have the correct working directory by using what's called a *magic* command. Use the %pwd magic command within a code cell to print the current working directory. The output will display the current directory path.
 
-```python
-7 * 3
-2 + 1
-```
+<p align='center'>   <img alt="Print Working Directory from within Python" src="fig/0_pwd.png" width="750"/>
+</p>
+  
+This magic command passes the "print working directory" command to your computer. [Learn more about pwd here](https://superbasics.beholder.uk/command-line/example-pwd/) ([https://superbasics.beholder.uk/command-line/example-pwd/](https://superbasics.beholder.uk/command-line/example-pwd/)).
 
-:::::::::::::::  solution
+## How to Change your Default Working Directory in Python
 
-## Solution
+While we have showed you how to create a folder and set it as the working directory for an individual session in JupyterLab, you may also wish to change your default working directory to somewhere where you will often store code files. To do this, you need to access your settings menu.
 
-Python returns the output of the last calculation.
+Step 1:  Find the 3 vertical bars in the top right of your screen next to the kernel and click on them (be aware: this is only available in JupyterLab Desktop, not Anaconda). This will bring up a drop-down menu with a list of options. 
 
-```python
-3
-```
+<p align='center'>   <img alt="Find Settings in JupyterLab" src="fig/0_find_options.png" width="750"/>
+</p>
 
-:::::::::::::::::::::::::
+Step 2: Once that drop down menu is open, click on settings.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+<p align='center'>   <img alt="Choose Settings" src="fig/0_settings.png" width="750"/>
+</p>
 
-:::::::::::::::::::::::::::::::::::::::  challenge
+Step 3: Clicking on settings will open up a screen similar to the one below. Click on the server as is highlighted below. Here we can change our working directory. Click on Change.
 
-## Change an Existing Cell from Code to Markdown
+<p align='center'>   <img alt="Default Working Directory Setting" src="fig/0_default_working_directory.png" width="750"/>
+</p>
 
-What happens if you write some Python in a code cell
-and then you switch it to a Markdown cell?
-For example,
-put the following in a code cell:
+Step 5: Search your file directory for a folder you will recognize. For now, consider setting the folder you have just created for this workshop as your working directory. Above you can tell I named my default working directory “PythonWorkshop”. Now all my scripts of python code from JupyterLab will be saved in that folder when I choose to save them. 
 
-```python
-x = 6 * 7 + 12
-print(x)
-```
 
-And then run it with <kbd>Shift</kbd>\+<kbd>Return</kbd> to be sure that it works as a code cell.
-Now go back to the cell and use <kbd>Esc</kbd> then <kbd>m</kbd> to switch the cell to Markdown
-and "run" it with <kbd>Shift</kbd>\+<kbd>Return</kbd>.
-What happened and how might this be useful?
-
-:::::::::::::::  solution
-
-## Solution
-
-The Python code gets treated like Markdown text.
-The lines appear as if they are part of one contiguous paragraph.
-This could be useful to temporarily turn on and off cells in notebooks that get used for multiple purposes.
-
-```python
-x = 6 * 7 + 12 print(x)
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
