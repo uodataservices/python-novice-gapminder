@@ -170,6 +170,16 @@ Step 1: Click on view in the menu bar. This opens a drop down menu of options. 	
  
 Step 2: When you click on File Browser, this will open up the file directory as shown above.  
 
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## What is a Working Directory?
+
+- A working directory (or current working directory) is the current folder or location on a computer's file system where a program or process is operating by default. 
+- The working directory is the default location where Python will look for files you want to load and where it will put any files you save.
+- You will write your code in Jupyter Notebooks, and save them for later in a folder. Jupyter Notebooks are file type that ends in `.ipynb`.
+- It's a good idea to save your code files in the same folder where you save any data files that you want to analyze. In this workshop your data files will be in the open source spreadsheet format `.csv`. 
+  
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Create your JupyterLab Working Directory
 
