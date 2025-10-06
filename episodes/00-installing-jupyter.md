@@ -1,6 +1,6 @@
 ---
 title: "Installing JupyterLab Desktop"
-teaching: 15
+teaching: 30
 exercises: 0
 ---
 
@@ -10,13 +10,15 @@ exercises: 0
 - Install JuptyterLab Desktop.
 - Learn about folders and files on your computer.
 - Create a folder for the Jupyter notebooks you will create during this workshop series.
+- Learn what a working directory is and set the working directory for your project.
+- Set the default working directory for JupyterLab Desktop.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
 - How do I install JupyterLab Desktop?
-- How do I set up JupyterLab Desktop so I can find my files again?
+- How do I configure JupyterLab Desktop so I can find my files again?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -174,7 +176,7 @@ Step 2: When you click on File Browser, this will open up the file directory as 
 * When you save files in Jupyter Lab, they will be saved automatically to your working directory (also known as a folder). You will also put data files you will use in this course in the same folder, to make it easier for you to tell the Python interpreter how to find the files.  
 * **The best way to avoid confusion about your working directory is to set it properly when you start your session.** As [explained on the JupyterLab Desktop ReadMe](https://github.com/jupyterlab/jupyterlab-desktop?tab=readme-ov-file#sessions-and-projects) (https://github.com/jupyterlab/jupyterlab-desktop?tab=readme-ov-file\#sessions-and-projects), you can start a new session by opening JupyterLab Desktop (double clicking on the JupyterLab Desktop icon) and then using the links at the Start section of the Welcome Page.
 
-<p align='center'>   <img alt="JupyterLab Start Session" src="fig/0_jupyterlab_start-session.png" width="750"/>
+<p align='center'>   <img alt="JupyterLab Start Session" src="fig/0_jupyterlab_start-session.png" width="250"/>
 </p>
 
 1. Close and re-open JupyterLab Desktop  
@@ -184,7 +186,7 @@ Step 2: When you click on File Browser, this will open up the file directory as 
 
 Now that JupyterLab is reopened, click on Python 3 in the Launcher to create a new Jupyter Notebook: 
 
-<p align='center'>   <img alt="Launch a New Python3 Notebook" src="fig/0_jupyterlab_new_notebook.png" width="750"/>
+<p align='center'>   <img alt="Launch a New Python3 Notebook" src="fig/0_jupyterlab_new_notebook.png" width="200"/>
 </p>
 
 Use the menu or save icon to save this blank notebook. Make sure to name it something helpful\! For example, `PythonWorkshop` or `PythonDay1`. Notice that JupyterLab will append `.ipynb` to the end of the name of the notebook. This is the file extension for Jupyter Notebooks.
@@ -194,14 +196,14 @@ In the future, you can open to this working directory by any of the following:
 * Double click in finder to open this file.  
 * Open JupyterLab Desktop, and from the Start screen click on the relevant item in the Recent sessions list to restore this session.
 
-<p align='center'>   <img alt="Recent Sessions" src="fig/0_jupyterlab_recent_sessions.png" width="750"/>
+<p align='center'>   <img alt="Recent Sessions" src="fig/0_jupyterlab_recent_sessions.png" width="300"/>
 </p>
 
 ## Verify your Working Directory
 
 You can verify that you have the correct working directory by using what's called a *magic* command. Use the %pwd magic command within a code cell to print the current working directory. The output will display the current directory path.
 
-<p align='center'>   <img alt="Print Working Directory from within Python" src="fig/0_pwd.png" width="750"/>
+<p align='center'>   <img alt="Print Working Directory from within Python" src="fig/0_pwd.png" width="700"/>
 </p>
   
 This magic command passes the "print working directory" command to your computer. [Learn more about pwd here](https://superbasics.beholder.uk/command-line/example-pwd/) ([https://superbasics.beholder.uk/command-line/example-pwd/](https://superbasics.beholder.uk/command-line/example-pwd/)).
@@ -212,7 +214,7 @@ While we have showed you how to create a folder and set it as the working direct
 
 Step 1:  Find the 3 vertical bars in the top right of your screen next to the kernel and click on them (be aware: this is only available in JupyterLab Desktop, not Anaconda). This will bring up a drop-down menu with a list of options. 
 
-<p align='center'>   <img alt="Find Settings in JupyterLab" src="fig/0_find_options.png" width="750"/>
+<p align='center'>   <img alt="Find Settings in JupyterLab" src="fig/0_find_options.png" width="600"/>
 </p>
 
 Step 2: Once that drop down menu is open, click on settings.
