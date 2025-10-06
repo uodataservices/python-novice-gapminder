@@ -511,10 +511,10 @@
         
 <section id="aio-00-installing-jupyter"><p>Content from <a href="00-installing-jupyter.html">Installing JupyterLab Desktop</a></p>
 <hr>
-<p>Last updated on 2025-10-03 |
+<p>Last updated on 2025-10-06 |
 
         <a href="https://github.com/swcarpentry/python-novice-gapminder/edit/main/episodes/00-installing-jupyter.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 15 minutes</p>
+<p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 30 minutes</p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -526,9 +526,9 @@
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul>
-<li>What steps do I need to take to prepare for this workshop
-series?</li>
 <li>How do I install JupyterLab Desktop?</li>
+<li>How do I configure JupyterLab Desktop so I can find my files
+again?</li>
 </ul>
 </div>
 </div>
@@ -543,6 +543,9 @@ series?</li>
 <li>Learn about folders and files on your computer.</li>
 <li>Create a folder for the Jupyter notebooks you will create during
 this workshop series.</li>
+<li>Learn what a working directory is and set the working directory for
+your project.</li>
+<li>Set the default working directory for JupyterLab Desktop.</li>
 </ul>
 </div>
 </div>
@@ -554,13 +557,13 @@ this workshop series.</li>
 <hr class="half-width">
 <p><a href="https://github.com/jupyterlab/jupyterlab-desktop" class="external-link">JupyterLab
 Desktop</a> is a desktop application with an integrated web user
-interface from <a href="https://jupyter.org/" class="external-link">Project Jupyter</a> that
-enables one to work with documents and activities such as Jupyter
-notebooks, text editors, terminals, and even custom components in a
-flexible, integrated, and extensible manner. Jupyter notebooks are
-common in data science and visualization and serve as a convenient
-common-denominator experience for running Python code interactively
-where we can easily view and share the results of our Python code.</p>
+interface from [Project Jupyter][jupyter] that enables one to work with
+documents and activities such as Jupyter notebooks, text editors,
+terminals, and even custom components in a flexible, integrated, and
+extensible manner. Jupyter notebooks are common in data science and
+visualization and serve as a convenient common-denominator experience
+for running Python code interactively where we can easily view and share
+the results of our Python code.</p>
 <p>There are other ways of editing, managing, and running code, but
 Jupyter notebooks let us execute and view the results of our Python code
 immediately within the notebook.</p>
@@ -676,9 +679,206 @@ to complete the installation and open JupyterLab Desktop.</p>
 <p align="center">
 <img alt="JupyterLab launch" src="../files/windows-launch.PNG" width="500" class="figure"></p>
 </div>
+</section><section><h2 class="section-heading" id="the-jupyterlab-interface">The JupyterLab Interface<a class="anchor" aria-label="anchor" href="#the-jupyterlab-interface"></a>
+</h2>
+<hr class="half-width">
+<p>JupyterLab has many features found in traditional integrated
+development environments (IDEs) but is focused on providing flexible
+building blocks for interactive, exploratory computing.</p>
+<p>The [JupyterLab Interface][jupyterlab-ui] consists of the Menu Bar, a
+collapsable Left Side Bar, and the Main Work Area which contains tabs of
+documents and activities.</p>
+<div class="section level3">
+<h3 id="menu-bar">Menu Bar<a class="anchor" aria-label="anchor" href="#menu-bar"></a>
+</h3>
+<p>The Menu Bar at the top of JupyterLab has the top-level menus that
+expose various actions available in JupyterLab along with their keyboard
+shortcuts (where applicable).</p>
+<p>A screenshot of the default Menu Bar is provided below.</p>
+<p align="center">
+<img alt="JupyterLab Menu Bar" src="../fig/0_jupyterlab_menu_bar.png" width="750" class="figure"></p>
+</div>
+<div class="section level3">
+<h3 id="main-work-area">Main Work Area<a class="anchor" aria-label="anchor" href="#main-work-area"></a>
+</h3>
+<p>The main work area in JupyterLab enables you to arrange documents
+(notebooks, text files, etc.) and other activities (terminals, code
+consoles, etc.) into panels of tabs that can be resized or subdivided. A
+screenshot of the default Main Work Area is provided below.</p>
+<p>If you do not see the Launcher tab, click the blue plus sign under
+the “File” and “Edit” menus and it will appear.</p>
+<p align="center">
+<img alt="JupyterLab Main Work Area" src="../fig/0_jupyterlab_main_work_area.png" width="750" class="figure"></p>
+</div>
+<div class="section level3">
+<h3 id="left-sidebar">Left Sidebar<a class="anchor" aria-label="anchor" href="#left-sidebar"></a>
+</h3>
+<p>The left sidebar contains a number of commonly used tabs. Most
+importantly for us, it has a file browser (showing the contents of the
+directory where the JupyterLab server was launched). The directory where
+the JupyterLab server was launched will function as your working
+directory. This matters because if you want to reference other data
+files in your code, JupyterLab will look for them here by default. A
+screenshot of the default Left Side Bar is provided below.</p>
+<p align="center">
+<img alt="JupyterLab Left Side Bar" src="../fig/0_jupyterlab_left_side_bar.png" width="250" class="figure"></p>
+<p>The left sidebar can be collapsed or expanded by selecting “Show Left
+Sidebar” in the View menu or by clicking on the active sidebar tab.</p>
+<p>On Macs, the file browser displays automatically, but on Windows this
+file browser view is often hidden by default. We recommend that you turn
+it on using the following steps.</p>
+Step 1: Click on view in the menu bar. This opens a drop down menu of
+options. Select “File Browser”<br><p align="center">
+<img alt="Show File Browser in Menu" src="../fig/0_jupyterlab_show_filebrowser.png" width="750" class="figure"></p>
+<p>Step 2: When you click on File Browser, this will open up the file
+directory as shown above.</p>
+<div id="what-is-a-working-directory" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="what-is-a-working-directory" class="callout-inner">
+<h3 class="callout-title">What is a Working Directory?</h3>
+<div class="callout-content">
+<ul>
+<li>A working directory (or current working directory) is the current
+folder or location on a computer’s file system where a program or
+process is operating by default.</li>
+<li>The working directory is the default location where Python will look
+for files you want to load and where it will put any files you
+save.</li>
+<li>You will write your code in Jupyter Notebooks, and save them for
+later in a folder. Jupyter Notebooks are file type that ends in
+<code>.ipynb</code>.</li>
+<li>It’s a good idea to save your code files in the same folder where
+you save any data files that you want to analyze. In this workshop your
+data files will be in the open source spreadsheet format
+<code>.csv</code>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="create-your-jupyterlab-working-directory">Create your JupyterLab Working Directory<a class="anchor" aria-label="anchor" href="#create-your-jupyterlab-working-directory"></a>
+</h2>
+<hr class="half-width">
+<ul>
+<li>When you save files in Jupyter Lab, they will be saved automatically
+to your working directory (also known as a folder). You will also put
+data files you will use in this course in the same folder, to make it
+easier for you to tell the Python interpreter how to find the
+files.<br>
+</li>
+<li>
+<strong>The best way to avoid confusion about your working directory
+is to set it properly when you start your session.</strong> As <a href="https://github.com/jupyterlab/jupyterlab-desktop?tab=readme-ov-file#sessions-and-projects" class="external-link">explained
+on the JupyterLab Desktop ReadMe</a> (<a href="https://github.com/jupyterlab/jupyterlab-desktop?tab=readme-ov-file%5C#sessions-and-projects" class="external-link uri">https://github.com/jupyterlab/jupyterlab-desktop?tab=readme-ov-file\#sessions-and-projects</a>),
+you can start a new session by opening JupyterLab Desktop (double
+clicking on the JupyterLab Desktop icon) and then using the links at the
+Start section of the Welcome Page.</li>
+</ul>
+<p align="center">
+<img alt="JupyterLab Start Session" src="../fig/0_jupyterlab_start-session.png" width="250" class="figure"></p>
+<ol style="list-style-type: decimal">
+<li>Close and re-open JupyterLab Desktop<br>
+</li>
+<li>Choose <code>Open...</code> (<code>Open Folder...</code> on Windows)
+and create a new directory (folder) that you will use to keep all of
+your workshop materials in. This directory (folder) should be specific
+to this workshop. Be sure to put it somewhere on your computer, such as
+your Documents folder or Desktop, where you will be able to find it
+again. If you have already created a folder for this workshop, you can
+select that instead of creating a new one.</li>
+</ol></section><section><h2 class="section-heading" id="create-and-save-a-jupyter-notebook-file-to-your-working-directory">Create and save a Jupyter Notebook file to your Working
+Directory<a class="anchor" aria-label="anchor" href="#create-and-save-a-jupyter-notebook-file-to-your-working-directory"></a>
+</h2>
+<hr class="half-width">
+<p>Now that JupyterLab is reopened, click on Python 3 in the Launcher to
+create a new Jupyter Notebook:</p>
+<p align="center">
+<img alt="Launch a New Python3 Notebook" src="../fig/0_jupyterlab_new_notebook.png" width="200" class="figure"></p>
+<p>Use the menu or save icon to save this blank notebook. Make sure to
+name it something helpful! For example, <code>PythonWorkshop</code> or
+<code>PythonDay1</code>. Notice that JupyterLab will append
+<code>.ipynb</code> to the end of the name of the notebook. This is the
+file extension for Jupyter Notebooks.</p>
+<p>In the future, you can open to this working directory by any of the
+following:</p>
+<ul>
+<li>Double click in finder to open this file.<br>
+</li>
+<li>Open JupyterLab Desktop, and from the Start screen click on the
+relevant item in the Recent sessions list to restore this session.</li>
+</ul>
+<p align="center">
+<img alt="Recent Sessions" src="../fig/0_jupyterlab_recent_sessions.png" width="300" class="figure"></p>
+</section><section><h2 class="section-heading" id="verify-your-working-directory">Verify your Working Directory<a class="anchor" aria-label="anchor" href="#verify-your-working-directory"></a>
+</h2>
+<hr class="half-width">
+<p>You can verify that you have the correct working directory by using
+what’s called a <em>magic</em> command. Use the %pwd magic command
+within a code cell to print the current working directory. The output
+will display the current directory path.</p>
+<p align="center">
+<img alt="Print Working Directory from within Python" src="../fig/0_pwd.png" width="700" class="figure"></p>
+<p>This magic command passes the “print working directory” command to
+your computer. <a href="https://superbasics.beholder.uk/command-line/example-pwd/" class="external-link">Learn
+more about pwd here</a> (<a href="https://superbasics.beholder.uk/command-line/example-pwd/" class="external-link">https://superbasics.beholder.uk/command-line/example-pwd/</a>).</p>
+</section><section><h2 class="section-heading" id="how-to-change-your-default-working-directory-in-python">How to Change your Default Working Directory in Python<a class="anchor" aria-label="anchor" href="#how-to-change-your-default-working-directory-in-python"></a>
+</h2>
+<hr class="half-width">
+<p>While we have showed you how to create a folder and set it as the
+working directory for an individual session in JupyterLab, you may also
+wish to change your default working directory to somewhere where you
+will often store code files. To do this, you need to access your
+settings menu.</p>
+<p>Step 1: Find the 3 vertical bars in the top right of your screen next
+to the kernel and click on them (be aware: this is only available in
+JupyterLab Desktop, not Anaconda). This will bring up a drop-down menu
+with a list of options.</p>
+<p align="center">
+<img alt="Find Settings in JupyterLab" src="../fig/0_find_options.png" width="600" class="figure"></p>
+<p>Step 2: Once that drop down menu is open, click on settings.</p>
+<p align="center">
+<img alt="Choose Settings" src="../fig/0_settings.png" width="750" class="figure"></p>
+<p>Step 3: Clicking on settings will open up a screen similar to the one
+below. Click on the server as is highlighted below. Here we can change
+our working directory. Click on Change.</p>
+<p align="center">
+<img alt="Default Working Directory Setting" src="../fig/0_default_working_directory.png" width="750" class="figure"></p>
+<p>Step 5: Search your file directory for a folder you will recognize.
+For now, consider setting the folder you have just created for this
+workshop as your working directory. Above you can tell I named my
+default working directory “PythonWorkshop”. Now all my scripts of python
+code from JupyterLab will be saved in that folder when I choose to save
+them. [cc-by-human]: <a href="https://creativecommons.org/licenses/by/4.0/" class="external-link uri">https://creativecommons.org/licenses/by/4.0/</a>
+[cc-by-legal]: <a href="https://creativecommons.org/licenses/by/4.0/legalcode" class="external-link uri">https://creativecommons.org/licenses/by/4.0/legalcode</a>
+[ci]: <a href="https://communityin.org/" class="external-link uri">https://communityin.org/</a> [coc-reporting]: <a href="https://docs.carpentries.org/policies/coc/incident-reporting.html" class="external-link uri">https://docs.carpentries.org/policies/coc/incident-reporting.html</a>
+[coc]: <a href="https://docs.carpentries.org/policies/coc/" class="external-link uri">https://docs.carpentries.org/policies/coc/</a>
+[concept-maps]: <a href="https://carpentries.github.io/instructor-training/05-memory/" class="external-link uri">https://carpentries.github.io/instructor-training/05-memory/</a>
+[contrib-covenant]: <a href="https://contributor-covenant.org/" class="external-link uri">https://contributor-covenant.org/</a> [cran-checkpoint]: <a href="https://cran.r-project.org/package=checkpoint" class="external-link uri">https://cran.r-project.org/package=checkpoint</a>
+[cran-knitr]: <a href="https://cran.r-project.org/package=knitr" class="external-link uri">https://cran.r-project.org/package=knitr</a> [cran-stringr]:
+<a href="https://cran.r-project.org/package=stringr" class="external-link uri">https://cran.r-project.org/package=stringr</a> [dc-lessons]:
+<a href="https://www.datacarpentry.org/lessons/" class="external-link uri">https://www.datacarpentry.org/lessons/</a> [email]: <a href="mailto:team@carpentries.org" class="uri">mailto:team@carpentries.org</a> [github-importer]: <a href="https://import2.github.com/" class="external-link uri">https://import2.github.com/</a> [importer]: <a href="https://github.com/new/import" class="external-link uri">https://github.com/new/import</a> [jekyll-collection]: <a href="https://jekyllrb.com/docs/collections/" class="external-link uri">https://jekyllrb.com/docs/collections/</a> [jekyll-install]:
+<a href="https://jekyllrb.com/docs/installation/" class="external-link uri">https://jekyllrb.com/docs/installation/</a>
+[jekyll-windows]: <a href="https://jekyll-windows.juthilo.com/" class="external-link uri">https://jekyll-windows.juthilo.com/</a> [jekyll]: <a href="https://jekyllrb.com/" class="external-link uri">https://jekyllrb.com/</a>
+[jupyter]: <a href="https://jupyter.org/" class="external-link uri">https://jupyter.org/</a> [jupyterlab]: <a href="https://jupyterlab.readthedocs.io/en/stable/" class="external-link uri">https://jupyterlab.readthedocs.io/en/stable/</a> [kramdown]:
+<a href="https://kramdown.gettalong.org/" class="external-link uri">https://kramdown.gettalong.org/</a> [lc-lessons]: <a href="https://librarycarpentry.org/lessons/" class="external-link uri">https://librarycarpentry.org/lessons/</a> [lesson-example]:
+<a href="https://carpentries.github.io/lesson-example/" class="external-link uri">https://carpentries.github.io/lesson-example/</a>
+[mit-license]: <a href="https://opensource.org/licenses/mit-license.html" class="external-link uri">https://opensource.org/licenses/mit-license.html</a>
+[morea]: <a href="https://morea-framework.github.io/" class="external-link uri">https://morea-framework.github.io/</a> [numfocus]: <a href="https://numfocus.org/" class="external-link uri">https://numfocus.org/</a>
+[osi]: <a href="https://opensource.org" class="external-link uri">https://opensource.org</a> [pandoc]: <a href="https://pandoc.org/" class="external-link uri">https://pandoc.org/</a>
+[paper-now]: <a href="https://github.com/PeerJ/paper-now" class="external-link uri">https://github.com/PeerJ/paper-now</a> [python-gapminder]:
+<a href="https://swcarpentry.github.io/python-novice-gapminder/" class="external-link uri">https://swcarpentry.github.io/python-novice-gapminder/</a>
+[pyyaml]: <a href="https://pypi.org/project/PyYAML/" class="external-link uri">https://pypi.org/project/PyYAML/</a> [r-markdown]: <a href="https://rmarkdown.rstudio.com/" class="external-link uri">https://rmarkdown.rstudio.com/</a> [rstudio]: <a href="https://www.rstudio.com/" class="external-link uri">https://www.rstudio.com/</a>
+[ruby-install-guide]: <a href="https://www.ruby-lang.org/en/downloads/" class="external-link uri">https://www.ruby-lang.org/en/downloads/</a>
+[ruby-installer]: <a href="https://rubyinstaller.org/" class="external-link uri">https://rubyinstaller.org/</a> [rubygems]: <a href="https://rubygems.org/pages/download/" class="external-link uri">https://rubygems.org/pages/download/</a> [styles]: <a href="https://github.com/carpentries/styles/" class="external-link uri">https://github.com/carpentries/styles/</a> [swc-lessons]: <a href="https://software-carpentry.org/lessons/" class="external-link uri">https://software-carpentry.org/lessons/</a> [swc-releases]:
+<a href="https://github.com/swcarpentry/swc-releases" class="external-link uri">https://github.com/swcarpentry/swc-releases</a> [training]:
+<a href="https://carpentries.github.io/instructor-training/" class="external-link uri">https://carpentries.github.io/instructor-training/</a>
+[yaml]: <a href="https://yaml.org/" class="external-link uri">https://yaml.org/</a></p>
 </section></section><section id="aio-01-run-quit"><p>Content from <a href="01-run-quit.html">Running and Quitting</a></p>
 <hr>
-<p>Last updated on 2025-10-01 |
+<p>Last updated on 2025-10-06 |
 
         <a href="https://github.com/swcarpentry/python-novice-gapminder/edit/main/episodes/01-run-quit.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 15 minutes</p>
@@ -703,7 +903,7 @@ to complete the installation and open JupyterLab Desktop.</p>
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul>
-<li>Launch the JupyterLab server.</li>
+<li>Launch JupyterLab desktop.</li>
 <li>Create a new Python script.</li>
 <li>Create a Jupyter notebook.</li>
 <li>Shutdown the JupyterLab server.</li>
@@ -1014,7 +1214,7 @@ be most useful for your workflow?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>After creating the necessary tabs, you can drag one of the tabs to
 the center of a panel to move the tab to the panel; next you can
@@ -1084,7 +1284,7 @@ operation you performed.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Command mode has a grey border and Edit mode has a blue border. Use
 <kbd>Esc</kbd> and <kbd>Return</kbd> to switch between modes. You need
@@ -1307,7 +1507,7 @@ this:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>This challenge integrates both the numbered list and bullet list.
 Note that the bullet list is indented 2 spaces so that it is inline with
@@ -1348,7 +1548,7 @@ cell is executed?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Python returns the output of the last calculation.</p>
 <div class="codewrapper sourceCode" id="cb12">
@@ -1391,7 +1591,7 @@ might this be useful?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>The Python code gets treated like Markdown text. The lines appear as
 if they are part of one contiguous paragraph. This could be useful to
@@ -1429,7 +1629,7 @@ and dollar sign, <code>$</code>, do?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>The notebook shows the equation as it would be rendered from LaTeX
 equation syntax. The dollar sign, <code>$</code>, is used to tell
@@ -1810,7 +2010,7 @@ the program does.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1855,7 +2055,7 @@ your prediction.)</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1895,7 +2095,7 @@ the second digit of <code>a</code> via <code>a[1]</code>?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Numbers are not strings or sequences and Python will raise an error
 if you try to perform an index operation on a number. In the <a href="03-types-conversion.html">next lesson on types and type
@@ -1953,7 +2153,7 @@ inherit from someone who is leaving the lab:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p><code>minutes</code> is better because <code>min</code> might mean
 something like “minimum” (and actually is an existing built-in function
@@ -1985,7 +2185,7 @@ in Python that we will cover later).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2035,7 +2235,7 @@ of range? (i.e., try <code>species_name[0:20]</code> or
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Solutions </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>
@@ -3184,7 +3384,7 @@ debugging”</a> among programmers.</li>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Choose how to teach this section </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>The section on generative AI is intended to be concise but
 Instructors may choose to devote more time to the topic in a workshop.
@@ -3293,7 +3493,7 @@ happen, when is each function called, etc.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>Order of operations:</li>
@@ -3341,7 +3541,7 @@ message? If it runs, does its result make any sense?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3407,7 +3607,7 @@ TypeError: '&gt;' not supported between instances of 'str' and 'int'</code></pre
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p><code>max</code> and <code>min</code> return TypeErrors in this case
 because the correct number of parameters was not supplied. If it just
@@ -3438,7 +3638,7 @@ simpler way to do this in a later episode.)</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p><code>name[len(name) - 1]</code></p>
 </div>
@@ -3720,7 +3920,7 @@ exist?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><p>Using <code>help(math)</code> we see that we’ve got
@@ -3768,7 +3968,7 @@ alternatives?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>The <a href="https://docs.python.org/3/library/random.html" class="external-link">random
 module</a> seems like it could help.</p>
@@ -3848,7 +4048,7 @@ Feel free to use/add intermediate variables.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3888,7 +4088,7 @@ reports an error:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Importing the math module (<code>import math</code>)</p>
 </div>
@@ -3925,7 +4125,7 @@ reports an error:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3983,7 +4183,7 @@ calls.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>Library calls 1 and 4. In order to directly refer to
@@ -4043,7 +4243,7 @@ convey this information.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
   <h4 class="accordion-header" id="headingSolution7"> Show me the solution </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4090,7 +4290,7 @@ it?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution8" aria-expanded="false" aria-controls="collapseSolution8">
   <h4 class="accordion-header" id="headingSolution8"> Show me the solution </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5955,7 +6155,7 @@ per capita over time for Europe.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5991,7 +6191,7 @@ you see (if any)?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6034,7 +6234,7 @@ indexes:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <figure><img src="../fig/9_correlations_solution2.png" alt="Correlations Solution 2" class="figure mx-auto d-block"></figure><p>Seems the variability in this value is due to a sharp drop after
 1972. Some geopolitics at play perhaps? Given the dominance of oil
@@ -6072,7 +6272,7 @@ and life expectancy for 2007, normalizing marker size by population:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <figure><img src="../fig/9_more_correlations_solution.svg" alt="More Correlations Solution" class="figure mx-auto d-block"></figure><p>A good place to look is the documentation for the plot function -
 help(data_all.plot).</p>
@@ -6496,7 +6696,7 @@ second time: [3, 5]</code></pre>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6531,7 +6731,7 @@ integers, how long is the list <code>values[start:stop]</code>?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>The list <code>values[start:stop]</code> has up to
 <code>stop - start</code> elements. For example,
@@ -6577,7 +6777,7 @@ list to string: gold</code></pre>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>
@@ -6628,7 +6828,7 @@ negative indexing.)</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>The program prints <code>m</code>.</p>
 <ol style="list-style-type: decimal">
@@ -6676,7 +6876,7 @@ collection?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>The program prints</p>
 <div class="codewrapper sourceCode" id="cb27">
@@ -6722,7 +6922,7 @@ element, since indexing starts at <code>0</code>), goes on until the end
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6771,7 +6971,7 @@ difference between <code>sorted(letters)</code> and
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
   <h4 class="accordion-header" id="headingSolution7"> Show me the solution </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <p>Program A prints</p>
 <div class="codewrapper">
@@ -6830,7 +7030,7 @@ difference between <code>new = old</code> and
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution8" aria-expanded="false" aria-controls="collapseSolution8">
   <h4 class="accordion-header" id="headingSolution8"> Show me the solution </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
 <div class="accordion-body">
 <p>Program A prints</p>
 <div class="codewrapper">
@@ -7150,7 +7350,7 @@ produces 0..9, not 1..10.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>An IndentationError is a syntax error. Programs with syntax errors
 cannot be started. A program with a runtime error will start but an
@@ -7185,7 +7385,7 @@ is executed.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <table class="table">
 <thead><tr class="header">
@@ -7254,7 +7454,7 @@ reverse of the original character string “tin”).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7296,7 +7496,7 @@ indicated result.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7337,7 +7537,7 @@ indicated result.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7379,7 +7579,7 @@ indicated result.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7417,7 +7617,7 @@ properly format the acronym.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
   <h4 class="accordion-header" id="headingSolution7"> Show me the solution </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7461,7 +7661,7 @@ print a list with the cumulative sum of data. The result should be
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution8" aria-expanded="false" aria-controls="collapseSolution8">
   <h4 class="accordion-header" id="headingSolution8"> Show me the solution </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7515,7 +7715,7 @@ defined but was not?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution9" aria-expanded="false" aria-controls="collapseSolution9">
   <h4 class="accordion-header" id="headingSolution9"> Show me the solution </h4>
 </button>
-<div id="collapseSolution9" class="accordion-collapse collapse" aria-labelledby="headingSolution9" data-bs-parent="#accordionSolution9">
+<div id="collapseSolution9" class="accordion-collapse collapse" data-bs-parent="#accordionSolution9" aria-labelledby="headingSolution9">
 <div class="accordion-body">
 <ul>
 <li>Python variable names are case sensitive: <code>number</code> and
@@ -7570,7 +7770,7 @@ it?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution10" aria-expanded="false" aria-controls="collapseSolution10">
   <h4 class="accordion-header" id="headingSolution10"> Show me the solution </h4>
 </button>
-<div id="collapseSolution10" class="accordion-collapse collapse" aria-labelledby="headingSolution10" data-bs-parent="#accordionSolution10">
+<div id="collapseSolution10" class="accordion-collapse collapse" data-bs-parent="#accordionSolution10" aria-labelledby="headingSolution10">
 <div class="accordion-body">
 <p>This list has 4 elements and the index to access the last element in
 the list is <code>3</code>.</p>
@@ -8826,7 +9026,7 @@ result of call is: None</code></pre>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8865,7 +9065,7 @@ result of call is: None</code></pre>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -8940,7 +9140,7 @@ result of call is: None</code></pre>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><p>The problem with the example is that the function
@@ -8989,7 +9189,7 @@ returns the minimum value in that data.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -9032,7 +9232,7 @@ negative numbers?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -9096,7 +9296,7 @@ print?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><code>2003/2/1</code></li>
@@ -9184,7 +9384,7 @@ error conditions. Sample output could be
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
   <h4 class="accordion-header" id="headingSolution7"> Show me the solution </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -9266,7 +9466,7 @@ the decade, instead of enumerating them in the code.)</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution8" aria-expanded="false" aria-controls="collapseSolution8">
   <h4 class="accordion-header" id="headingSolution8"> Show me the solution </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>The average GDP for Japan across the years reported for the 1980s is
@@ -9375,7 +9575,7 @@ values. Is the population trending toward a steady state?</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution9" aria-expanded="false" aria-controls="collapseSolution9">
   <h4 class="accordion-header" id="headingSolution9"> Show me the solution </h4>
 </button>
-<div id="collapseSolution9" class="accordion-collapse collapse" aria-labelledby="headingSolution9" data-bs-parent="#accordionSolution9">
+<div id="collapseSolution9" class="accordion-collapse collapse" data-bs-parent="#accordionSolution9" aria-labelledby="headingSolution9">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><div class="codewrapper sourceCode" id="cb43">
@@ -10222,8 +10422,8 @@ industry.</li>
   "url": "https://swcarpentry.github.io/python-novice-gapminder/instructor/aio.html",
   "identifier": "https://swcarpentry.github.io/python-novice-gapminder/instructor/aio.html",
   "dateCreated": "2016-01-07",
-  "dateModified": "2025-10-03",
-  "datePublished": "2025-10-03"
+  "dateModified": "2025-10-06",
+  "datePublished": "2025-10-06"
 }
 
   </script><script>
