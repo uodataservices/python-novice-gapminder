@@ -96,6 +96,11 @@ of the *.dmg* copied and installed to your Applications so that you can use the 
 
 When the installation has finished, close the installer window.
 
+### Launching JupyterLab Deskop: Mac OS
+
+Look for the magnifying glass icon in the top right corner of your screen.
+Search for *JupyterLab* and click the icon to launch the JupyterLab application.
+
 ## Installing JupyterLab Desktop: Windows
 
 
@@ -126,6 +131,21 @@ to complete the installation and open JupyterLab Desktop.
 
 <p align='center'>   <img alt="JupyterLab launch" src="files/windows-launch.PNG" width="500"/>
 </p>
+
+## Launching JupyterLab Desktop
+
+Whether you have a Mac or a PC, you should now be looking at the JupyterLab Desktop welcome screen.
+
+<p align='center'>   <img alt="Bundled Environnment Prompt" src="files/bundled-env.png" width="500"/>
+</p>
+
+If you have *not* used Python before, you will see a message in the bottom left corner prompting you 
+to install Python.
+
+Click the text that says **Install using the bundled environment**. JupyterLab Desktop will install Python for you, which should take at most a minute or two.
+
+Once the bundled environment is installed, click **New Session** to enter the
+JupyterLab application for the first time.
 
 ## The JupyterLab Interface
 
