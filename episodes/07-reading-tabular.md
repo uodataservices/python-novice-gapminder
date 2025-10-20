@@ -360,7 +360,7 @@ to find out what `DataFrame.head` and `DataFrame.tail` do.
 
 ## Reading Files in Other Directories
 
-The data for your current project is stored in a file called `microbes.csv`,
+Imagine that the data for your current project is stored in a file called `microbes.csv`,
 which is located in a folder called `field_data`.
 You are doing analysis in a notebook called `analysis.ipynb`
 in a sibling folder called `thesis`:
@@ -388,6 +388,7 @@ data_microbes = pd.read_csv('../field_data/microbes.csv')
 ```
 
 :::::::::::::::::::::::::
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
