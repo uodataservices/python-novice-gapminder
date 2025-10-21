@@ -62,135 +62,35 @@ if several are created by a single cell.
 
 ## Plot data directly from a [`Pandas dataframe`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html).
 
-- We can also plot [Pandas dataframes](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html).
-- Before plotting, we convert the column headings from a `string` to `integer` data type, since they represent numerical values,
-  using [str.replace()](https://pandas.pydata.org/docs/reference/api/pandas.Series.str.replace.html) to remove the `gpdPercap_`
-  prefix and then [astype(int)](https://pandas.pydata.org/docs/reference/api/pandas.Series.astype.html)
-  to convert the series of string values (`['1952', '1957', ..., '2007']`) to a series of integers: `[1925, 1957, ..., 2007]`.
+- You can also plot data directly from a DataFrame.
+- Let's start with the `gdp_americas` CSV file.
 
 ```python
 import pandas as pd
-
-data = pd.read_csv('data/gapminder_gdp_oceania.csv', index_col='country')
-
-# Extract year from last 4 characters of each column name
-# The current column names are structured as 'gdpPercap_(year)', 
-# so we want to keep the (year) part only for clarity when plotting GDP vs. years
-# To do this we use replace(), which removes from the string the characters stated in the argument
-# This method works on strings, so we use replace() from Pandas Series.str vectorized string functions
-
-years = data.columns.str.replace('gdpPercap_', '')
-
-# Convert year values to integers, saving results back to dataframe
-
-data.columns = years.astype(int)
-
-data.loc['Australia'].plot()
+gdp_americas = pd.read_csv("data/gapminder_gdp_americas.csv")
 ```
 
-![](fig/9_gdp_australia.svg){alt='GDP plot for Australia'}
-
-## Select and transform data, then plot it.
-
-- By default, [`DataFrame.plot`](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.plot.html#pandas.DataFrame.plot) plots with the rows as the X axis.
-- We can transpose the data in order to plot multiple series.
+- To plot a single, numeric variable you can
+use [a histogram](https://pandas.pydata.org/docs/reference/api/pandas.Series.hist.html#pandas.Series.hist).
+- We can plot the distribution of GDP in 1957 by using `.loc` to select the column followed by `.hist()`.
 
 ```python
-data.T.plot()
-plt.ylabel('GDP per capita')
+gdp_americas.loc[:, "gdpPercap_1957"].hist()
 ```
 
-![](fig/9_gdp_australia_nz.svg){alt='GDP plot for Australia and New Zealand'}
+![](fig/9_histogram.png)
 
-## Many styles of plot are available.
+- To plot two or more variables, you can use the built-in Pandas [bar chart](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.bar.html) feature.
 
-- For example, do a bar plot using a fancier style.
+- For example, to plot the GDP of each country in `gdp_americas` in 1952 as a bar chart, assign "country" to the x-axis and "gdpPerCap_195" to the y-axis.
 
 ```python
-plt.style.use('ggplot')
-data.T.plot(kind='bar')
-plt.ylabel('GDP per capita')
+gdp_americas.plot.bar(x="country", y="gdpPercap_1952")
 ```
+![](fig/09_bar.png)
 
-![](fig/9_gdp_bar.svg){alt='GDP barplot for Australia'}
+Pandas is great for making quick charts, but matplotlib will give you more control and customization options.
 
-## Data can also be plotted by calling the `matplotlib` `plot` function directly.
-
-- The command is `plt.plot(x, y)`
-- The color and format of markers can also be specified as an additional optional argument e.g., `b-` is a blue line, `g--` is a green dashed line.
-
-## Get Australia data from dataframe
-
-```python
-years = data.columns
-gdp_australia = data.loc['Australia']
-
-plt.plot(years, gdp_australia, 'g--')
-```
-
-![](fig/9_gdp_australia_formatted.svg){alt='GDP formatted plot for Australia'}
-
-## Can plot many sets of data together.
-
-```python
-# Select two countries' worth of data.
-gdp_australia = data.loc['Australia']
-gdp_nz = data.loc['New Zealand']
-
-# Plot with differently-colored markers.
-plt.plot(years, gdp_australia, 'b-', label='Australia')
-plt.plot(years, gdp_nz, 'g-', label='New Zealand')
-
-# Create legend.
-plt.legend(loc='upper left')
-plt.xlabel('Year')
-plt.ylabel('GDP per capita ($)')
-```
-
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## Adding a Legend
-
-Often when plotting multiple datasets on the same figure it is desirable to have
-a legend describing the data.
-
-This can be done in `matplotlib` in two stages:
-
-- Provide a label for each dataset in the figure:
-
-```python
-plt.plot(years, gdp_australia, label='Australia')
-plt.plot(years, gdp_nz, label='New Zealand')
-```
-
-- Instruct `matplotlib` to create the legend.
-
-```python
-plt.legend()
-```
-
-By default matplotlib will attempt to place the legend in a suitable position. If you
-would rather specify a position this can be done with the `loc=` argument, e.g to place
-the legend in the upper left corner of the plot, specify `loc='upper left'`
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-![](fig/9_gdp_australia_nz_formatted.svg){alt='GDP formatted plot for Australia and New Zealand'}
-
-- Plot a scatter plot correlating the GDP of Australia and New Zealand
-- Use either `plt.scatter` or `DataFrame.plot.scatter`
-
-```python
-plt.scatter(gdp_australia, gdp_nz)
-```
-
-![](fig/9_gdp_correlation_plt.svg){alt='GDP correlation using plt.scatter'}
-
-```python
-data.T.plot.scatter(x = 'Australia', y = 'New Zealand')
-```
-
-![](fig/9_gdp_correlation_data.svg){alt='GDP correlation using data.T.plot.scatter'}
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
