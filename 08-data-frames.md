@@ -9,6 +9,7 @@ exercises: 15
 - Select individual values from a Pandas dataframe.
 - Select entire rows or entire columns from a dataframe.
 - Select a subset of both rows and columns from a dataframe in a single operation.
+- Construct simple Boolean expressions with comparisons.
 - Select a subset of a dataframe by a single Boolean criterion.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -16,6 +17,7 @@ exercises: 15
 :::::::::::::::::::::::::::::::::::::::: questions
 
 - How can I do statistical analysis of tabular data?
+- What are Booleans? How can I use them?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -160,6 +162,70 @@ gdpPercap_1972    7778.414017
 dtype: float64
 ```
 
+## Comparisons in Python return True or False
+
+Let's introduce a simple Python data type that hasn't been explicitly introduced yet: the [**Boolean**](https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not) or `bool`.
+
+- Booleans are either `True` or `False`. 
+- Capitalization matters here! `true` is not a valid Boolean.
+
+```python
+type(True) # Notice how True changes color when capitalized
+```
+
+```output
+bool
+```
+
+Booleans are returned when we test the **truth value** of a statement. To test whether two objects are equal, we use `==`. (This is different from the `=` used for assignment.)
+
+```python
+x = 5 # Assign x the value 5
+print(x)
+print(x == 10) # Is the value at x equal to 10, True or False
+print(x == 5) # Is the value at x equal to 5, True or False
+```
+
+```output
+5
+False
+True
+```
+
+Booleans are returned by statements that make numerical comparisons using operators like `>`, `<=` and `!=`.
+
+- Try `!=`, which can be read as "is not equal to".
+
+```python
+5 != 3 #Is 5 equal to 3?
+```
+
+```output
+False
+```
+
+- `<` is the "less than" operator.
+
+```python
+2 < 3
+```
+
+```output
+True
+```
+
+You can also do comparisons between two variables.
+
+```python
+t_celsius = 0
+t_farenheit = 32
+t_celsius < t_farenheit # Evaluates to True or False
+```
+
+```output
+True
+```
+
 ## Use comparisons to select data based on value.
 
 - Comparison is applied element by element.
@@ -171,7 +237,7 @@ subset = data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972']
 print('Subset of data:\n', subset)
 
 # Which values were greater than 10000 ?
-print('\nWhere are values large?\n', subset > 10000)
+print('\nWhere are values greater than 10000?', subset > 10000)
 ```
 
 ```output
@@ -184,7 +250,7 @@ Netherlands    12790.849560    15363.251360    18794.745670
 Norway         13450.401510    16361.876470    18965.055510
 Poland          5338.752143     6557.152776     8006.506993
 
-Where are values large?
+Where are values greater than 10000?
             gdpPercap_1962 gdpPercap_1967 gdpPercap_1972
 country
 Italy                False           True           True
@@ -230,97 +296,6 @@ min      12790.849560    10022.401310    12269.273780
 50%      13120.625535    15363.251360    18794.745670
 75%      13285.513523    15862.563915    18879.900590
 max      13450.401510    16361.876470    18965.055510
-```
-
-## Group By: split-apply-combine
-
-::::::::::::::::::::::::::::::::::::: instructor
-Learners often struggle here, many may not work with financial data and concepts so they
-find the example concepts difficult to get their head around. The biggest problem
-though is the line generating the wealth_score, this step needs to be talked through
-throughly:
-* It uses implicit conversion between boolean and float values which 
-has not been covered in the course so far. 
-* The axis=1 argument needs to be explained clearly.
-:::::::::::::::::::::::::::::::::::::::::::::::::
-
-Pandas vectorizing methods and grouping operations are features that provide users
-much flexibility to analyse their data.
-
-For instance, let's say we want to have a clearer view on how the European countries
-split themselves according to their GDP.
-
-1. We may have a glance by splitting the countries in two groups during the years surveyed,
-  those who presented a GDP *higher* than the European average and those with a *lower* GDP.
-2. We then estimate a *wealthy score* based on the historical (from 1962 to 2007) values,
-  where we account how many times a country has participated in the groups of *lower* or *higher* GDP
-
-```python
-mask_higher = data > data.mean()
-wealth_score = mask_higher.aggregate('sum', axis=1) / len(data.columns)
-print(wealth_score)
-```
-
-```output
-country
-Albania                   0.000000
-Austria                   1.000000
-Belgium                   1.000000
-Bosnia and Herzegovina    0.000000
-Bulgaria                  0.000000
-Croatia                   0.000000
-Czech Republic            0.500000
-Denmark                   1.000000
-Finland                   1.000000
-France                    1.000000
-Germany                   1.000000
-Greece                    0.333333
-Hungary                   0.000000
-Iceland                   1.000000
-Ireland                   0.333333
-Italy                     0.500000
-Montenegro                0.000000
-Netherlands               1.000000
-Norway                    1.000000
-Poland                    0.000000
-Portugal                  0.000000
-Romania                   0.000000
-Serbia                    0.000000
-Slovak Republic           0.000000
-Slovenia                  0.333333
-Spain                     0.333333
-Sweden                    1.000000
-Switzerland               1.000000
-Turkey                    0.000000
-United Kingdom            1.000000
-dtype: float64
-```
-
-Finally, for each group in the `wealth_score` table, we sum their (financial) contribution
-across the years surveyed using chained methods:
-
-```python
-print(data.groupby(wealth_score).sum())
-```
-
-```output
-          gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  gdpPercap_1967  \
-0.000000    36916.854200    46110.918793    56850.065437    71324.848786   
-0.333333    16790.046878    20942.456800    25744.935321    33567.667670   
-0.500000    11807.544405    14505.000150    18380.449470    21421.846200   
-1.000000   104317.277560   127332.008735   149989.154201   178000.350040   
-
-          gdpPercap_1972  gdpPercap_1977  gdpPercap_1982  gdpPercap_1987  \
-0.000000    88569.346898   104459.358438   113553.768507   119649.599409   
-0.333333    45277.839976    53860.456750    59679.634020    64436.912960   
-0.500000    25377.727380    29056.145370    31914.712050    35517.678220   
-1.000000   215162.343140   241143.412730   263388.781960   296825.131210   
-
-          gdpPercap_1992  gdpPercap_1997  gdpPercap_2002  gdpPercap_2007  
-0.000000    92380.047256   103772.937598   118590.929863   149577.357928  
-0.333333    67918.093220    80876.051580   102086.795210   122803.729520  
-0.500000    36310.666080    40723.538700    45564.308390    51403.028210  
-1.000000   315238.235970   346930.926170   385109.939210   427850.333420
 ```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -400,75 +375,6 @@ in the range provided,
 while a named slice, 'gdpPercap\_1952':'gdpPercap\_1962', *includes* the final element.
 
 
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Reconstructing Data
-
-Explain what each line in the following short program does:
-what is in `first`, `second`, etc.?
-
-```python
-first = pd.read_csv('data/gapminder_all.csv', index_col='country')
-second = first[first['continent'] == 'Americas']
-third = second.drop('Puerto Rico')
-fourth = third.drop('continent', axis = 1)
-fourth.to_csv('result.csv')
-```
-
-:::::::::::::::  solution
-
-## Solution
-
-Let's go through this piece of code line by line.
-
-```python
-first = pd.read_csv('data/gapminder_all.csv', index_col='country')
-```
-
-This line loads the dataset containing the GDP data from all countries into a dataframe called
-`first`. The `index_col='country'` parameter selects which column to use as the
-row labels in the dataframe.
-
-```python
-second = first[first['continent'] == 'Americas']
-```
-
-This line makes a selection: only those rows of `first` for which the 'continent' column matches
-'Americas' are extracted. Notice how the Boolean expression inside the brackets,
-`first['continent'] == 'Americas'`, is used to select only those rows where the expression is true.
-Try printing this expression! Can you print also its individual True/False elements?
-(hint: first assign the expression to a variable)
-
-```python
-third = second.drop('Puerto Rico')
-```
-
-As the syntax suggests, this line drops the row from `second` where the label is 'Puerto Rico'. The
-resulting dataframe `third` has one row less than the original dataframe `second`.
-
-```python
-fourth = third.drop('continent', axis = 1)
-```
-
-Again we apply the drop function, but in this case we are dropping not a row but a whole column.
-To accomplish this, we need to specify also the `axis` parameter (we want to drop the second column
-which has index 1).
-
-```python
-fourth.to_csv('result.csv')
-```
-
-The final step is to write the data that we have been working on to a csv file. Pandas makes this easy
-with the `to_csv()` function. The only required argument to the function is the filename. Note that the
-file will be written in the directory from which you started the Jupyter or Python session.
-
-
-
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -545,6 +451,39 @@ data['gdpPercap_2007']/data['gdpPercap_1952']
 ```
 
 :::::::::::::::::::::::::
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Equals (`==`) is Not Equals (`=`)
+
+There are many instances where `==` and `=` can **both** be used. What combination of `==` and `=` will make the statement in the second line print False? 
+
+Replace `PICKASIGN` with either an `=` or `==`.
+
+```python
+is_the_sky_blue PICKASIGN "sky" PICKASIGN "blue"
+print(is_the_sky_blue)
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+Remember that `=` is used to assign a value to a variable, while `==` is a comparator. 
+
+```python
+is_the_sky_blue = "sky" == "blue"
+print(is_the_sky_blue)
+```
+Solve the problem by comparing "sky" to "blue" with `==`, which evaluates to False, then assign False to
+`is_the_sky_blue`. The second line will then print `False`.
+
+
+:::::::::::::::::::::::::
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -708,61 +647,6 @@ data.iloc[:, col1_index:col2_index].loc["row1":"row2"]
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Exploring available methods using the `dir()` function
-
-Python includes a `dir()` function that can be used to display all of the available methods (functions) that are built into a data object.  In Episode 4, we used some methods with a string. But we can see many more are available by using `dir()`:
-
-```python
-my_string = 'Hello world!'   # creation of a string object 
-dir(my_string)
-```
-
-This command returns:
-
-```python
-['__add__',
-...
-'__subclasshook__',
-'capitalize',
-'casefold',
-'center',
-...
-'upper',
-'zfill']
-```
-
-You can use `help()` or <kbd>Shift</kbd>\+<kbd>Tab</kbd> to get more information about what these methods do.
-
-Assume Pandas has been imported and the Gapminder GDP data for Europe has been loaded as `data`.  Then, use `dir()`
-to find the function that prints out the median per-capita GDP across all European countries for each year that information is available.
-
-:::::::::::::::  solution
-
-## Solution
-
-Among many choices, `dir()` lists the `median()` function as a possibility.  Thus,
-
-```python
-data.median()
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Interpretation
-
-Poland's borders have been stable since 1945,
-but changed several times in the years before then.
-How would you handle this if you were creating a table of GDP per capita for Poland
-for the entire twentieth century?
-
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 [pandas-dataframe]: https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html
 [pandas-series]: https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.html
@@ -776,6 +660,7 @@ for the entire twentieth century?
 - Select multiple columns or rows using `DataFrame.loc` and a named slice.
 - Result of slicing can be used in further operations.
 - Use comparisons to select data based on value.
+- Booleans store truth values.
 - Select values or NaN using a Boolean mask.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
