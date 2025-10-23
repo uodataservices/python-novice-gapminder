@@ -48,8 +48,8 @@ uniquely identifies its *entry* in the DataFrame.
 
 ```python
 import pandas as pd
-data = pd.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
-print(data.iloc[0, 0])
+europe = pd.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
+print(europe.iloc[0, 0])
 ```
 
 ```output
@@ -61,7 +61,7 @@ print(data.iloc[0, 0])
 - Can specify location by row and/or column name.
 
 ```python
-print(data.loc["Albania", "gdpPercap_1952"])
+print(europe.loc["Albania", "gdpPercap_1952"])
 ```
 
 ```output
@@ -73,7 +73,7 @@ print(data.loc["Albania", "gdpPercap_1952"])
 - Just like Python's usual slicing notation.
 
 ```python
-print(data.loc["Albania", :])
+print(europe.loc["Albania", :])
 ```
 
 ```output
@@ -92,10 +92,10 @@ gdpPercap_2007    5937.029526
 Name: Albania, dtype: float64
 ```
 
-- Would get the same result printing `data.loc["Albania"]` (without a second index).
+- Would get the same result printing `europe.loc["Albania"]` (without a second index).
 
 ```python
-print(data.loc[:, "gdpPercap_1952"])
+print(europe.loc[:, "gdpPercap_1952"])
 ```
 
 ```output
@@ -110,13 +110,13 @@ United Kingdom             9979.508487
 Name: gdpPercap_1952, dtype: float64
 ```
 
-- Would get the same result printing `data["gdpPercap_1952"]`
-- Also get the same result printing `data.gdpPercap_1952` (not recommended, because easily confused with `.` notation for methods)
+- Would get the same result printing `europe["gdpPercap_1952"]`
+- Also get the same result printing `europe.gdpPercap_1952` (not recommended, because easily confused with `.` notation for methods)
 
 ## Select multiple columns or rows using `DataFrame.loc` and a named slice.
 
 ```python
-print(data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'])
+print(europe.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'])
 ```
 
 ```output
@@ -141,7 +141,7 @@ everything up to but not including the final index.
 - E.g., calculate max of a slice.
 
 ```python
-print(data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'].max())
+print(europe.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'].max())
 ```
 
 ```output
@@ -152,7 +152,7 @@ dtype: float64
 ```
 
 ```python
-print(data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'].min())
+print(europe.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972'].min())
 ```
 
 ```output
@@ -233,15 +233,15 @@ True
 
 ```python
 # Use a subset of data to keep output readable.
-subset = data.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972']
-print('Subset of data:\n', subset)
+subset = europe.loc['Italy':'Poland', 'gdpPercap_1962':'gdpPercap_1972']
+print('Subset of europe:\n', subset)
 
 # Which values were greater than 10000 ?
 print('\nWhere are values greater than 10000?', subset > 10000)
 ```
 
 ```output
-Subset of data:
+Subset of europe:
              gdpPercap_1962  gdpPercap_1967  gdpPercap_1972
 country
 Italy           8243.582340    10022.401310    12269.273780
@@ -308,7 +308,7 @@ and the Gapminder GDP data for Europe has been loaded:
 ```python
 import pandas as pd
 
-data_europe = pd.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
+europe = pd.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
 ```
 
 Write an expression to find the Per Capita GDP of Serbia in 2007.
@@ -320,7 +320,7 @@ Write an expression to find the Per Capita GDP of Serbia in 2007.
 The selection can be done by using the labels for both the row ("Serbia") and the column ("gdpPercap\_2007"):
 
 ```python
-print(data_europe.loc['Serbia', 'gdpPercap_2007'])
+print(europe.loc['Serbia', 'gdpPercap_2007'])
 ```
 
 The output is
@@ -342,8 +342,8 @@ The output is
   what rule governs what is included (or not) in numerical slices and named slices in Pandas?
 
 ```python
-print(data_europe.iloc[0:2, 0:2])
-print(data_europe.loc['Albania':'Belgium', 'gdpPercap_1952':'gdpPercap_1962'])
+print(europe.iloc[0:2, 0:2])
+print(europe.loc['Albania':'Belgium', 'gdpPercap_1952':'gdpPercap_1962'])
 ```
 
 :::::::::::::::  solution
@@ -387,16 +387,16 @@ Explain in simple terms what `idxmin` and `idxmax` do in the short program below
 When would you use these methods?
 
 ```python
-data = pd.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
-print(data.idxmin())
-print(data.idxmax())
+europe = pd.read_csv('data/gapminder_gdp_europe.csv', index_col='country')
+print(europe.idxmin())
+print(europe.idxmax())
 ```
 
 :::::::::::::::  solution
 
 ## Solution
 
-For each column in `data`, `idxmin` will return the index value corresponding to each column's minimum;
+For each column in `europe`, `idxmin` will return the index value corresponding to each column's minimum;
 `idxmax` will do accordingly the same for each column's maximum value.
 
 You can use these functions whenever you want to get the row index of the minimum/maximum value and not the actual minimum/maximum value.
@@ -427,19 +427,19 @@ Write an expression to select each of the following:
 1:
 
 ```python
-data['gdpPercap_1982']
+europe['gdpPercap_1982']
 ```
 
 2:
 
 ```python
-data.loc['Denmark',:]
+europe.loc['Denmark',:]
 ```
 
 3:
 
 ```python
-data.loc[:,'gdpPercap_1985':]
+europe.loc[:,'gdpPercap_1985':]
 ```
 
 Pandas is smart enough to recognize the number at the end of the column label and does not give you an error, although no column named `gdpPercap_1985` actually exists. This is useful if new columns are added to the CSV file later.
@@ -447,7 +447,7 @@ Pandas is smart enough to recognize the number at the end of the column label an
 4:
 
 ```python
-data['gdpPercap_2007']/data['gdpPercap_1952']
+europe['gdpPercap_2007']/europe['gdpPercap_1952']
 ```
 
 :::::::::::::::::::::::::

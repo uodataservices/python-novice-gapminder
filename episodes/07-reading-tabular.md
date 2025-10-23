@@ -14,26 +14,102 @@ exercises: 10
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I read tabular data?
+- What is tabular data?
+- How can I read tabular data in Python?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Use the Pandas library to do statistics on tabular data.
+## Use the Pandas library to manipulate tabular data.
 
 - [Pandas](https://pandas.pydata.org/) is a widely-used Python library for statistics, particularly on tabular data.
-- Borrows many features from R's dataframes.
-  - A 2-dimensional table whose columns have names
-    and potentially have different data types.
+- A DataFrame is a table whose columns have names and potentially have different data types.
 - Load Pandas with `import pandas as pd`. The alias `pd` is commonly used to refer to the Pandas library in code.
+- Print the *version* of the Pandas library you have installed. Any version greater than 2.0 is acceptable.
+
+```python
+import pandas as pd
+print(pd.__version__)
+```
+
+```output
+2.3.3
+```
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Debugging Import Statements
+Depending on when and how your Python environment
+was created, you may encounter an
+error when importing Pandas. Here are two
+common problems and how to fix them.
+
+### ModuleNotFoundError
+If you get a **ModuleNotFoundError** when trying to import a third-party 
+library like Pandas, that means the current [Python environment](https://blog.jupyter.org/python-environment-management-in-jupyterlab-desktop-3b119c5811d9)
+does not have that library installed. 
+
+We recommended experienced Python users [manage their environment with Conda](https://docs.anaconda.com/working-with-conda/packages/install-packages/), but you can use pip like below in a pinch.
+
+```python
+!pip install pandas
+```
+
+Run this exactly once. 
+
+### ImportError: Unable to import required dependencies
+If you get an **ImportError** that mentions numpy, you may
+have an incompatibility problem in your Python environment.
+Numpy is a dependency of Pandas, but some versions of Numpy are incompatible with
+some versions of Pandas.
+If you get an error referencing an incompatibility problem, reinstall
+Pandas *and* its dependencies with the following
+command.
+
+```python
+!pip install --force-reinstall pandas
+```
+
+Run this exactly once.
+
+
+:::::::::::::::::::::::::::::::::::::::::::::
+
+### Reading Dataframes from Files
+
+- Pandas represents tabular data using DataFrames.
+- The columns in a dataframe are the observed variables, and the rows are the observations.
+- Pandas uses backslash `\` to show wrapped lines when output is too wide to fit the screen.
+- Using descriptive dataframe names helps us distinguish between multiple dataframes so we won't accidentally overwrite a dataframe or read from the wrong one.
+
+```python
+gdp_oceania = pd.read_csv("data/gapminder_gdp_oceania.csv")
+```
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## File Not Found
+
+Our lessons store their data files in a `data` sub-directory,
+which is why the path to the file is `data/gapminder_gdp_oceania.csv`.
+If you forget to include `data/`,
+or if you include it but your copy of the file is somewhere else,
+you will get a [runtime error](04-built-in.md)
+that ends with a line like this:
+
+```error
+FileNotFoundError: [Errno 2] No such file or directory: 'data/gapminder_gdp_oceania.csv'
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 - Read a Comma Separated Values (CSV) data file with `pd.read_csv`.
   - Argument is the name of the file to be read.
   - Returns a dataframe that you can assign to a variable
 
-```python
-import pandas as pd
+Take a peek at the `gdp_oceania` dataframe returned by `pd.read_csv`.
 
-data_oceania = pd.read_csv('data/gapminder_gdp_oceania.csv')
-print(data_oceania)
+```python
+gdp_oceania
 ```
 
 ```output
@@ -54,37 +130,19 @@ print(data_oceania)
 1     25185.00911
 ```
 
-- The columns in a dataframe are the observed variables, and the rows are the observations.
-- Pandas uses backslash `\` to show wrapped lines when output is too wide to fit the screen.
-- Using descriptive dataframe names helps us distinguish between multiple dataframes so we won't accidentally overwrite a dataframe or read from the wrong one.
-
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## File Not Found
-
-Our lessons store their data files in a `data` sub-directory,
-which is why the path to the file is `data/gapminder_gdp_oceania.csv`.
-If you forget to include `data/`,
-or if you include it but your copy of the file is somewhere else,
-you will get a [runtime error](04-built-in.md)
-that ends with a line like this:
-
-```error
-FileNotFoundError: [Errno 2] No such file or directory: 'data/gapminder_gdp_oceania.csv'
-```
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
+This dataframe has two rows -- one for Australia and one for Oceania -- and
+several columns.
 
 ## Use `index_col` to specify that a column's values should be used as row headings.
 
 - Row headings are numbers (0 and 1 in this case).
 - Really want to index by country.
 - Pass the name of the column to `read_csv` as its `index_col` parameter to do this.
-- Naming the dataframe `data_oceania_country` tells us which region the data includes (`oceania`) and how it is indexed (`country`).
+- Naming the dataframe `gdp_oceania_country` tells us which region the data includes (`oceania`) and how it is indexed (`country`).
 
 ```python
-data_oceania_country = pd.read_csv('data/gapminder_gdp_oceania.csv', index_col='country')
-print(data_oceania_country)
+gdp_oceania_country = pd.read_csv('data/gapminder_gdp_oceania.csv', index_col='country')
+print(gdp_oceania_country)
 ```
 
 ```output
@@ -107,7 +165,7 @@ New Zealand     18363.32494     21050.41377     23189.80135     25185.00911
 ## Use the `DataFrame.info()` method to find out more about a dataframe.
 
 ```python
-data_oceania_country.info()
+gdp_oceania_country.info()
 ```
 
 ```output
@@ -132,7 +190,8 @@ memory usage: 208.0+ bytes
 
 - This is a `DataFrame`
 - Two rows named `'Australia'` and `'New Zealand'`
-- Twelve columns, each of which has two actual 64-bit floating point values.
+- Twelve columns, each of which has values, one for each
+row.
   - We will talk later about null values, which are used to represent missing observations.
 - Uses 208 bytes of memory.
 
@@ -144,7 +203,7 @@ memory usage: 208.0+ bytes
 - Called a *member variable*, or just *member*.
 
 ```python
-print(data_oceania_country.columns)
+gdp_oceania_country.columns
 ```
 
 ```output
@@ -161,7 +220,7 @@ Index(['gdpPercap_1952', 'gdpPercap_1957', 'gdpPercap_1962', 'gdpPercap_1967',
 - Like `columns`, it is a member variable.
 
 ```python
-print(data_oceania_country.T)
+print(gdp_oceania_country.T)
 ```
 
 ```output
@@ -186,7 +245,7 @@ gdpPercap_2007  34435.36744  25185.00911
 All other columns are ignored, unless you use the argument `include='all'`.
 
 ```python
-print(data_oceania_country.describe())
+gdp_oceania_country.describe()
 ```
 
 ```output
