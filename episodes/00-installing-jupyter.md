@@ -1,58 +1,55 @@
 ---
-title: "Installing JupyterLab Desktop"
+title: "Installing Python and JupyterLab"
 teaching: 30
 exercises: 0
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Download JupyterLab Desktop.
-- Install JuptyterLab Desktop.
+- Download and install Python.
+- Install the JupyterLab and Pandas packages.
 - Learn about folders and files on your computer.
 - Create a folder for the Jupyter notebooks you will create during this workshop series.
 - Learn what a working directory is and set the working directory for your project.
-- Set the default working directory for JupyterLab Desktop.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How do I install JupyterLab Desktop?
-- How do I configure JupyterLab Desktop so I can find my files again?
+- How do I install Python?
+- How do I launch Jupyter Lab?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-## Getting Started with JupyterLab Desktop
+## Getting Started with Python
 
-[JupyterLab Desktop](https://github.com/jupyterlab/jupyterlab-desktop) is a desktop application with an integrated web user interface from [Project Jupyter][jupyter] that
+In this activity, you will install Python to your personal computer. 
+You only need to install and configure Python once for this workshop, so future lessons will assume that you already have Python installed.
+
+[Jupyter Lab](https://jupyterlab.readthedocs.io/en/latest/) is a special Python library with an integrated web user interface from [Project Jupyter][jupyter] that
 enables one to work with documents and activities such as Jupyter notebooks, text editors, terminals,
-and even custom components in a flexible, integrated, and extensible manner. Jupyter notebooks are common in data science and visualization and serve as a convenient common-denominator experience for running Python code interactively where we can easily view and share the results of our Python code.
+and even custom components in a flexible, integrated, and extensible manner.
+
+## Jupyter Notebooks
+
+Jupyter notebooks are common in data science and visualization and serve as a convenient common-denominator experience for running Python code interactively where we can easily view and share the results of our Python code.
 
 There are other ways of editing, managing, and running code, but Jupyter notebooks 
 let us execute and view the results of our Python code immediately within the notebook.
 
-## Why Run Jupyter Notebooks in JupyterLab Desktop
-We use JupyterLab Desktop because it's convenient for our learners:
+## Installing Python
+The easiest way to install Python and JupyterLab will depend on your operating system.
 
-- It does not require knowledge of the command line to install.
-- It is available on MacOS, Windows, and Linux devices.
-- It does not require users to install Python separately.
+- **If you have a Mac laptop, [click here](#installing-python-macos).**
+- **If you have a Windows laptop, [click here](#installing-python-windows).**
 
-## Installing JupyterLab Desktop
-How you install JupyterLab Desktop will depend on your operating system.
+## Installing Python: MacOS
 
-- **If you have a Mac laptop, [click here](#installing-jupyterlab-desktop-macos).**
-- **If you have a Windows laptop, [click here](#installing-jupyterlab-desktop-windows).**
+Before installing Python on a Mac, you will need to know the [type of processor](https://support.apple.com/en-us/116943) it has. 
 
-## Installing JupyterLab Desktop: MacOS
-
-Before installing JupyterLab Desktop on a Mac, you will need to know the type of processor
-your computer has. 
-
-Depending on when you bought your laptop, your mac may have an Apple Silicon chip
-or an Intel Chip. For JupyterLab Desktop to work correctly, you must install the version of the
-program that corresponds to the right chip.
+Depending on when you bought your laptop, your Mac may have an Apple Silicon chip
+or an Intel Chip. For Python to work correctly, you must install the version that corresponds to your laptop's chip.
 
 ### Finding Your Processor Chip Type
 
@@ -65,52 +62,90 @@ program that corresponds to the right chip.
 <p align='center'>   <img alt="Apple Silicon Chip" src="files/apple-silicon-chip.png" width="400"/>
 </p>
 
-### Downloading Jupyter Lab
-Go to the [JupyterLab Installation](https://github.com/jupyterlab/jupyterlab-desktop?tab=readme-ov-file#installation) page.
+### Downloading Python
+To make installation faster and easier, you will be downloading
+Python through environment management tool called Miniconda. 
 
-<p align='center'>   <img alt="Installation Screen" src="files/installation-os.png" width="700"/>
+Go to the [**Anaconda/Miniconda**](https://www.anaconda.com/download/success) download page.
+
+<p align='center'>   <img alt="Miniconda Download" src="fig/0_miniconda_selec.png" width="700"/>
 </p>
 
-From the **Mac (macOS 10.15+)** column, select the download that corresponds to your chip type.
-Click to download the file to your computer. 
+From the **Miniconda** column, select the **Graphical installer** download that corresponds to your chip type.
 
-Once the download has completed, double-click the *.dmg* file.
+For example, if you have a Mac with an Apple Silicon chip, you should select the *64-Bit (Apple silicon) Graphical
+Installer*.
 
-<p align='center'>   <img alt="MacOS Installation Prompt" src="files/mac-install-apps.png" width="500"/>
+Double-click to download the file to your computer. 
+
+### Installing Miniconda
+
+Once the download has completed, double-click the Miniconda *.pkg* file in your Downloads folder.
+
+An graphical installer will launch.
+
+<p align='center'>   <img alt="Installation Screen" src="fig/0_miniconda_mac_start.png" width="600"/>
 </p>
 
-Drag the JupyterLab.app application to the Applications folder on the right.
-This will install the JupyterLab app to the Applications folder on your computer.
+Press *Continue* to nagivate through the installer. Click *Agree* to the terms of the End User License Agreement. 
 
-:::::::::::::::::::::::::::::::::::::::::  callout
+When prompted to select a destination for your Python installation, select "Install for all users of this computer".
 
-## What Are .dmg Files?
+This will install Miniconda (and Python) to the `/opt/bin/miniconda` directory. Click *Continue*.
 
-- A *.dmg file is a disk image file, typically used to install software on MacOS. 
-- If you do not drag the JupyterLab app icon to your Applications folder, it will run from the *.dmg* file instead.
-- By copying the JupyterLab app icon to the Applications folder, you tell your computer that you want the contents
-of the *.dmg* copied and installed to your Applications so that you can use the application later.
-- You can delete (and eject) the *.dmg* file after you've installed JupyterLab. 
-  
-::::::::::::::::::::::::::::::::::::::::::::::::::
+<p align='center'>   <img alt="Select a Destination" src="fig/0_miniconda_mac_all.png" width="600"/>
+</p>
 
-When the installation has finished, close the installer window.
+When prompted, click *Install*.
 
-### Launching JupyterLab Deskop: Mac OS
+<p align='center'>   <img alt="Select a Destination" src="fig/0_miniconda_mac_install_prompt.png" width="600"/>
+</p>
+
+Wait while Miniconda installs. This should take fewer than 5 minutes.
+
+
+<p align='center'>   <img alt="Installation Completed" src="fig/0_mac_miniconda_confirmed.png" width="600"/>
+</p>
+
+When the installation has finished, close the installer window by clicking *Close*.
+
+### Installing Jupyter Lab
 
 Look for the magnifying glass icon in the top right corner of your screen.
-Search for *JupyterLab* and click the icon to launch the JupyterLab application.
+
+Search for *Terminal* and click the icon to launch the Terminal application.
+
+The Terminal (or command line) is a special application that allows you to talk to software on your computer through textual commands.
+Some applications can *only* be accessed through the command line.
+
+Type the command `pip install jupyterlab pandas` and press the
+Enter key.
+
+<p align='center'>   <img alt="Installation Completed" src="fig/0_mac_pip_in_progress.png" width="600"/>
+</p>
+
+### Launching Jupyter Lab
+
+Congratulations! You've installed Jupyter Lab. You will not
+need to perform these installation steps again.
+
+In the future you can launch Juptyer Lab by doing the following:
+
+1. Search for *Terminal*.
+2. Open *Terminal*.
+3. Type `jupyter lab` inside the terminal and press the Enter key.
 
 ## Installing JupyterLab Desktop: Windows
 
 
-### Downloading JupyterLab Desktop for Windows
-Go to the [JupyterLab Installation](https://github.com/jupyterlab/jupyterlab-desktop?tab=readme-ov-file#installation) page.
+### Downloading Python for Windows
+To make installation faster and easier, you will be downloading
+Python through environment management tool called Miniconda. 
 
 <p align='center'>   <img alt="Installation Screen" src="files/installation-os.png" width="700"/>
 </p>
 
-From the **Windows (10, 11)** column, select the *x64 Installer*.
+
 Click to download the file to your computer.  
 
 
@@ -246,32 +281,11 @@ You can verify that you have the correct working directory by using what's calle
   
 This magic command passes the "print working directory" command to your computer. [Learn more about pwd here](https://superbasics.beholder.uk/command-line/example-pwd/) ([https://superbasics.beholder.uk/command-line/example-pwd/](https://superbasics.beholder.uk/command-line/example-pwd/)).
 
-## How to Change your Default Working Directory in Python
-
-While we have showed you how to create a folder and set it as the working directory for an individual session in JupyterLab, you may also wish to change your default working directory to somewhere where you will often store code files. To do this, you need to access your settings menu.
-
-Step 1:  Find the 3 vertical bars in the top right of your screen next to the kernel and click on them (be aware: this is only available in JupyterLab Desktop, not Anaconda). This will bring up a drop-down menu with a list of options. 
-
-<p align='center'>   <img alt="Find Settings in JupyterLab" src="fig/0_find_options.png" width="600"/>
-</p>
-
-Step 2: Once that drop down menu is open, click on settings.
-
-<p align='center'>   <img alt="Choose Settings" src="fig/0_settings.png" width="750"/>
-</p>
-
-Step 3: Clicking on settings will open up a screen similar to the one below. Click on the server as is highlighted below. Here we can change our working directory. Click on Change.
-
-<p align='center'>   <img alt="Default Working Directory Setting" src="fig/0_default_working_directory.png" width="750"/>
-</p>
-
-Step 5: Search your file directory for a folder you will recognize. For now, consider setting the folder you have just created for this workshop as your working directory. Above you can tell I named my default working directory “PythonWorkshop”. Now all my scripts of python code from JupyterLab will be saved in that folder when I choose to save them. 
-
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- JupyterLab Desktop is an application for running files for managing and organizing Python
+- JupyterLab is an application for running files for managing and organizing Python
 code called Jupyter notebooks.
-- You will only need to install JupyterLab Desktop once for this workshop.
+- You will only need to install JupyterLab once for this workshop.
 - Your current working directory determines where programs are run and how
 filepaths are interpreted.
 
