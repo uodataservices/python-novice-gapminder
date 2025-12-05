@@ -17,7 +17,7 @@ exercises: 0
 :::::::::::::::::::::::::::::::::::::::: questions
 
 - How do I install Python?
-- How do I launch Jupyter Lab?
+- How do I launch JupyterLab?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -27,7 +27,7 @@ exercises: 0
 In this activity, you will install Python to your personal computer. 
 You only need to install and configure Python once for this workshop, so future lessons will assume that you already have Python installed.
 
-[Jupyter Lab](https://jupyterlab.readthedocs.io/en/latest/) is a special Python library with an integrated web user interface from [Project Jupyter][jupyter] that
+[JupyterLab](https://jupyterlab.readthedocs.io/en/latest/) is a special Python library with an integrated web user interface from [Project Jupyter][jupyter] that
 enables one to work with documents and activities such as Jupyter notebooks, text editors, terminals,
 and even custom components in a flexible, integrated, and extensible manner.
 
@@ -91,7 +91,7 @@ Press *Continue* to nagivate through the installer. Click *Agree* to the terms o
 
 When prompted to select a destination for your Python installation, select "Install for all users of this computer".
 
-This will install Miniconda (and Python) to the `/opt/bin/miniconda` directory. Click *Continue*.
+This will install Miniconda (and Python) to the `/opt/bin/miniconda` folder. Click *Continue*.
 
 <p align='center'>   <img alt="Select a Destination" src="fig/0_miniconda_mac_all.png" width="600"/>
 </p>
@@ -103,40 +103,55 @@ When prompted, click *Install*.
 
 Wait while Miniconda installs. This should take fewer than 5 minutes.
 
-
 <p align='center'>   <img alt="Installation Completed" src="fig/0_mac_miniconda_confirmed.png" width="600"/>
 </p>
 
 When the installation has finished, close the installer window by clicking *Close*.
 
-### Installing Jupyter Lab
+### Installing JupyterLab
 
 Look for the magnifying glass icon in the top right corner of your screen.
 
 Search for *Terminal* and click the icon to launch the Terminal application.
 
 The Terminal (or command line) is a special application that allows you to talk to software on your computer through textual commands.
-Some applications can *only* be accessed through the command line.
+Some applications can *only* be accessed through the command line. 
+
+<p align='center'>   <img alt="Mac terminal" src="fig/0_mac_terminal.png" width="600"/>
+</p>
+
 
 Type the command `pip install jupyterlab pandas` and press the
 Enter key.
 
-<p align='center'>   <img alt="Installation Completed" src="fig/0_mac_pip_in_progress.png" width="600"/>
+<p align='center'>   <img alt="Pip Command Finished" src="fig/0_mac_terminal_finished.png" width="600"/>
 </p>
 
-### Launching Jupyter Lab
+When the installation has finished, you will see a message like one above. You will see your username followed by
+a blinking cursor, which means that the terminal
+is waiting for another command.
 
-Congratulations! You've installed Jupyter Lab. You will not
+### Launching JupyterLab
+
+<p align='center'>   <img alt="JupyterLab Launch" src="fig/0_mac_jupyter_prompt.png" width="600"/>
+</p>
+
+Congratulations! You've installed JupyterLab. You will not
 need to perform these installation steps again.
 
 In the future you can launch Juptyer Lab by doing the following:
 
 1. Search for *Terminal*.
 2. Open *Terminal*.
-3. Type `jupyter lab` inside the terminal and press the Enter key.
+3. Type `JupyterLab` inside the terminal and press the Enter key.
+
+JupyterLab will launch in a new tab in your default web browser.
+
+<p align='center'>   <img alt="JupyterLab at Launch" src="fig/0_jupyter_lab_interface.png" width="600"/>
+</p>
+
 
 ## Installing JupyterLab Desktop: Windows
-
 
 ### Downloading Python for Windows
 To make installation faster and easier, you will be downloading
@@ -244,16 +259,6 @@ Step 2: When you click on File Browser, this will open up the file directory as 
   
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Create your JupyterLab Working Directory
-
-* When you save files in Jupyter Lab, they will be saved automatically to your working directory (also known as a folder). You will also put data files you will use in this course in the same folder, to make it easier for you to tell the Python interpreter how to find the files.  
-* **The best way to avoid confusion about your working directory is to set it properly when you start your session.** As [explained on the JupyterLab Desktop ReadMe](https://github.com/jupyterlab/jupyterlab-desktop?tab=readme-ov-file#sessions-and-projects) (https://github.com/jupyterlab/jupyterlab-desktop?tab=readme-ov-file\#sessions-and-projects), you can start a new session by opening JupyterLab Desktop (double clicking on the JupyterLab Desktop icon) and then using the links at the Start section of the Welcome Page.
-
-<p align='center'>   <img alt="JupyterLab Start Session" src="fig/0_jupyterlab_start-session.png" width="250"/>
-</p>
-
-1. Close and re-open JupyterLab Desktop  
-2. Choose `Open...` (`Open Folder...` on Windows) and create a new directory (folder) that you will use to keep all of your workshop materials in. This directory (folder) should be specific to this workshop. Be sure to put it somewhere on your computer, such as your Documents folder or Desktop, where you will be able to find it again. If you have already created a folder for this workshop, you can select that instead of creating a new one.
 
 ## Create and save a Jupyter Notebook file to your Working Directory
 
