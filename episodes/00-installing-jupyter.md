@@ -10,14 +10,13 @@ exercises: 0
 - Install the JupyterLab and Pandas packages.
 - Learn about folders and files on your computer.
 - Create a folder for the Jupyter notebooks you will create during this workshop series.
-- Learn what a working directory is and set the working directory for your project.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
 - How do I install Python?
-- How do I launch JupyterLab?
+- How do I launch Jupyter Lab?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -27,7 +26,7 @@ exercises: 0
 In this activity, you will install Python to your personal computer. 
 You only need to install and configure Python once for this workshop, so future lessons will assume that you already have Python installed.
 
-[JupyterLab](https://jupyterlab.readthedocs.io/en/latest/) is a special Python library with an integrated web user interface from [Project Jupyter][jupyter] that
+[Jupyter Lab](https://jupyterlab.readthedocs.io/en/latest/) is a special Python library with an integrated web user interface from [Project Jupyter][jupyter] that
 enables one to work with documents and activities such as Jupyter notebooks, text editors, terminals,
 and even custom components in a flexible, integrated, and extensible manner.
 
@@ -66,7 +65,7 @@ or an Intel Chip. For Python to work correctly, you must install the version tha
 To make installation faster and easier, you will be downloading
 Python through environment management tool called Miniconda. 
 
-Go to the [**Anaconda/Miniconda**](https://www.anaconda.com/download/success) download page.
+[Go to the **Anaconda/Miniconda** download page.](https://www.anaconda.com/download/success).
 
 <p align='center'>   <img alt="Miniconda Download" src="fig/0_miniconda_selec.png" width="700"/>
 </p>
@@ -98,7 +97,7 @@ This will install Miniconda (and Python) to the `/opt/bin/miniconda` folder. Cli
 
 When prompted, click *Install*.
 
-<p align='center'>   <img alt="Select a Destination" src="fig/0_miniconda_mac_install_prompt.png" width="600"/>
+<p align='center'>   <img alt="Install Prompt" src="fig/0_miniconda_mac_install_prompt.png" width="600"/>
 </p>
 
 Wait while Miniconda installs. This should take fewer than 5 minutes.
@@ -108,11 +107,14 @@ Wait while Miniconda installs. This should take fewer than 5 minutes.
 
 When the installation has finished, close the installer window by clicking *Close*.
 
-### Installing JupyterLab
+### Installing Jupyter Lab
 
 Look for the magnifying glass icon in the top right corner of your screen.
-
 Search for *Terminal* and click the icon to launch the Terminal application.
+
+<p align='center'>   <img alt="Terminal search" src="fig/0_terminal_search.png" width="400"/>
+</p>
+
 
 The Terminal (or command line) is a special application that allows you to talk to software on your computer through textual commands.
 Some applications can *only* be accessed through the command line. 
@@ -120,36 +122,37 @@ Some applications can *only* be accessed through the command line.
 <p align='center'>   <img alt="Mac terminal" src="fig/0_mac_terminal.png" width="600"/>
 </p>
 
-
 Type the command `pip install jupyterlab pandas` and press the
 Enter key.
 
-<p align='center'>   <img alt="Pip Command Finished" src="fig/0_mac_terminal_finished.png" width="600"/>
+<p align='center'>   <img alt="Pip Command finished" src="fig/0_mac_terminal_finished.png" width="600"/>
 </p>
 
 When the installation has finished, you will see a message like one above. You will see your username followed by
 a blinking cursor, which means that the terminal
 is waiting for another command.
 
-### Launching JupyterLab
+### Launching Jupyter Lab
 
 <p align='center'>   <img alt="JupyterLab Launch" src="fig/0_mac_jupyter_prompt.png" width="600"/>
 </p>
 
-Congratulations! You've installed JupyterLab. You will not
+Congratulations! You've installed Jupyter Lab. You will not
 need to perform these installation steps again.
 
 In the future you can launch Juptyer Lab by doing the following:
 
 1. Search for *Terminal*.
 2. Open *Terminal*.
-3. Type `JupyterLab` inside the terminal and press the Enter key.
+3. Type `jupyter lab` inside the terminal and press the Enter key.
 
 JupyterLab will launch in a new tab in your default web browser.
 
 <p align='center'>   <img alt="JupyterLab at Launch" src="fig/0_jupyter_lab_interface.png" width="600"/>
 </p>
 
+After everyone has installed Jupyter Lab, we will talk about 
+how to create, edit, and save Python projects.
 
 ## Installing JupyterLab Desktop: Windows
 
@@ -157,45 +160,108 @@ JupyterLab will launch in a new tab in your default web browser.
 To make installation faster and easier, you will be downloading
 Python through environment management tool called Miniconda. 
 
-<p align='center'>   <img alt="Installation Screen" src="files/installation-os.png" width="700"/>
+<p align='center'>   <img alt="Installation Screen" src="fig/0_windows_selec.png" width="700"/>
 </p>
-
 
 Click to download the file to your computer.  
 
 
-### Installing JupyterLab Desktop
+### Installing Minconda
 Locate the downloaded file (it will often go to your Downloads folder by default) 
 to start the installation process. Double-click it.
 
-<p align='center'>   <img alt="JupyterLab download" src="files/windows-setup.PNG" width="500"/>
-</p>
-
 You will see a launcher like this open.
 
-<p align='center'>   <img alt="JupyterLab setup" src="files/windows-install-prompt.PNG" width="500"/>
+<p align='center'>   <img alt="Minconda Installer" src="fig/0_win_miniconda_installer.png" width="400"/>
 </p>
 
-When the application has finished installing, click *Finish*
-to complete the installation and open JupyterLab Desktop.
+Click *Next* to proceed to the next screen of the installer.
 
-<p align='center'>   <img alt="JupyterLab launch" src="files/windows-launch.PNG" width="500"/>
+Read through Miniconda’s End User License Agreement (EULA) and click *I Agree* to agree to the terms. 
+
+You will be prompted to select for which users Miniconda should be installed, either
+  * Just Me (Recommended)
+  * All Users 
+
+<p align='center'>   <img alt="Miniconda Installation Type" src="fig/0_win_install_type.png" width="400"/>
 </p>
 
-## Launching JupyterLab Desktop
+Select *Just Me* and click *Next*.
 
-Whether you have a Mac or a PC, you should now be looking at the JupyterLab Desktop welcome screen.
+Next, you will be prompted to select where Miniconda should be installed. The default location, in your
+home directory, is appropriate.
 
-<p align='center'>   <img alt="Bundled Environnment Prompt" src="files/bundled-env.png" width="500"/>
+<p align='center'>   <img alt="Miniconda Installation Location" src="fig/0_win_miniconda_location.png" width="400"/>
 </p>
 
-If you have *not* used Python before, you will see a message in the bottom left corner prompting you 
-to install Python.
+When asked about *Advanced Installation Options* make sure to check:
+* Create shortcuts
+* Register Miniconda3 as my default Python 3.13
 
-Click the text that says **Install using the bundled environment**. JupyterLab Desktop will install Python for you, which should take at most a minute or two.
+Leave the other boxes unchecked.
 
-Once the bundled environment is installed, click **New Session** to enter the
-JupyterLab application for the first time.
+<p align='center'>   <img alt="Miniconda Advanced Installation Options" src="fig/0_win_advanced_install.png" width="400"/>
+</p>
+
+Click *Install* to install Miniconda. This should take no more than five minutes.
+
+<p align='center'>   <img alt="Miniconda Installation Complete" src="fig/0_win_complete.png" width="400"/>
+</p>
+
+When the application has finished installing, click *Next*.
+
+<p align='center'>   <img alt="Miniconda Close Installer" src="fig/0_win_miniconda_fin.png" width="400"/>
+</p>
+
+You will reach a final screen. Uncheck both boxes (you can read up on Miniconda later) and click *Finish*.
+
+### Installing Jupyter Lab
+
+Click the symbol on the bottom of your screen or press the <kbd>Windows ⊞</kbd> key on your keyboard. This
+will open up the Windows Start Menu.
+
+In the Search box, type *Anaconda Prompt*. You should see a result like this:
+
+<p align='center'>  <img alt="Anaconda Search Result" src="fig/0_anaconda_search.png" width="600"/>
+</p>
+
+Click *Pin to taskbar*, as you'll need this later.
+
+Now, click on the *Anaconda Prompt* icon. A black screen with a flashing character will open
+
+<p align='center'><img alt="Anaconda Prompt" src="fig/0_windows_anaconda_prom.png" width="500"/>
+</p>
+
+Inside the prompt window, type `pip install pandas jupyterlab` and press the <kbd>Enter</kbd> key.
+
+<p align='center'><img alt="Anaconda Prompt" src="fig/0_win_pip_install.png" width="500"/>
+</p>
+
+The packages required for this workshop will install.
+
+After the installation finishes, the cursor will flash again. Congratulations, you have
+installed Python and Jupyter Lab!
+
+### Launching Jupyter Lab
+
+Congratulations! You've installed Jupyter Lab. You will not
+need to perform these installation steps again.
+
+In the future you can launch Juptyer Lab by doing the following:
+
+2. Open *Anaconda Prompt*.
+3. Type `jupyter lab` inside the terminal and press the Enter key.
+
+<p align='center'>   <img alt="JupyterLab Launch" src="fig/0_win_jupyter_launch.png" width="600"/>
+</p>
+
+JupyterLab will launch in a new tab in your default web browser.
+
+<p align='center'>   <img alt="JupyterLab at Launch" src="fig/0_jupyter_lab_interface.png" width="600"/>
+</p>
+
+After everyone has installed Jupyter Lab, we will talk about 
+how to create, edit, and save Python projects.
 
 ## The JupyterLab Interface
 
