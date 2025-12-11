@@ -348,10 +348,9 @@ In the central pane of the Jupyter Lab interface, click on Python 3 in the Launc
 
 Use the menu or save icon to save this blank notebook. Make sure to name it something helpful\! For example, `PythonWorkshop_1` or `PythonDay1`. Notice that JupyterLab will append `.ipynb` to the end of the name of the notebook. This is the file extension for Jupyter Notebooks.
 
-In the future, you can open to this working directory by any of the following:
+In the future, you can open your notebooks by navigating to the PythonWorkshop folder through the *File Browser* pane in JupyterLab. 
 
-* Double-click in Finder (MacOS) or File Explorer (Windows) to open this file.  
-* Navigate to the PythonWorkshop folder by navigating through *File Browser* pane in JupyterLab.
+You can see (and modify) this folder in File Explorer (Windows) or Finder (MacOS) too.
 
 ## Verify your Working Directory
 
