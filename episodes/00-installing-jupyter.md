@@ -180,6 +180,7 @@ Click *Next* to proceed to the next screen of the installer.
 Read through Miniconda’s End User License Agreement (EULA) and click *I Agree* to agree to the terms. 
 
 You will be prompted to select for which users Miniconda should be installed, either
+
   * Just Me (Recommended)
   * All Users 
 
@@ -195,6 +196,7 @@ home directory, is appropriate.
 </p>
 
 When asked about *Advanced Installation Options* make sure to check:
+
 * Create shortcuts
 * Register Miniconda3 as my default Python 3.13
 
@@ -306,7 +308,6 @@ the default Left Side Bar is provided below.
 The left sidebar can be collapsed or expanded by selecting "Show Left Sidebar" in the View menu or
 by clicking on the active sidebar tab.
 
-On Macs, the file browser displays automatically, but on Windows this file browser view is often hidden by default. We recommend that you turn it on using the following steps.
 
 Step 1: Click on view in the menu bar. This opens a drop down menu of options. 	Select “File Browser”  
 <p align='center'>   <img alt="Show File Browser in Menu" src="fig/0_jupyterlab_show_filebrowser.png" width="750"/>
@@ -318,30 +319,43 @@ Step 2: When you click on File Browser, this will open up the file directory as 
 
 ## What is a Working Directory?
 
-- A working directory (or current working directory) is the current folder or location on a computer's file system where a program or process is operating by default. 
-- The working directory is the default location where Python will look for files you want to load and where it will put any files you save.
-- You will write your code in Jupyter Notebooks, and save them for later in a folder. Jupyter Notebooks are file type that ends in `.ipynb`.
+- A working directory (or current working directory) is the current folder or location on a computer's file system where a program operates. 
+- The working directory is the location where Python will look for files you want to load and where it will put any files you save.
+- You will write your code in Jupyter Notebooks, and save them for later in a folder. Jupyter Notebooks are a special file type that end in `.ipynb`.
 - It's a good idea to save your code files in the same folder where you save any data files that you want to analyze. In this workshop your data files will be in the open source spreadsheet format `.csv`. 
   
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+## Create a Folder for This Workshop
 
-## Create and save a Jupyter Notebook file to your Working Directory
+When you run the command `jupyter lab` in Terminal (Mac OS) or Anaconda Prompt (Windows), Jupyter Lab will launch in your home directory.
 
-Now that JupyterLab is reopened, click on Python 3 in the Launcher to create a new Jupyter Notebook: 
+Inside your *Documents* folder, create a new folder named PythonWorkshop.
 
-<p align='center'>   <img alt="Launch a New Python3 Notebook" src="fig/0_jupyterlab_new_notebook.png" width="200"/>
+<p align='center'>   <img alt="Create PythonWorkshop folder" src="fig/0_jupyter_folder_creation.png" width="300"/>
 </p>
 
-Use the menu or save icon to save this blank notebook. Make sure to name it something helpful\! For example, `PythonWorkshop` or `PythonDay1`. Notice that JupyterLab will append `.ipynb` to the end of the name of the notebook. This is the file extension for Jupyter Notebooks.
+* First, click on your Documents folder in the File Browser on the left.
+  * You should now see the contents of your Documents or *My Documents* folder.
+* Next to the blue plus botton at the top left of the File Browser, you will see a folder icon. 
+  * Click the New Folder icon.
+  * Name your new folder PythonWorkshop.
+
+Navigate to that folder in the JupyterLab File Browser by clicking on it. You will use this folder in all future workshop sessions.
+
+## Create and Save a Jupyter Notebook File to your Working Directory
+
+In the central pane of the Jupyter Lab interface, click on Python 3 in the Launcher to create a new Jupyter Notebook: 
+
+<p align='center'>   <img alt="Launch a New Python3 Notebook" src="fig/0_jupyterlab_new_notebook.png" width="250"/>
+</p>
+
+Use the menu or save icon to save this blank notebook. Make sure to name it something helpful\! For example, `PythonWorkshop_1` or `PythonDay1`. Notice that JupyterLab will append `.ipynb` to the end of the name of the notebook. This is the file extension for Jupyter Notebooks.
 
 In the future, you can open to this working directory by any of the following:
 
-* Double click in finder to open this file.  
-* Open JupyterLab Desktop, and from the Start screen click on the relevant item in the Recent sessions list to restore this session.
-
-<p align='center'>   <img alt="Recent Sessions" src="fig/0_jupyterlab_recent_sessions.png" width="300"/>
-</p>
+* Double-click in Finder (MacOS) or File Explorer (Windows) to open this file.  
+* Navigate to the PythonWorkshop folder by navigating through *File Browser* pane in JupyterLab.
 
 ## Verify your Working Directory
 
