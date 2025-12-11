@@ -9,7 +9,7 @@ exercises: 0
 - Download and install Python.
 - Install the JupyterLab and Pandas packages.
 - Learn about folders and files on your computer.
-- Create a folder for the Jupyter notebooks you will create during this workshop series.
+- Create a folder to hold the Jupyter notebooks you will create during this workshop series.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -26,16 +26,13 @@ exercises: 0
 In this activity, you will install Python to your personal computer. 
 You only need to install and configure Python once for this workshop, so future lessons will assume that you already have Python installed.
 
-[Jupyter Lab](https://jupyterlab.readthedocs.io/en/latest/) is a special Python library with an integrated web user interface from [Project Jupyter][jupyter] that
-enables one to work with documents and activities such as Jupyter notebooks, text editors, terminals,
-and even custom components in a flexible, integrated, and extensible manner.
+[Jupyter Lab](https://jupyterlab.readthedocs.io/en/latest/) is a special Python library with an integrated web user interface from [Project Jupyter][jupyter] that enables one to work with documents and activities such as Jupyter notebooks, text editors, terminals, and even custom components in a flexible, integrated, and extensible manner.
 
 ## Jupyter Notebooks
 
 Jupyter notebooks are common in data science and visualization and serve as a convenient common-denominator experience for running Python code interactively where we can easily view and share the results of our Python code.
 
-There are other ways of editing, managing, and running code, but Jupyter notebooks 
-let us execute and view the results of our Python code immediately within the notebook.
+There are other ways of editing, managing, and running code, but Jupyter notebooks let us execute and view the results of our Python code immediately within the notebook.
 
 ## Installing Python
 The easiest way to install Python and JupyterLab will depend on your operating system.
@@ -47,8 +44,7 @@ The easiest way to install Python and JupyterLab will depend on your operating s
 
 Before installing Python on a Mac, you will need to know the [type of processor](https://support.apple.com/en-us/116943) it has. 
 
-Depending on when you bought your laptop, your Mac may have an Apple Silicon chip
-or an Intel Chip. For Python to work correctly, you must install the version that corresponds to your laptop's chip.
+Depending on when you bought your laptop, your Mac may have an Apple Silicon chip or an Intel Chip. For Python to work correctly, you must install the version that corresponds to your laptop's chip.
 
 ### Finding Your Processor Chip Type
 
@@ -62,18 +58,16 @@ or an Intel Chip. For Python to work correctly, you must install the version tha
 </p>
 
 ### Downloading Python
-To make installation faster and easier, you will be downloading
-Python through environment management tool called Miniconda. 
+To make installation faster and easier, you will be downloading Python through an environment management tool called Miniconda. 
 
-[Go to the **Anaconda/Miniconda** download page.](https://www.anaconda.com/download/success).
+[Go to the **Anaconda/Miniconda** download page](https://www.anaconda.com/download/success).
 
 <p align='center'>   <img alt="Miniconda Download" src="fig/0_miniconda_selec.png" width="700"/>
 </p>
 
 From the **Miniconda** column, select the **Graphical installer** download that corresponds to your chip type.
 
-For example, if you have a Mac with an Apple Silicon chip, you should select the *64-Bit (Apple silicon) Graphical
-Installer*.
+For example, if you have a Mac with an Apple Silicon chip, you should select the *64-Bit (Apple silicon) Graphical Installer*.
 
 Double-click to download the file to your computer. 
 
@@ -81,7 +75,7 @@ Double-click to download the file to your computer.
 
 Once the download has completed, double-click the Miniconda *.pkg* file in your Downloads folder.
 
-An graphical installer will launch.
+A graphical installer will launch.
 
 <p align='center'>   <img alt="Installation Screen" src="fig/0_miniconda_mac_start.png" width="600"/>
 </p>
@@ -158,12 +152,14 @@ how to create, edit, and save Python projects.
 
 ### Downloading Python for Windows
 To make installation faster and easier, you will be downloading
-Python through environment management tool called Miniconda. 
+Python through an environment management tool called Miniconda. 
+
+[Go to the **Anaconda/Miniconda** download page](https://www.anaconda.com/download/success).
 
 <p align='center'>   <img alt="Installation Screen" src="fig/0_windows_selec.png" width="700"/>
 </p>
 
-Click to download the file to your computer.  
+Click the Miniconda link on the right to download the file to your computer.  
 
 
 ### Installing Minconda
@@ -313,7 +309,7 @@ Step 1: Click on view in the menu bar. This opens a drop down menu of options. 	
 <p align='center'>   <img alt="Show File Browser in Menu" src="fig/0_jupyterlab_show_filebrowser.png" width="750"/>
 </p>
  
-Step 2: When you click on File Browser, this will open up the file directory as shown above.  
+Step 2: When you click on File Browser, this will open the file directory as shown above.  
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -321,7 +317,7 @@ Step 2: When you click on File Browser, this will open up the file directory as 
 
 - A working directory (or current working directory) is the current folder or location on a computer's file system where a program operates. 
 - The working directory is the location where Python will look for files you want to load and where it will put any files you save.
-- You will write your code in Jupyter Notebooks, and save them for later in a folder. Jupyter Notebooks are a special file type that end in `.ipynb`.
+- You will write your code in Jupyter Notebooks, and save the code file for later in a folder. Jupyter Notebooks are a special file type that end in `.ipynb`.
 - It's a good idea to save your code files in the same folder where you save any data files that you want to analyze. In this workshop your data files will be in the open source spreadsheet format `.csv`. 
   
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -368,8 +364,8 @@ This magic command passes the "print working directory" command to your computer
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- JupyterLab is an application for running files for managing and organizing Python
-code called Jupyter notebooks.
+- JupyterLab is an application for running, managing, and organizing Python
+code in files called Jupyter notebooks.
 - You will only need to install JupyterLab once for this workshop.
 - Your current working directory determines where programs are run and how
 filepaths are interpreted.
