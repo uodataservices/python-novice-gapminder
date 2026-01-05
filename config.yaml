@@ -8,10 +8,10 @@
 # lc: Library Carpentry
 # cp: Carpentries (to use for instructor training for instance)
 # incubator: The Carpentries Incubator
-carpentry: 'swc'
+carpentry: ''
 
 # Overall title for pages.
-title: 'Plotting and Programming in Python'
+title: 'Introduction to Python'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
 created: '2016-01-07'
@@ -33,7 +33,7 @@ source: 'https://github.com/swcarpentry/python-novice-gapminder'
 branch: 'main'
 
 # Who to contact if there are any issues
-contact: 'team@carpentries.org'
+contact: 'DataServices@uoregon.edu'
 
 # Navigation ------------------------------------------------
 #
@@ -84,7 +84,6 @@ learners:
 # Information for Instructors
 instructors: 
 
-# Learner Profiles
 profiles: 
 
 # Customisation ---------------------------------------------
@@ -93,6 +92,5 @@ profiles:
 # sandpaper and varnish versions) should live
 
 
-url: 'https://swcarpentry.github.io/python-novice-gapminder'
-analytics: carpentries
+url: 'uodataservices.github.io/python-novice-gapminder'
 lang: en
