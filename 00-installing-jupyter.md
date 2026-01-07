@@ -350,7 +350,7 @@ Use the menu or save icon to save this blank notebook. Make sure to name it some
 
 In the future, you can open your notebooks by navigating to the PythonWorkshop folder through the *File Browser* pane in JupyterLab. 
 
-You can see (and modify) this folder in File Explorer (Windows) or Finder (MacOS) too.
+You can see (and modify) this folder in File Explorer (Windows) or Finder (MacOS) too. You might, for example, want to add data to this folder, or add a data subfolder. Note, however that **you cannot open your Python notebooks (.ipynb) by clicking on them from File Explorer or Finder**. You must open them through the JupyterLab *File Browser*.
 
 ## Verify your Working Directory
 
