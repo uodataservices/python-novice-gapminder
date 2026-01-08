@@ -431,7 +431,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Running and Quitting</h1>
-        <p>Last updated on 2025-10-06 |
+        <p>Last updated on 2026-01-08 |
 
         <a href="https://github.com/swcarpentry/python-novice-gapminder/edit/main/episodes/01-run-quit.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -512,9 +512,13 @@ user interface documentation</a>.</p>
 </div>
 </div>
 </section><section><h2 class="section-heading" id="starting-jupyterlab">Starting JupyterLab<a class="anchor" aria-label="anchor" href="#starting-jupyterlab"></a></h2>
-<hr class="half-width"><p>You can start the JupyterLab server through the command line or
-through an application called <code>Anaconda Navigator</code>. Anaconda
-Navigator is included as part of the Anaconda Python distribution.</p>
+<hr class="half-width"><p>You can start the JupyterLab server through the command line via the
+Terminal (Mac) or via <code>Anaconda Prompt</code> (Windows). Anaconda
+Prompt is included as part of the Miniconda Python distribution you have
+installed. Remember that you cannot open Jupyter notebooks
+(<code>.ipynb</code> files) by clicking on them directly. Instead, you
+will need to open JupyterLab and open your notebooks using the
+JupyterLab <em>File Browser</em>.</p>
 <div class="section level3">
 <h3 id="macos---command-line">macOS - Command Line<a class="anchor" aria-label="anchor" href="#macos---command-line"></a></h3>
 <p>To start the JupyterLab server you will need to access the command
@@ -546,29 +550,6 @@ Prompt.</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="ex">$</span> jupyter lab</span></code></pre>
 </div>
-</div>
-<div class="section level3">
-<h3 id="anaconda-navigator">Anaconda Navigator<a class="anchor" aria-label="anchor" href="#anaconda-navigator"></a></h3>
-<p>To start a JupyterLab server from Anaconda Navigator you must first
-<a href="https://docs.anaconda.com/free/navigator/getting-started/#navigator-starting-navigator" class="external-link">start
-Anaconda Navigator (click for detailed instructions on macOS, Windows,
-and Linux)</a>. You can search for Anaconda Navigator via Spotlight on
-macOS (<kbd>Command</kbd> + <kbd>spacebar</kbd>), the Windows search
-function (<kbd>Windows Logo Key</kbd>) or opening a terminal shell and
-executing the <code>anaconda-navigator</code> executable from the
-command line.</p>
-<p>After you have launched Anaconda Navigator, click the
-<code>Launch</code> button under JupyterLab. You may need to scroll down
-to find it.</p>
-<p>Here is a screenshot of an Anaconda Navigator page similar to the one
-that should open on either macOS or Windows.</p>
-<p align="center">
-<img alt="Anaconda Navigator landing page" src="fig/0_anaconda_navigator_landing_page.png" width="750" class="figure"></p>
-<p>And here is a screenshot of a JupyterLab landing page that should be
-similar to the one that opens in your default web browser after starting
-the JupyterLab server on either macOS or Windows.</p>
-<p align="center">
-<img alt="JupyterLab landing page" src="fig/0_jupyterlab_landing_page.png" width="750" class="figure"></p>
 </div>
 </section><section><h2 class="section-heading" id="the-jupyterlab-interface">The JupyterLab Interface<a class="anchor" aria-label="anchor" href="#the-jupyterlab-interface"></a></h2>
 <hr class="half-width"><p>JupyterLab has many features found in traditional integrated
@@ -737,7 +718,7 @@ be most useful for your workflow?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>After creating the necessary tabs, you can drag one of the tabs to
 the center of a panel to move the tab to the panel; next you can
@@ -801,7 +782,7 @@ operation you performed.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Command mode has a grey border and Edit mode has a blue border. Use
 <kbd>Esc</kbd> and <kbd>Return</kbd> to switch between modes. You need
@@ -961,7 +942,7 @@ this:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>This challenge integrates both the numbered list and bullet list.
 Note that the bullet list is indented 2 spaces so that it is inline with
@@ -1002,7 +983,7 @@ cell is executed?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Python returns the output of the last calculation.</p>
 <div class="codewrapper sourceCode" id="cb12">
@@ -1045,7 +1026,7 @@ might this be useful?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>The Python code gets treated like Markdown text. The lines appear as
 if they are part of one contiguous paragraph. This could be useful to
@@ -1083,7 +1064,7 @@ and dollar sign, <code>$</code>, do?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>The notebook shows the equation as it would be rendered from LaTeX
 equation syntax. The dollar sign, <code>$</code>, is used to tell
@@ -1198,8 +1179,8 @@ documentation.</li>
   "url": "uodataservices.github.io/python-novice-gapminder/01-run-quit.html",
   "identifier": "uodataservices.github.io/python-novice-gapminder/01-run-quit.html",
   "dateCreated": "2016-01-07",
-  "dateModified": "2025-10-06",
-  "datePublished": "2026-01-07"
+  "dateModified": "2026-01-08",
+  "datePublished": "2026-01-08"
 }
 
   </script><script>
