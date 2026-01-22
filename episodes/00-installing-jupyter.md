@@ -148,7 +148,7 @@ JupyterLab will launch in a new tab in your default web browser.
 After everyone has installed Jupyter Lab, we will talk about 
 how to create, edit, and save Python projects.
 
-## Installing JupyterLab Desktop: Windows
+## Installing Python: Windows
 
 ### Downloading Python for Windows
 To make installation faster and easier, you will be downloading
