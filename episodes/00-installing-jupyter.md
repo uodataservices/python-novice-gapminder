@@ -116,7 +116,7 @@ Some applications can *only* be accessed through the command line.
 <p align='center'>   <img alt="Mac terminal" src="fig/0_mac_terminal.png" width="600"/>
 </p>
 
-Type the command `pip install jupyterlab pandas` and press the
+Type the command `pip install jupyterlab pandas matplotlib` and press the
 Enter key.
 
 <p align='center'>   <img alt="Pip Command finished" src="fig/0_mac_terminal_finished.png" width="600"/>
@@ -230,7 +230,7 @@ Now, click on the *Anaconda Prompt* icon. A black screen with a flashing charact
 <p align='center'><img alt="Anaconda Prompt" src="fig/0_windows_anaconda_prom.png" width="500"/>
 </p>
 
-Inside the prompt window, type `pip install pandas jupyterlab` and press the <kbd>Enter</kbd> key.
+Inside the prompt window, type `pip install pandas jupyterlab matplotlib` and press the <kbd>Enter</kbd> key.
 
 <p align='center'><img alt="Anaconda Prompt" src="fig/0_win_pip_install.png" width="500"/>
 </p>
