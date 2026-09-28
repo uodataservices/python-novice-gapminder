@@ -354,7 +354,9 @@ You can see (and modify) this folder in File Explorer (Windows) or Finder (MacOS
 
 ## Verify your Working Directory
 
-You can verify that you have the correct working directory by using what's called a *magic* command. Use the %pwd magic command within a code cell to print the current working directory. The output will display the current directory path.
+You can verify that you have the correct working directory by using what's called a *magic* command. 
+Use the `%pwd` magic command within a code cell to print the current working directory. 
+The output will display the current directory path.
 
 <p align='center'>   <img alt="Print Working Directory from within Python" src="fig/0_pwd.png" width="700"/>
 </p>

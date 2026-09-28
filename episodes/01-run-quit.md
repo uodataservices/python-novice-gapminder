@@ -6,8 +6,7 @@ exercises: 0
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Launch JupyterLab desktop.
-- Create a new Python script.
+- Launch JupyterLab.
 - Create a Jupyter notebook.
 - Shutdown the JupyterLab server.
 - Understand the difference between a Python script and a Jupyter notebook.
@@ -162,14 +161,6 @@ If you do not see the Launcher tab, click the blue plus sign under the "File" an
 Drag a tab to the center of a tab panel to move the tab to the panel. Subdivide a tab panel by
 dragging a tab to the left, right, top, or bottom of the panel. The work area has a single current
 activity. The tab for the current activity is marked with a colored top border (blue by default).
-
-## Creating a Python script
-
-- To start writing a new Python program click the Text File icon under the *Other* header in the Launcher tab of the Main Work Area.
-  - You can also create a new plain text file by selecting the *New -> Text File* from the *File* menu in the Menu Bar.
-- To convert this plain text file to a Python program, select the *Save File As* action from the *File* menu in the Menu Bar and give your new text file a name that ends with the `.py` extension.
-  - The `.py` extension lets everyone (including the operating system) know that this text file is a Python program.
-  - This is convention, not a requirement.
 
 ## Creating a Jupyter Notebook
 
@@ -457,39 +448,6 @@ This could be useful to temporarily turn on and off cells in notebooks that get 
 x = 6 * 7 + 12 print(x)
 ```
 
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Equations
-
-Standard Markdown (such as we're using for these notes) won't render equations,
-but the Notebook will.
-Create a new Markdown cell
-and enter the following:
-
-```
-$\sum_{i=1}^{N} 2^{-i} \approx 1$
-```
-
-(It's probably easier to copy and paste.)
-What does it display?
-What do you think the underscore, `_`, circumflex, `^`, and dollar sign, `$`, do?
-
-:::::::::::::::  solution
-
-## Solution
-
-The notebook shows the equation as it would be rendered from LaTeX equation syntax.
-The dollar sign, `$`, is used to tell Markdown that the text in between is a LaTeX equation.
-If you're not familiar with LaTeX,  underscore, `_`, is used for subscripts and circumflex, `^`, is used for superscripts.
-A pair of curly braces, `{` and `}`, is used to group text together so that the statement `i=1` becomes the subscript and `N` becomes the superscript.
-Similarly, `-i` is in curly braces to make the whole statement the superscript for `2`.
-`\sum` and `\approx` are LaTeX commands for "sum over" and "approximate" symbols.
-
-
 
 :::::::::::::::::::::::::
 
@@ -524,11 +482,9 @@ Practice closing and restarting the JupyterLab server.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Python scripts are plain text files.
-- Use the Jupyter Notebook for editing and running Python.
-- The Notebook has Command and Edit modes.
+- Use the JupyterLab Notebook interface for editing and running Python.
 - Use the keyboard and mouse to select and edit cells.
-- The Notebook will turn Markdown into pretty-printed documentation.
+- Jupyter Notebooks turn Markdown into pretty-printed documentation.
 - Markdown does most of what HTML does.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
