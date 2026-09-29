@@ -7,7 +7,7 @@ exercises: 10
 ::::::::::::::::::::::::::::::::::::::: objectives
 
 - Explain why programs need collections of values.
-- Write programs that create flat lists, index them, slice them, and modify them through assignment and method calls.
+- Write programs that create lists, index them, slice them, and modify them.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -17,7 +17,7 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## A list stores many values in a single structure.
+## A list stores multiple values in a specific order.
 
 - Doing calculations with a hundred variables called `pressure_001`, `pressure_002`, etc.,
   would be at least as slow as doing them by hand.
@@ -26,20 +26,21 @@ exercises: 10
   - Values separated by commas `,`.
 - Use `len` to find out how many values are in a list.
 
+Let's create a list of floats called `pressures` that stores 
 ```python
-pressures = [0.273, 0.275, 0.277, 0.275, 0.276]
+pressures = [0.27, 0.25, 0.27, 0.245, 0.2]
 print('pressures:', pressures)
 print('length:', len(pressures))
 ```
 
 ```output
-pressures: [0.273, 0.275, 0.277, 0.275, 0.276]
+pressures: [0.27, 0.25, 0.27, 0.245, 0.2]
 length: 5
 ```
 
 ## Use an item's index to fetch it from a list.
 
-- Just like strings.
+- These behave just like strings. Remember, start at zero!
 
 ```python
 print('zeroth item of pressures:', pressures[0])
@@ -47,17 +48,17 @@ print('fourth item of pressures:', pressures[4])
 ```
 
 ```output
-zeroth item of pressures: 0.273
-fourth item of pressures: 0.276
+first item of pressures: 0.27
+fifth item of pressures: 0.2
 ```
 
-## Lists' values can be replaced by assigning to them.
+## Values in lists can be reassigned.
 
-- Use an index expression on the left of assignment to replace a value.
+- Use indexing on the left of an assignment statement to replace a value inside a list.
 
 ```python
-pressures[0] = 0.265
-print('pressures is now:', pressures)
+pressures[0] = 0.26
+print('The first value of pressures is now:', pressures)
 ```
 
 ```output
@@ -83,7 +84,6 @@ primes has become: [2, 3, 5, 7]
 - `append` is a *method* of lists.
   - Like a function, but tied to a particular object.
 - Use `object_name.method_name` to call methods.
-  - Deliberately resembles the way we refer to things in a library.
 - We will meet other methods of lists as we go along.
   - Use `help(list)` for a preview.
 - `extend` is similar to `append`, but it allows you to combine two lists.  For example:

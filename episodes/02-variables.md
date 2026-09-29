@@ -1,7 +1,7 @@
 ---
 title: Variables and Assignment
-teaching: 10
-exercises: 10
+teaching: 20
+exercises: 20
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
@@ -123,7 +123,7 @@ print('Age in three years:', age)
 Age in three years: 45
 ```
 
-## Use an index to get a single character from a string.
+## Use an index to get a character from a string.
 
 - The characters (individual letters, numbers, and so on) in a string are
   ordered. For example, the string `'AB'` is not the same as `'BA'`. Because of
