@@ -1,7 +1,7 @@
 ---
 title: Libraries
-teaching: 10
-exercises: 10
+teaching: 20
+exercises: 20
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives

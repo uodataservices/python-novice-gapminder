@@ -9,9 +9,9 @@ exercises: 0
 - Launch JupyterLab.
 - Create a Jupyter notebook.
 - Shutdown the JupyterLab server.
-- Understand the difference between a Python script and a Jupyter notebook.
 - Create Markdown cells in a notebook.
 - Create and run Python cells in a notebook.
+- Distinguish between Markdown cells and Python cells.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -49,10 +49,6 @@ the initial connection to download and install Anaconda and JupyterLab
 JupyterLab is the [next stage in the evolution of the Jupyter Notebook](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#overview).
 If you have prior experience working with Jupyter notebooks, then you will have a good idea of what to expect from JupyterLab.
 
-Experienced users of Jupyter notebooks interested in a more detailed discussion of the similarities and differences
-between the JupyterLab and Jupyter notebook user interfaces can find more information in the
-[JupyterLab user interface documentation][jupyterlab-ui].
-
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -66,6 +62,7 @@ Instead, you will need to open JupyterLab and open your notebooks using the Jupy
 ### macOS - Command Line
 
 To start the JupyterLab server you will need to access the command line through the Terminal.
+
 There are two ways to open Terminal on Mac.
 
 1. In your Applications folder, open Utilities and double-click on Terminal
@@ -223,11 +220,9 @@ right, top, or bottom of the panel.
 
 ## Code vs. Text
 
-Jupyter mixes code and text in different types of blocks, called cells. We often use the term
-"code" to mean "the source code of software written in a language such as Python".
-A "code cell" in a Notebook is a cell that contains software;
-a "text cell" is one that contains ordinary prose written for human beings.
-
+Jupyter mixes code and text in different types of blocks, called cells. We often use the term "code" to mean "code written in a language like Python".
+* In this class, a "code cell" will always contain Python.
+* A "text cell" is one that contains ordinary prose written for human beings.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -294,7 +289,7 @@ You need to be in Command mode (Press <kbd>Esc</kbd> if your cell is blue).  Typ
 - Turn the current cell into a Code cell by entering the Command mode (<kbd>Esc</kbd>/gray) and
   press the <kbd>y</kbd> key.
 
-### Markdown does most of what HTML does.
+### Markdown allows you to "style" text cells.
 
 Table: Showing some markdown syntax and its rendered output.
 

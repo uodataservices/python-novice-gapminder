@@ -63,10 +63,10 @@ episodes:
 - 01-run-quit.md
 - 02-variables.md
 - 03-types-conversion.md
-- 04-lists.md
-- 05-for-loops.md
-- 06-conditionals.md
-- 07-built-in.md
+- 04-built-in.md
+- 05-lists.md
+- 06-for-loops.md
+- 07-conditionals.md
 - 08-libraries.md
 - 09-reading-tabular.md
 - 10-data-frames.md

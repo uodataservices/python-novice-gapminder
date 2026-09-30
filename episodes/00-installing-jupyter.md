@@ -40,6 +40,12 @@ The easiest way to install Python and JupyterLab will depend on your operating s
 - **If you have a Mac laptop, [click here](#installing-python-macos).**
 - **If you have a Windows laptop, [click here](#installing-python-windows).**
 
+:::::::::::::::::::::::::::::::::::::::: caution
+
+If you encounter an error during the installation process, please flag down an assistant, ask a question over Zoom, or contact your instructor through Canvas if you are working asynchronously. 
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ## Installing Python: MacOS
 
 Before installing Python on a Mac, you will need to know the [type of processor](https://support.apple.com/en-us/116943) it has. 
@@ -109,22 +115,25 @@ Search for *Terminal* and click the icon to launch the Terminal application.
 <p align='center'>   <img alt="Terminal search" src="fig/0_terminal_search.png" width="400"/>
 </p>
 
+The Terminal (or command line) is a special application that allows you to talk to software on your computer through textual commands. Some applications can *only* be accessed through the command line. 
 
-The Terminal (or command line) is a special application that allows you to talk to software on your computer through textual commands.
-Some applications can *only* be accessed through the command line. 
+Type the command `conda install jupyterlab pandas matplotlib` and press the
+Enter key.
 
 <p align='center'>   <img alt="Mac terminal" src="fig/0_mac_terminal.png" width="600"/>
 </p>
 
-Type the command `pip install jupyterlab pandas matplotlib` and press the
-Enter key.
+You may be prompted to press the <kbd>a</kbd> key twice, followed by the
+<kbd>y</kbd> key. The required software for this workshop will be downloaded from
+the internet.
 
-<p align='center'>   <img alt="Pip Command finished" src="fig/0_mac_terminal_finished.png" width="600"/>
+<p align='center'>   <img alt="Conda Command finished" src="fig/0_mac_terminal_finished.png" width="600"/>
 </p>
 
-When the installation has finished, you will see a message like one above. You will see your username followed by
-a blinking cursor, which means that the terminal
-is waiting for another command.
+When you see your username followed by
+a blinking cursor, that means that the terminal
+is waiting for another command. You are ready to launch JupyterLab.
+
 
 ### Launching Jupyter Lab
 
@@ -144,9 +153,6 @@ JupyterLab will launch in a new tab in your default web browser.
 
 <p align='center'>   <img alt="JupyterLab at Launch" src="fig/0_jupyter_lab_interface.png" width="600"/>
 </p>
-
-After everyone has installed Jupyter Lab, we will talk about 
-how to create, edit, and save Python projects.
 
 ## Installing Python: Windows
 
@@ -194,7 +200,7 @@ home directory, is appropriate.
 When asked about *Advanced Installation Options* make sure to check:
 
 * Create shortcuts
-* Register Miniconda3 as my default Python 3.13
+* Register Miniconda3 as my default Python 3.14
 
 Leave the other boxes unchecked.
 
@@ -230,22 +236,21 @@ Now, click on the *Anaconda Prompt* icon. A black screen with a flashing charact
 <p align='center'><img alt="Anaconda Prompt" src="fig/0_windows_anaconda_prom.png" width="500"/>
 </p>
 
-Inside the prompt window, type `pip install pandas jupyterlab matplotlib` and press the <kbd>Enter</kbd> key.
+Inside the prompt window, type `conda install jupyterlab pandas matplotlib` and press the <kbd>Enter</kbd> key.
 
-<p align='center'><img alt="Anaconda Prompt" src="fig/0_win_pip_install.png" width="500"/>
+You may be prompted to press the <kbd>a</kbd> key twice, followed by the
+<kbd>y</kbd> key. The required software for this workshop will be downloaded from
+the internet.
+
+<p align='center'><img alt="Anaconda Prompt" src="fig/0_win_conda_install.png" width="500"/>
 </p>
-
-The packages required for this workshop will install.
 
 After the installation finishes, the cursor will flash again. Congratulations, you have
 installed Python and Jupyter Lab!
 
 ### Launching Jupyter Lab
 
-Congratulations! You've installed Jupyter Lab. You will not
-need to perform these installation steps again.
-
-In the future you can launch Juptyer Lab by doing the following:
+In the future, you can launch Jupyter Lab with the following steps:
 
 2. Open *Anaconda Prompt*.
 3. Type `jupyter lab` inside the terminal and press the Enter key.
@@ -257,9 +262,6 @@ JupyterLab will launch in a new tab in your default web browser.
 
 <p align='center'>   <img alt="JupyterLab at Launch" src="fig/0_jupyter_lab_interface.png" width="600"/>
 </p>
-
-After everyone has installed Jupyter Lab, we will talk about 
-how to create, edit, and save Python projects.
 
 ## The JupyterLab Interface
 
@@ -361,7 +363,7 @@ The output will display the current directory path.
 <p align='center'>   <img alt="Print Working Directory from within Python" src="fig/0_pwd.png" width="700"/>
 </p>
   
-This magic command passes the "print working directory" command to your computer. [Learn more about pwd here](https://superbasics.beholder.uk/command-line/example-pwd/) ([https://superbasics.beholder.uk/command-line/example-pwd/](https://superbasics.beholder.uk/command-line/example-pwd/)).
+This magic command passes the "print working directory" command to your computer. **[Learn more about pwd here](https://superbasics.beholder.uk/command-line/example-pwd/).**
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
