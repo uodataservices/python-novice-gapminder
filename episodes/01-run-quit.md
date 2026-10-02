@@ -323,7 +323,9 @@ Table: Showing some markdown syntax and its rendered output.
 
 The data we will be using is taken from the [gapminder] dataset.
 To obtain it, download and unzip the file
-[python-novice-gapminder-data.zip](files/python-novice-gapminder-data.zip).
+[python-novice-gapminder-data.zip](files/python-novice-gapminder-data.zip)
+ to your *PythonWorkshop* folder.
+
 
 
 :::::::::::::::::::::::::::::::::::::::  challenge
