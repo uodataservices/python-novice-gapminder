@@ -24,33 +24,14 @@ exercises: 0
 
 ## Getting Started with JupyterLab
 
-JupyterLab is an application server with a web user interface from [Project Jupyter][jupyter] that
-enables one to work with documents and activities such as Jupyter notebooks, text editors, terminals,
-and even custom components in a flexible, integrated, and extensible manner. JupyterLab requires a
-reasonably up-to-date browser (ideally a current version of Chrome, Safari, or Firefox); Internet
-Explorer versions 9 and below are *not* supported.
+We going to use Jupyter Notebooks via JupyterLab for the remainder of this workshop.
 
-JupyterLab is included as part of the Anaconda Python distribution. If you have not already
-installed the Anaconda Python distribution, see [the setup instructions](../learners/setup.md)
-for installation instructions.
+JupyterLab has several other handy features:
 
-In this lesson we will run JupyterLab locally on our own machines so it will not require an internet connection besides
-the initial connection to download and install Anaconda and JupyterLab
-
-- Start the JupyterLab server on your machine
-- Use a web browser to open a special localhost URL that connects to your JupyterLab server
-- The JupyterLab server does the work and the web browser renders the result
-- Type code into the browser and see the results after your JupyterLab server has finished executing your code
-
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## JupyterLab? What about Jupyter notebooks?
-
-JupyterLab is the [next stage in the evolution of the Jupyter Notebook](https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#overview).
-If you have prior experience working with Jupyter notebooks, then you will have a good idea of what to expect from JupyterLab.
-
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
+* You can easily type, edit, and copy/paste blocks of code.
+* Tab complete allows you to easily access the names of things you are using and learn more about them.
+* You can annotate your code with links, different sized text, bullets, etc. to make it more accessible to you and your collaborators.
+* It allows you to display visualizations next to the code that produces them to tell stories about data.
 
 ## Starting JupyterLab
 
@@ -121,8 +102,7 @@ When we open a Jupyter Notebook, that starts a kernel - a process - that is goin
 In this lesson, we'll be using the Jupyter ipython kernel which lets us run Python 3 code interactively.
 
 Using other Jupyter [kernels for other programming languages](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) would let us
-write and execute code in other programming languages in the same JupyterLab interface, like R, Java, Julia, Ruby, JavaScript, Fortran,
-etc.
+write and execute code in other programming languages in the same JupyterLab interface, like R, Java, Julia or Ruby.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -242,11 +222,11 @@ Jupyter mixes code and text in different types of blocks, called cells. We often
 
 ## Command Vs. Edit
 
-In the Jupyter notebook page are you currently in Command or Edit mode?  
-Switch between the modes.
-Use the shortcuts to generate a new cell.
-Use the shortcuts to delete a cell.
-Use the shortcuts to undo the last cell operation you performed.
+* In the Jupyter notebook page are you currently in Command or Edit mode?  
+* Switch between the modes.
+* Use the shortcuts to generate a new cell.
+* Use the shortcuts to delete a cell.
+* Use the shortcuts to undo the last cell operation you performed.
 
 :::::::::::::::  solution
 
@@ -339,18 +319,21 @@ Table: Showing some markdown syntax and its rendered output.
 | ```                                   |                                                |
 +---------------------------------------+------------------------------------------------+
 
+## Adding Data to Your Project Folder
+
+The data we will be using is taken from the [gapminder] dataset.
+To obtain it, download and unzip the file
+[python-novice-gapminder-data.zip](files/python-novice-gapminder-data.zip).
+
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
 ## Creating Lists in Markdown
 
-Create a nested list in a Markdown cell in a notebook that looks like this:
+Create a list in a Markdown cell in a notebook that looks like this:
 
 1. Get funding.
 2. Do work.
-  - Design experiment.
-  - Collect data.
-  - Analyze.
 3. Write up.
 4. Publish.
 
@@ -358,15 +341,11 @@ Create a nested list in a Markdown cell in a notebook that looks like this:
 
 ## Solution
 
-This challenge integrates both the numbered list and bullet list.
-Note that the bullet list is indented 2 spaces so that it is inline with the items of the numbered list.
+Your list should look like this.
 
 ```
 1.  Get funding.
 2.  Do work.
-    *   Design experiment.
-    *   Collect data.
-    *   Analyze.
 3.  Write up.
 4.  Publish.
 ```
@@ -438,6 +417,7 @@ x = 6 * 7 + 12 print(x)
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+
 ## Closing JupyterLab
 
 - From the Menu Bar select the "File" menu and then choose "Shut Down" at the bottom of the dropdown menu. You will be prompted to confirm that you wish to shutdown the JupyterLab server (don't forget to save your work!). Click "Shut Down" to shutdown the JupyterLab server.
@@ -470,8 +450,8 @@ Practice closing and restarting the JupyterLab server.
 - Use the JupyterLab Notebook interface for editing and running Python.
 - Use the keyboard and mouse to select and edit cells.
 - Jupyter Notebooks turn Markdown into pretty-printed documentation.
-- Markdown does most of what HTML does.
+- Markdown can be used to format commentary on Python code.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-
+[gapminder]: https://en.wikipedia.org/wiki/Gapminder_Foundation

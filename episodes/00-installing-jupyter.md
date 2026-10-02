@@ -28,12 +28,6 @@ You only need to install and configure Python once for this workshop, so future 
 
 [Jupyter Lab](https://jupyterlab.readthedocs.io/en/latest/) is a special Python library with an integrated web user interface from [Project Jupyter][jupyter] that enables one to work with documents and activities such as Jupyter notebooks, text editors, terminals, and even custom components in a flexible, integrated, and extensible manner.
 
-## Jupyter Notebooks
-
-Jupyter notebooks are common in data science and visualization and serve as a convenient common-denominator experience for running Python code interactively where we can easily view and share the results of our Python code.
-
-There are other ways of editing, managing, and running code, but Jupyter notebooks let us execute and view the results of our Python code immediately within the notebook.
-
 ## Installing Python
 The easiest way to install Python and JupyterLab will depend on your operating system.
 
@@ -242,11 +236,10 @@ You may be prompted to press the <kbd>a</kbd> key twice, followed by the
 <kbd>y</kbd> key. The required software for this workshop will be downloaded from
 the internet.
 
-<p align='center'><img alt="Anaconda Prompt" src="fig/0_win_conda_install.png" width="500"/>
+<p align='center'><img alt="Installation Finished" src="fig/0_win_conda_install.png" width="500"/>
 </p>
 
-After the installation finishes, the cursor will flash again. Congratulations, you have
-installed Python and Jupyter Lab!
+After the installation finishes, you will see a message like the one above. Congratulations, you have installed Python and Jupyter Lab!
 
 ### Launching Jupyter Lab
 
@@ -308,7 +301,7 @@ by clicking on the active sidebar tab.
 
 
 Step 1: Click on view in the menu bar. This opens a drop down menu of options. 	Select “File Browser”  
-<p align='center'>   <img alt="Show File Browser in Menu" src="fig/0_jupyterlab_show_filebrowser.png" width="750"/>
+<p align='center'>   <img alt="Show File Browser in Menu" src="fig/0_jupyterlab_show_filebrowser.png" width="450"/>
 </p>
  
 Step 2: When you click on File Browser, this will open the file directory as shown above.  
@@ -317,10 +310,10 @@ Step 2: When you click on File Browser, this will open the file directory as sho
 
 ## What is a Working Directory?
 
-- A working directory (or current working directory) is the current folder or location on a computer's file system where a program operates. 
+- A working directory (or current working directory) is the location on a computer's filesystem where a program operates. 
 - The working directory is the location where Python will look for files you want to load and where it will put any files you save.
 - You will write your code in Jupyter Notebooks, and save the code file for later in a folder. Jupyter Notebooks are a special file type that end in `.ipynb`.
-- It's a good idea to save your code files in the same folder where you save any data files that you want to analyze. In this workshop your data files will be in the open source spreadsheet format `.csv`. 
+- It's a good idea to save your data files in a named subfolder, separate from your code. In this workshop your data files will be in the open source spreadsheet format `.csv`. 
   
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

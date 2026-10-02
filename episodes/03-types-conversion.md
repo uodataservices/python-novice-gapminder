@@ -1,7 +1,7 @@
 ---
 title: Data Types and Type Conversion
-teaching: 10
-exercises: 10
+teaching: 15
+exercises: 15
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
@@ -433,6 +433,7 @@ third = "1.1"
 ## Solution
 
 Answer: 1 and 4
+
 
 :::::::::::::::::::::::::
 

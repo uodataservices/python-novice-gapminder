@@ -6,8 +6,10 @@ exercises: 20
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Write programs that assign scalar values to variables and perform calculations with those values.
-- Correctly trace value changes in programs that use scalar assignment.
+- Write programs that assign values to variables and perform calculations with those values.
+- Correctly trace value changes in programs.
+- Use basic mathematical operations in Python.
+- Identify and use strings in Python.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -90,7 +92,9 @@ NameError: name 'last_name' is not defined
 
 Be aware that it is the *order* of execution of cells that is important in a Jupyter notebook, not the order
 in which they appear. Python will remember *all* the code that was run previously, including any variables you have
-defined, irrespective of the order in the notebook. Therefore if you define variables lower down the notebook and then
+defined, irrespective of the order in the notebook. 
+
+Therefore if you define variables lower down the notebook and then
 (re)run cells further up, those defined further down will still be present. As an example, create two cells with the
 following content, in this order:
 
