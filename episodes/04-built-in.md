@@ -270,8 +270,8 @@ There are several other ways that people often get help when they are stuck with
 * Ask somebody "in the real world". 
   If you have a colleague or friend with more expertise in Python than you have, show them the problem you are having and ask them for help.
 
-## What About Generative AI
-We recommend *against* using generative AI tools. This workshop is intended to teach you the grammar
+### What About Generative AI?
+We recommend *against* using generative AI tools for the exercises in this workshop. This workshop is intended to teach you the grammar of Python *and* strategies for solving programming problems. You will not be able to understand or evaluate the results of Generate AI tools, should you choose to use them, if you do not master the fundamental skills presented here.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 

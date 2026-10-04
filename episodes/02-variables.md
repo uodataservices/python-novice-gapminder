@@ -8,18 +8,20 @@ exercises: 20
 
 - Write programs that assign values to variables and perform calculations with those values.
 - Correctly trace value changes in programs.
-- Use basic mathematical operations in Python.
-- Identify and use strings in Python.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I store data in programs?
+- What basic data types can I work with in Python?
+- How can I create a new variable in Python?
+- How do I use the `print()` function?
+- Can I change the value associated with a variable after I create it?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Use variables to store values.
+
+## Variables
 
 - **Variables** are names for values.
 

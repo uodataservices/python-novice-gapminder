@@ -1,7 +1,7 @@
 ---
 title: Running and Quitting
 teaching: 15
-exercises: 0
+exercises: 5
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
@@ -26,7 +26,7 @@ exercises: 0
 
 We going to use Jupyter Notebooks via JupyterLab for the remainder of this workshop.
 
-JupyterLab has several other handy features:
+JupyterLab has several useful features for Python programmers:
 
 * You can easily type, edit, and copy/paste blocks of code.
 * Tab complete allows you to easily access the names of things you are using and learn more about them.
@@ -99,6 +99,7 @@ menus are included by default.
 The JupyterLab [docs](https://jupyterlab.readthedocs.io/en/stable/user/documents_kernels.html)
 define kernels as "separate processes started by the server that runs your code in different programming languages and environments."
 When we open a Jupyter Notebook, that starts a kernel - a process - that is going to run the code.
+
 In this lesson, we'll be using the Jupyter ipython kernel which lets us run Python 3 code interactively.
 
 Using other Jupyter [kernels for other programming languages](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) would let us
@@ -176,10 +177,8 @@ example from the [official documentation][jupyterlab].
 <p align='center'>   <img alt="Multi-panel JupyterLab" src="fig/0_multipanel_jupyterlab_screenshot.png" width="750"/>
 </p>
 
-First, create a text file, Python console, and terminal window and arrange them into three
-panels in the main work area. Next, create a notebook, terminal window, and text file and
-arrange them into three panels in the main work area. Finally, create your own combination of
-panels and tabs. What combination of panels and tabs do you think will be most useful for your
+Use the Launcher to create a new text file called README.txt. Open your notebook, File Browser tab, and text file and
+arrange them into three panels in the main work area. What combination of panels and tabs do you think will be most useful for your
 workflow?
 
 :::::::::::::::  solution
@@ -191,7 +190,6 @@ move the tab to the panel; next you can subdivide a tab panel by dragging a tab 
 right, top, or bottom of the panel.
 
 
-
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -200,9 +198,69 @@ right, top, or bottom of the panel.
 
 ## Code vs. Text
 
-Jupyter mixes code and text in different types of blocks, called cells. We often use the term "code" to mean "code written in a language like Python".
+Jupyter mixes code and text in different types of blocks, called cells. We use the term "code" to mean "code written in a language like Python."
 * In this class, a "code cell" will always contain Python.
 * A "text cell" is one that contains ordinary prose written for human beings.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+## Python As a Calculator
+
+Python can be used as a calculator to perform basic mathematical operations like multiplication and addition.
+
+<p align='center'>   <img alt="Running code cells in JupyterLab" src="fig/01_python_code_cell.png" width="800"/>
+</p>
+
+
+Create a new cell in your Jupyter notebook. Make sure it is a "Code" cell. Type the following and press the ▶ *Play Button* or <kbd>Shift</kbd>+<kbd>Enter</kbd> on your keyboard to run your code.
+
+```python
+3 + 5
+```
+
+```output
+8
+```
+
+Python "knows" order of operations, so multiplication is applied before division. Run the following calculation in a new cell underneath the first one.
+
+```python
+3 + 5 * 4
+```
+
+```output
+23
+```
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Negative Numbers?
+
+You can use parentheses in mathematical expressions in Python. Statements in parentheses are always evaluated first.
+
+Adjust the following code by inserting parentheses so that it returns a *negative number* as a result. Do not change anything else about the code.
+
+```python
+10 * 3 - 5
+```
+
+Remember to run the code cell to check your work.
+
+:::::::::::::::  solution
+
+## Solution
+
+By default, multiplication is evaluated before subtraction. Insert parentheses around `3 - 5` so that 10 is multiplied by `-2` instead.
+
+```python
+10 * (3 - 5)
+```
+
+```output
+-20
+```
+:::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -321,10 +379,30 @@ Table: Showing some markdown syntax and its rendered output.
 
 ## Adding Data to Your Project Folder
 
-The data we will be using is taken from the [gapminder] dataset.
-To obtain it, download and unzip the file
+:::::::::::::::::::::::::::::::::::::::: caution
+
+Please do not leave the workshop today until you have a `PythonWorkshop` folder with a `data` folder inside.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+The data we will be using for this project is taken from the [gapminder] dataset.
+
+To add the data to your project, **download and unzip the file
 [python-novice-gapminder-data.zip](files/python-novice-gapminder-data.zip)
- to your *PythonWorkshop* folder.
+ to your `PythonWorkshop` folder**.
+
+<p align='center'>   <img alt="JupyterLab Project with Data" src="fig/01_project_layout.png" width="600"/>
+</p>
+
+Double-click (MacOS) or right-click->*Extract All* the `python-novice-gapminder-data.zip` (Windows) file to extract a folder of data from the zip file. The unzipped folder will be named *data*.
+
+Copy the *data* folder into your `PythonWorkshop` folder.
+
+<p align='center'>   <img alt="JupyterLab Project with Gapminder Data" src="fig/01_gapminder_data.png" width="600"/>
+</p>
+
+Click the ⟳ refresh symbol in the JupyterLab File Browser, then click inside the `data` folder to inspect its
+contents from within JupyterLab. You should see six files inside the `data` folder.
 
 
 
@@ -418,26 +496,6 @@ x = 6 * 7 + 12 print(x)
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-## Closing JupyterLab
-
-- From the Menu Bar select the "File" menu and then choose "Shut Down" at the bottom of the dropdown menu. You will be prompted to confirm that you wish to shutdown the JupyterLab server (don't forget to save your work!). Click "Shut Down" to shutdown the JupyterLab server.
-- To restart the JupyterLab server you will need to re-run the following command from a shell.
-
-```
-$ jupyter lab
-```
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Closing JupyterLab
-
-Practice closing and restarting the JupyterLab server.
-
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
 
 
 [jupyterlab]: https://jupyterlab.readthedocs.io/en/stable/

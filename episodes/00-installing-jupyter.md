@@ -16,7 +16,7 @@ exercises: 0
 :::::::::::::::::::::::::::::::::::::::: questions
 
 - How do I install Python?
-- How do I launch Jupyter Lab?
+- How do I launch JupyterLab?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -26,7 +26,7 @@ exercises: 0
 In this activity, you will install Python to your personal computer. 
 You only need to install and configure Python once for this workshop, so future lessons will assume that you already have Python installed.
 
-[Jupyter Lab](https://jupyterlab.readthedocs.io/en/latest/) is a special Python library with an integrated web user interface from [Project Jupyter][jupyter] that enables one to work with documents and activities such as Jupyter notebooks, text editors, terminals, and even custom components in a flexible, integrated, and extensible manner.
+[JupyterLab](https://jupyterlab.readthedocs.io/en/latest/) is a special Python library with an integrated web user interface from [Project Jupyter][jupyter] that enables one to work with documents and activities such as Jupyter notebooks, text editors, terminals, and even custom components in a flexible, integrated, and extensible manner.
 
 ## Installing Python
 The easiest way to install Python and JupyterLab will depend on your operating system.
@@ -101,7 +101,7 @@ Wait while Miniconda installs. This should take fewer than 5 minutes.
 
 When the installation has finished, close the installer window by clicking *Close*.
 
-### Installing Jupyter Lab
+### Installing JupyterLab
 
 Look for the magnifying glass icon in the top right corner of your screen.
 Search for *Terminal* and click the icon to launch the Terminal application.
@@ -129,12 +129,12 @@ a blinking cursor, that means that the terminal
 is waiting for another command. You are ready to launch JupyterLab.
 
 
-### Launching Jupyter Lab
+### Launching JupyterLab
 
 <p align='center'>   <img alt="JupyterLab Launch" src="fig/0_mac_jupyter_prompt.png" width="600"/>
 </p>
 
-Congratulations! You've installed Jupyter Lab. You will not
+Congratulations! You've installed JupyterLab. You will not
 need to perform these installation steps again.
 
 In the future you can launch Juptyer Lab by doing the following:
@@ -213,7 +213,7 @@ When the application has finished installing, click *Next*.
 
 You will reach a final screen. Uncheck both boxes (you can read up on Miniconda later) and click *Finish*.
 
-### Installing Jupyter Lab
+### Installing JupyterLab
 
 Click the symbol on the bottom of your screen or press the <kbd>Windows ⊞</kbd> key on your keyboard. This
 will open up the Windows Start Menu.
@@ -239,11 +239,11 @@ the internet.
 <p align='center'><img alt="Installation Finished" src="fig/0_win_conda_install.png" width="500"/>
 </p>
 
-After the installation finishes, you will see a message like the one above. Congratulations, you have installed Python and Jupyter Lab!
+After the installation finishes, you will see a message like the one above. Congratulations, you have installed Python and JupyterLab!
 
-### Launching Jupyter Lab
+### Launching JupyterLab
 
-In the future, you can launch Jupyter Lab with the following steps:
+In the future, you can launch JupyterLab with the following steps:
 
 2. Open *Anaconda Prompt*.
 3. Type `jupyter lab` inside the terminal and press the Enter key.
@@ -319,9 +319,9 @@ Step 2: When you click on File Browser, this will open the file directory as sho
 
 ## Create a Folder for This Workshop
 
-When you run the command `jupyter lab` in Terminal (Mac OS) or Anaconda Prompt (Windows), Jupyter Lab will launch in your home directory.
+When you run the command `JupyterLab` in Terminal (Mac OS) or Anaconda Prompt (Windows), JupyterLab will launch in your home directory.
 
-Inside your *Documents* folder, create a new folder named PythonWorkshop.
+Inside your *Documents* or *Desktop* folder, create a new folder named PythonWorkshop.
 
 <p align='center'>   <img alt="Create PythonWorkshop folder" src="fig/0_jupyter_folder_creation.png" width="300"/>
 </p>
@@ -336,7 +336,7 @@ Navigate to that folder in the JupyterLab File Browser by clicking on it. You wi
 
 ## Create and Save a Jupyter Notebook File to your Working Directory
 
-In the central pane of the Jupyter Lab interface, click on Python 3 in the Launcher to create a new Jupyter Notebook: 
+In the central pane of the JupyterLab interface, click on Python 3 in the Launcher to create a new Jupyter Notebook: 
 
 <p align='center'>   <img alt="Launch a New Python3 Notebook" src="fig/0_jupyterlab_new_notebook.png" width="250"/>
 </p>
@@ -345,7 +345,7 @@ Use the menu or save icon to save this blank notebook. Make sure to name it some
 
 In the future, you can open your notebooks by navigating to the PythonWorkshop folder through the *File Browser* pane in JupyterLab. 
 
-You can see (and modify) this folder in File Explorer (Windows) or Finder (MacOS) too. You might, for example, want to add data to this folder, or add a data subfolder. Note, however that **you cannot open your Python notebooks (.ipynb) by clicking on them from File Explorer or Finder**. You must open them through the JupyterLab *File Browser*.
+You can see (and modify) this folder in File Explorer (Windows) or Finder (MacOS) too. Note that **you cannot open your Python notebooks (.ipynb) by clicking on them from File Explorer or Finder**. You must open them through the JupyterLab *File Browser*.
 
 ## Verify your Working Directory
 
