@@ -8,7 +8,7 @@ exercises: 5
 
 - Launch JupyterLab.
 - Create a Jupyter notebook.
-- Shutdown the JupyterLab server.
+- Shut down the JupyterLab server.
 - Create Markdown cells in a notebook.
 - Create and run Python cells in a notebook.
 - Distinguish between Markdown cells and Python cells.
@@ -24,7 +24,7 @@ exercises: 5
 
 ## Getting Started with JupyterLab
 
-We going to use Jupyter Notebooks via JupyterLab for the remainder of this workshop.
+We're going to use JupyterLab for the remainder of this workshop.
 
 JupyterLab has several useful features for Python programmers:
 
@@ -37,8 +37,8 @@ JupyterLab has several useful features for Python programmers:
 
 You can start the JupyterLab server through the command line via the Terminal (Mac) or 
 via `Anaconda Prompt` (Windows). Anaconda Prompt is included as part of the Miniconda Python distribution you have installed.
-Remember that you cannot open Jupyter notebooks (`.ipynb` files) by clicking on them directly. 
-Instead, you will need to open JupyterLab and open your notebooks using the JupyterLab *File Browser*.
+
+You cannot open Jupyter notebooks (`.ipynb` files) by clicking on them directly. Instead, you will need to open JupyterLab and open your notebooks using the JupyterLab *File Browser*.
 
 ### macOS - Command Line
 
@@ -50,10 +50,10 @@ There are two ways to open Terminal on Mac.
 2. Press <kbd>Command</kbd> + <kbd>spacebar</kbd> to launch Spotlight. Type `Terminal` and then
   double-click the search result or hit <kbd>Enter</kbd>
 
-After you have launched Terminal, type the command to launch the JupyterLab server.
+Inside the Terminal, enter the following command to launch JupyterLab.
 
 ```bash
-$ jupyter lab
+jupyter lab
 ```
 
 ### Windows Users - Command Line
@@ -62,10 +62,10 @@ To start the JupyterLab server you will need to access the Anaconda Prompt.
 
 Press <kbd>Windows Logo Key</kbd> and search for `Anaconda Prompt`, click the result or press enter.
 
-After you have launched the Anaconda Prompt, type the command:
+Inside Anaconda Prompt, enter the following command to launch JupyterLab.
 
 ```bash
-$ jupyter lab
+jupyter lab
 ```
 
 ## The JupyterLab Interface
@@ -86,7 +86,7 @@ menus are included by default.
 - **File:** Actions related to files and directories such as *New*, *Open*, *Close*, *Save*, etc. The *File* menu also includes the *Shut Down* action used to shutdown the JupyterLab server.
 - **Edit:** Actions related to editing documents and other activities such as *Undo*, *Cut*, *Copy*, *Paste*, etc.
 - **View:** Actions that alter the appearance of JupyterLab.
-- **Run:** Actions for running code in different activities such as notebooks and code consoles (discussed below).
+- **Run:** Actions for running code.
 - **Kernel:** Actions for managing kernels. Kernels in Jupyter will be explained in more detail below.
 - **Tabs:** A list of the open documents and activities in the main work area.
 - **Settings:** Common JupyterLab settings can be configured using this menu. There is also an *Advanced Settings Editor* option in the dropdown menu that provides more fine-grained control of JupyterLab settings and configuration options.
@@ -97,13 +97,12 @@ menus are included by default.
 ## Kernels
 
 The JupyterLab [docs](https://jupyterlab.readthedocs.io/en/stable/user/documents_kernels.html)
-define kernels as "separate processes started by the server that runs your code in different programming languages and environments."
-When we open a Jupyter Notebook, that starts a kernel - a process - that is going to run the code.
+define kernels as "separate processes started by the server that run your code in different programming languages and environments."
 
-In this lesson, we'll be using the Jupyter ipython kernel which lets us run Python 3 code interactively.
-
-Using other Jupyter [kernels for other programming languages](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) would let us
-write and execute code in other programming languages in the same JupyterLab interface, like R, Java, Julia or Ruby.
+* Opening a Jupyter Notebook starts a kernel process for running code.
+* By default, Jupyter runs Python code using an IPython kernel.
+* Using other Jupyter [kernels for other programming languages](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) would let us run code in other 
+programming languages—like R, Julia, or Ruby—in the same JupyterLab interface.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -161,8 +160,8 @@ more details, then see the [official notebook documentation][jupyterlab-notebook
 ## How It's Stored
 
 - The notebook file is stored in a format called JSON.
-- Just like a webpage, what's saved looks different from what you see in your browser.
-- But this format allows Jupyter to mix source code, text, and images, all in one file.
+- Just like a web page, what's saved looks different from what you see in your browser.
+- The JSON format allows Jupyter to mix source code, text, and images in one file.
   
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -199,13 +198,14 @@ right, top, or bottom of the panel.
 ## Code vs. Text
 
 Jupyter mixes code and text in different types of blocks, called cells. We use the term "code" to mean "code written in a language like Python."
+
 * In this class, a "code cell" will always contain Python.
 * A "text cell" is one that contains ordinary prose written for human beings.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-## Python As a Calculator
+## Using Python as a Calculator
 
 Python can be used as a calculator to perform basic mathematical operations like multiplication and addition.
 
@@ -223,7 +223,7 @@ Create a new cell in your Jupyter notebook. Make sure it is a "Code" cell. Type 
 8
 ```
 
-Python "knows" order of operations, so multiplication is applied before division. Run the following calculation in a new cell underneath the first one.
+Python "knows" order of operations, so multiplication is applied before addition. Run the following calculation in a new cell.
 
 ```python
 3 + 5 * 4
@@ -237,7 +237,7 @@ Python "knows" order of operations, so multiplication is applied before division
 
 ## Negative Numbers?
 
-You can use parentheses in mathematical expressions in Python. Statements in parentheses are always evaluated first.
+You can use parentheses with mathematical expressions in Python. Statements inside parentheses are always evaluated first.
 
 Adjust the following code by inserting parentheses so that it returns a *negative number* as a result. Do not change anything else about the code.
 
@@ -278,7 +278,7 @@ By default, multiplication is evaluated before subtraction. Insert parentheses a
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Command Vs. Edit
+## Command vs. Edit
 
 * In the Jupyter notebook page are you currently in Command or Edit mode?  
 * Switch between the modes.
@@ -290,7 +290,7 @@ By default, multiplication is evaluated before subtraction. Insert parentheses a
 
 ## Solution
 
-Command mode has a grey border and Edit mode has a blue border.
+Command mode has a gray border and Edit mode has a blue border.
 Use <kbd>Esc</kbd> and <kbd>Return</kbd> to switch between modes.
 You need to be in Command mode (Press <kbd>Esc</kbd> if your cell is blue).  Type <kbd>b</kbd> or <kbd>a</kbd>.
 You need to be in Command mode (Press <kbd>Esc</kbd> if your cell is blue).  Type <kbd>x</kbd>.
@@ -321,11 +321,11 @@ You need to be in Command mode (Press <kbd>Esc</kbd> if your cell is blue).  Typ
     and other things that might go into a web page.
   - Equivalently, a subset of HTML that looks like what you'd send in an old-fashioned email.
 - Turn the current cell into a Markdown cell by entering the Command mode (<kbd>Esc</kbd>/gray)
-  and press the <kbd>M</kbd> key.
+  and pressing the <kbd>M</kbd> key.
 - `In [ ]:` will disappear to show it is no longer a code cell and you will be able to write in
   Markdown.
 - Turn the current cell into a Code cell by entering the Command mode (<kbd>Esc</kbd>/gray) and
-  press the <kbd>y</kbd> key.
+  pressing the <kbd>y</kbd> key.
 
 ### Markdown allows you to "style" text cells.
 
@@ -345,7 +345,7 @@ Table: Showing some markdown syntax and its rendered output.
 | ```                                   | <p></p>                                        |
 | 1.   Use numbers                      | 1.   Use numbers                               |
 | 1.   to create                        | 2.   to create                                 |
-| 1.   bullet lists.                    | 3.   numbered lists.                           |
+| 1.   numbered lists.                    | 3.   numbered lists.                           |
 | ```                                   |                                                |
 +---------------------------------------+------------------------------------------------+
 +---------------------------------------+------------------------------------------------+
@@ -371,7 +371,7 @@ Table: Showing some markdown syntax and its rendered output.
 | ```                                   | <p></p>                                        |
 | [Links](http://software-carpentry.org)| [Links](https://software-carpentry.org)        |
 | are created with `[...](...)`.        | are created with `[...](...)`.                 |
-| Or use [named links][data-carp].      | Or use [named links][data_carpentry].          |
+| Or use [named links][data-carp].      | Or use [named links][data-carp].          |
 |                                       |                                                |
 | [data-carp]: http://datacarpentry.org |                                                |
 | ```                                   |                                                |
@@ -379,24 +379,19 @@ Table: Showing some markdown syntax and its rendered output.
 
 ## Adding Data to Your Project Folder
 
-:::::::::::::::::::::::::::::::::::::::: caution
 
-Please do not leave the workshop today until you have a `PythonWorkshop` folder with a `data` folder inside.
+The data we will be using for this workshop is taken from the [gapminder] dataset.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-The data we will be using for this project is taken from the [gapminder] dataset.
-
-To add the data to your project, **download and unzip the file
+To add the data to your Python project, **download and unzip the file
 [python-novice-gapminder-data.zip](files/python-novice-gapminder-data.zip)
  to your `PythonWorkshop` folder**.
 
 <p align='center'>   <img alt="JupyterLab Project with Data" src="fig/01_project_layout.png" width="600"/>
 </p>
 
-Double-click (MacOS) or right-click->*Extract All* the `python-novice-gapminder-data.zip` (Windows) file to extract a folder of data from the zip file. The unzipped folder will be named *data*.
+Double-click the zip file (MacOS) or right-click->*Extract All* (Windows) to extract a folder of data. The unzipped folder will be named `data`.
 
-Copy the *data* folder into your `PythonWorkshop` folder.
+Copy the `data` folder into your `PythonWorkshop` folder.
 
 <p align='center'>   <img alt="JupyterLab Project with Gapminder Data" src="fig/01_gapminder_data.png" width="600"/>
 </p>
@@ -404,7 +399,25 @@ Copy the *data* folder into your `PythonWorkshop` folder.
 Click the ⟳ refresh symbol in the JupyterLab File Browser, then click inside the `data` folder to inspect its
 contents from within JupyterLab. You should see six files inside the `data` folder.
 
+:::::::::::::::::::::::::::::::::::::::: checklist
 
+Make sure you have a `PythonWorkshop` folder with a `data` folder inside before the first workshop session ends.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Closing JupyterLab
+
+From the Menu Bar select the *File* menu and then choose *Shut Down* at the bottom of the dropdown menu. You will be prompted to confirm that you wish to shutdown the JupyterLab server (don't forget to save your work!).
+
+Click *Shut Down* to shut down the JupyterLab server.
+
+You can now close the terminal application you used to launch the server.
+
+To restart the JupyterLab server you will need to re-run the following command from Terminal (MacOS) or Anaconda Prompt (Windows).
+
+```bash
+$ jupyter lab
+```
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -459,7 +472,7 @@ Python returns the output of the last calculation.
 
 :::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -492,11 +505,56 @@ This could be useful to temporarily turn on and off cells in notebooks that get 
 x = 6 * 7 + 12 print(x)
 ```
 
-
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Reasoning with True and False
+
+Python can evaluate whether or not mathematical statements are True or False. 
+
+You can read the following statement as asking "is 3 less than 5?" Try running it.
+
+```python
+3 < 5
+```
+```output
+True
+```
+
+Change one *symbol* in the following statement to make it return `True` instead. Keep in mind that arithmetic is always evaluated before operators like `<` or `>`.
+
+```python
+5 + 4 < 7
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+You have two choices here: change the `+` to a `-` or change the `<` to `>`. 
+
+
+This evaluates to "is 1 less than 7?"
+```python
+5 - 4 < 7
+```
+```output
+True
+```
+
+While this evaluates to "is 9 greater than 7?"
+```python
+5 + 4 > 7
+```
+```output
+True
+```
+:::::::::::::::::::::::::
+
+:::::::::::::::::::::::::
 
 [jupyterlab]: https://jupyterlab.readthedocs.io/en/stable/
 [jupyterlab-ui]: https://jupyterlab.readthedocs.io/en/stable/user/interface.html

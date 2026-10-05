@@ -7,8 +7,8 @@ exercises: 0
 ::::::::::::::::::::::::::::::::::::::: objectives
 
 - Download and install Python.
-- Install the JupyterLab and Pandas packages.
-- Learn about folders and files on your computer.
+- Install the JupyterLab, Pandas, and Matplotlib packages.
+- Organize folders and files on your computer.
 - Create a folder to hold the Jupyter notebooks you will create during this workshop series.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -26,13 +26,13 @@ exercises: 0
 In this activity, you will install Python to your personal computer. 
 You only need to install and configure Python once for this workshop, so future lessons will assume that you already have Python installed.
 
-[JupyterLab](https://jupyterlab.readthedocs.io/en/latest/) is a special Python library with an integrated web user interface from [Project Jupyter][jupyter] that enables one to work with documents and activities such as Jupyter notebooks, text editors, terminals, and even custom components in a flexible, integrated, and extensible manner.
+[JupyterLab](https://jupyterlab.readthedocs.io/en/latest/) is an application developed by [Project Jupyter][jupyter] that enables one to working with Jupyter notebooks, text editors, terminals, and even custom components in a flexible, integrated, and extensible manner.
 
 ## Installing Python
 The easiest way to install Python and JupyterLab will depend on your operating system.
 
-- **If you have a Mac laptop, [click here](#installing-python-macos).**
-- **If you have a Windows laptop, [click here](#installing-python-windows).**
+- **If you have a Mac laptop, [install for MacOS](#installing-python-macos).**
+- **If you have a Windows laptop, [install for Windows](#installing-python-windows).**
 
 :::::::::::::::::::::::::::::::::::::::: caution
 
@@ -44,7 +44,7 @@ If you encounter an error during the installation process, please flag down an a
 
 Before installing Python on a Mac, you will need to know the [type of processor](https://support.apple.com/en-us/116943) it has. 
 
-Depending on when you bought your laptop, your Mac may have an Apple Silicon chip or an Intel Chip. For Python to work correctly, you must install the version that corresponds to your laptop's chip.
+Depending on when you bought your laptop, your Mac may have an Apple Silicon chip or an Intel chip. For Python to work correctly, you must install the version that corresponds to your laptop's chip.
 
 ### Finding Your Processor Chip Type
 
@@ -80,11 +80,11 @@ A graphical installer will launch.
 <p align='center'>   <img alt="Installation Screen" src="fig/0_miniconda_mac_start.png" width="600"/>
 </p>
 
-Press *Continue* to nagivate through the installer. Click *Agree* to the terms of the End User License Agreement. 
+Press *Continue* to navigate through the installer. Click *Agree* to the terms of the End User License Agreement. 
 
 When prompted to select a destination for your Python installation, select "Install for all users of this computer".
 
-This will install Miniconda (and Python) to the `/opt/bin/miniconda` folder. Click *Continue*.
+This will install Miniconda (and Python) to your computer. Click *Continue*.
 
 <p align='center'>   <img alt="Select a Destination" src="fig/0_miniconda_mac_all.png" width="600"/>
 </p>
@@ -137,7 +137,7 @@ is waiting for another command. You are ready to launch JupyterLab.
 Congratulations! You've installed JupyterLab. You will not
 need to perform these installation steps again.
 
-In the future you can launch Juptyer Lab by doing the following:
+Now, and in the future you can launch Juptyer Lab by doing the following:
 
 1. Search for *Terminal*.
 2. Open *Terminal*.
@@ -159,16 +159,16 @@ Python through an environment management tool called Miniconda.
 <p align='center'>   <img alt="Installation Screen" src="fig/0_windows_selec.png" width="700"/>
 </p>
 
-Click the Miniconda link on the right to download the file to your computer.  
+Click the Miniconda link to download the file to your computer.  
 
 
-### Installing Minconda
-Locate the downloaded file (it will often go to your Downloads folder by default) 
+### Installing Miniconda
+Locate the downloaded file (likely in your *Downloads* folder if you did not specify a location)
 to start the installation process. Double-click it.
 
-You will see a launcher like this open.
+You will see an installer like this open.
 
-<p align='center'>   <img alt="Minconda Installer" src="fig/0_win_miniconda_installer.png" width="400"/>
+<p align='center'>   <img alt="Miniconda Installer" src="fig/0_win_miniconda_installer.png" width="400"/>
 </p>
 
 Click *Next* to proceed to the next screen of the installer.
@@ -194,14 +194,14 @@ home directory, is appropriate.
 When asked about *Advanced Installation Options* make sure to check:
 
 * Create shortcuts
-* Register Miniconda3 as my default Python 3.14
+* Register Miniconda3 as my default Python.
 
 Leave the other boxes unchecked.
 
 <p align='center'>   <img alt="Miniconda Advanced Installation Options" src="fig/0_win_advanced_install.png" width="400"/>
 </p>
 
-Click *Install* to install Miniconda. This should take no more than five minutes.
+Click *Install* to install Miniconda. This should take less than five minutes.
 
 <p align='center'>   <img alt="Miniconda Installation Complete" src="fig/0_win_complete.png" width="400"/>
 </p>
@@ -225,7 +225,7 @@ In the Search box, type *Anaconda Prompt*. You should see a result like this:
 
 Click *Pin to taskbar*, as you'll need this later.
 
-Now, click on the *Anaconda Prompt* icon. A black screen with a flashing character will open
+Now, click on the *Anaconda Prompt* icon. A new window with a black screen will open.
 
 <p align='center'><img alt="Anaconda Prompt" src="fig/0_windows_anaconda_prom.png" width="500"/>
 </p>
@@ -245,8 +245,8 @@ After the installation finishes, you will see a message like the one above. Cong
 
 In the future, you can launch JupyterLab with the following steps:
 
-2. Open *Anaconda Prompt*.
-3. Type `jupyter lab` inside the terminal and press the Enter key.
+1. Open *Anaconda Prompt*.
+2. Type `jupyter lab` inside the prompt window and press the <kbd>Enter</kbd> key.
 
 <p align='center'>   <img alt="JupyterLab Launch" src="fig/0_win_jupyter_launch.png" width="600"/>
 </p>
@@ -262,7 +262,7 @@ JupyterLab has many features found in traditional integrated development environ
 is focused on providing flexible building blocks for interactive, exploratory computing.
 
 The [JupyterLab Interface](https://jupyterlab.readthedocs.io/en/4.4.x/user/interface.html)
-consists of the Menu Bar, a collapsable Left Side Bar, and the Main Work Area which contains tabs
+consists of the Menu Bar, a collapsible Left Side Bar, and the Main Work Area which contains tabs
 of documents and activities.
 
 ### Menu Bar
@@ -282,15 +282,17 @@ The main work area in JupyterLab enables you to arrange documents (notebooks, te
 and other activities (terminals, code consoles, etc.) into panels of tabs that can be resized or
 subdivided. A screenshot of the default Main Work Area is provided below.
 
-If you do not see the Launcher tab, click the blue plus sign under the "File" and "Edit" menus and it will appear.
+If you do not see the *Launcher* tab, click the blue plus sign under the *File* and *Edit* menus and it will appear.
 
 <p align='center'>   <img alt="JupyterLab Main Work Area" src="fig/0_jupyterlab_main_work_area.png" width="750"/>
 </p>
 
 ### Left Sidebar
 
-The left sidebar contains a number of commonly used tabs. Most importantly for us, it has a file browser (showing the
-contents of the directory where the JupyterLab server was launched). The directory where the JupyterLab server was launched will function as your working directory. This matters because if you want to reference other data files in your code, JupyterLab will look for them here by default. A screenshot of
+* By default, the left sidebar of a Jupyter notebook has a file browser showing the
+contents of the folder where JupyterLab was launched. 
+
+The directory where the JupyterLab server was launched will function as your working directory. This matters because if you want to reference other data files in your code, JupyterLab will look for them here by default. A screenshot of
 the default Left Side Bar is provided below.
 
 <p align='center'>   <img alt="JupyterLab Left Side Bar" src="fig/0_jupyterlab_left_side_bar.png" width="250"/>
@@ -299,27 +301,25 @@ the default Left Side Bar is provided below.
 The left sidebar can be collapsed or expanded by selecting "Show Left Sidebar" in the View menu or
 by clicking on the active sidebar tab.
 
-
-Step 1: Click on view in the menu bar. This opens a drop down menu of options. 	Select “File Browser”  
+1.  Click on view in the menu bar. This opens a drop down menu of options. 	Select “File Browser”  
 <p align='center'>   <img alt="Show File Browser in Menu" src="fig/0_jupyterlab_show_filebrowser.png" width="450"/>
 </p>
  
-Step 2: When you click on File Browser, this will open the file directory as shown above.  
+2. When you click on File Browser, this will open the file directory as shown above.  
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## What is a Working Directory?
 
-- A working directory (or current working directory) is the location on a computer's filesystem where a program operates. 
-- The working directory is the location where Python will look for files you want to load and where it will put any files you save.
-- You will write your code in Jupyter Notebooks, and save the code file for later in a folder. Jupyter Notebooks are a special file type that end in `.ipynb`.
-- It's a good idea to save your data files in a named subfolder, separate from your code. In this workshop your data files will be in the open source spreadsheet format `.csv`. 
+- The working directory is, unless you specify otherwise, the location on your computer's filesystem where Python will look for files you want to load and where it will put any files you save.
+- You will write your code in Jupyter Notebooks, and save them later in a folder.
+- It's a good idea to save your data files in a named subfolder, separate from your code. In this workshop your data files will be in `.csv` format. 
   
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Create a Folder for This Workshop
 
-When you run the command `JupyterLab` in Terminal (Mac OS) or Anaconda Prompt (Windows), JupyterLab will launch in your home directory.
+When you run the command `jupyter lab` in Terminal (MacOS) or Anaconda Prompt (Windows), JupyterLab will launch in your home directory.
 
 Inside your *Documents* or *Desktop* folder, create a new folder named PythonWorkshop.
 
@@ -328,9 +328,9 @@ Inside your *Documents* or *Desktop* folder, create a new folder named PythonWor
 
 * First, click on your Documents folder in the File Browser on the left.
   * You should now see the contents of your Documents or *My Documents* folder.
-* Next to the blue plus botton at the top left of the File Browser, you will see a folder icon. 
+* Next to the blue plus button at the top left of the File Browser, you will see a folder icon. 
   * Click the New Folder icon.
-  * Name your new folder PythonWorkshop.
+  * Name your new folder *PythonWorkshop*.
 
 Navigate to that folder in the JupyterLab File Browser by clicking on it. You will use this folder in all future workshop sessions.
 
@@ -341,7 +341,7 @@ In the central pane of the JupyterLab interface, click on Python 3 in the Launch
 <p align='center'>   <img alt="Launch a New Python3 Notebook" src="fig/0_jupyterlab_new_notebook.png" width="250"/>
 </p>
 
-Use the menu or save icon to save this blank notebook. Make sure to name it something helpful\! For example, `PythonWorkshop_1` or `PythonDay1`. Notice that JupyterLab will append `.ipynb` to the end of the name of the notebook. This is the file extension for Jupyter Notebooks.
+Use the menu or save icon to save this blank notebook. Make sure to name it something helpful. For example, `PythonWorkshop_1` or `PythonDay1`. Notice that JupyterLab will append `.ipynb` to the end of the name of the notebook. This is the file extension for Jupyter Notebooks.
 
 In the future, you can open your notebooks by navigating to the PythonWorkshop folder through the *File Browser* pane in JupyterLab. 
 
@@ -350,6 +350,7 @@ You can see (and modify) this folder in File Explorer (Windows) or Finder (MacOS
 ## Verify your Working Directory
 
 You can verify that you have the correct working directory by using what's called a *magic* command. 
+
 Use the `%pwd` magic command within a code cell to print the current working directory. 
 The output will display the current directory path.
 
@@ -358,12 +359,14 @@ The output will display the current directory path.
   
 This magic command passes the "print working directory" command to your computer. **[Learn more about pwd here](https://superbasics.beholder.uk/command-line/example-pwd/).**
 
+Your working directory path should end with `PythonWorkshop`, the name of your project directory for this workshop.
+
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - JupyterLab is an application for running, managing, and organizing Python
 code in files called Jupyter notebooks.
 - You will only need to install JupyterLab once for this workshop.
-- Your current working directory determines where programs are run and how
+- Your working directory determines where programs are run and how
 filepaths are interpreted.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
