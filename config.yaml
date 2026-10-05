@@ -64,19 +64,17 @@ episodes:
 - 02-variables.md
 - 03-types-conversion.md
 - 04-built-in.md
-- 06-libraries.md
-- 07-reading-tabular.md
-- 08-data-frames.md
-- 09-plotting.md
-- 11-lists.md
-- 12-for-loops.md
-- 13-conditionals.md
-- 14-looping-data-sets.md
+- 05-lists.md
+- 06-for-loops.md
+- 07-conditionals.md
+- 08-libraries.md
+- 09-reading-tabular.md
+- 10-data-frames.md
+- 11-plotting.md
 - 16-writing-functions.md
 - 17-scope.md
 - 18-style.md
 - 19-wrap.md
-- 20-feedback.md
 
 # Information for Learners
 learners: 
