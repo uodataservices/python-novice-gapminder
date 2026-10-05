@@ -19,7 +19,16 @@
     <loc>uodataservices.github.io/python-novice-gapminder/05-coffee.html</loc>
   </url>
   <url>
+    <loc>uodataservices.github.io/python-novice-gapminder/05-lists.html</loc>
+  </url>
+  <url>
+    <loc>uodataservices.github.io/python-novice-gapminder/06-for-loops.html</loc>
+  </url>
+  <url>
     <loc>uodataservices.github.io/python-novice-gapminder/06-libraries.html</loc>
+  </url>
+  <url>
+    <loc>uodataservices.github.io/python-novice-gapminder/07-conditionals.html</loc>
   </url>
   <url>
     <loc>uodataservices.github.io/python-novice-gapminder/07-reading-tabular.html</loc>
@@ -28,13 +37,25 @@
     <loc>uodataservices.github.io/python-novice-gapminder/08-data-frames.html</loc>
   </url>
   <url>
+    <loc>uodataservices.github.io/python-novice-gapminder/08-libraries.html</loc>
+  </url>
+  <url>
     <loc>uodataservices.github.io/python-novice-gapminder/09-plotting.html</loc>
+  </url>
+  <url>
+    <loc>uodataservices.github.io/python-novice-gapminder/09-reading-tabular.html</loc>
+  </url>
+  <url>
+    <loc>uodataservices.github.io/python-novice-gapminder/10-data-frames.html</loc>
   </url>
   <url>
     <loc>uodataservices.github.io/python-novice-gapminder/10-lunch.html</loc>
   </url>
   <url>
     <loc>uodataservices.github.io/python-novice-gapminder/11-lists.html</loc>
+  </url>
+  <url>
+    <loc>uodataservices.github.io/python-novice-gapminder/11-plotting.html</loc>
   </url>
   <url>
     <loc>uodataservices.github.io/python-novice-gapminder/12-for-loops.html</loc>
@@ -109,7 +130,16 @@
     <loc>uodataservices.github.io/python-novice-gapminder/instructor/05-coffee.html</loc>
   </url>
   <url>
+    <loc>uodataservices.github.io/python-novice-gapminder/instructor/05-lists.html</loc>
+  </url>
+  <url>
+    <loc>uodataservices.github.io/python-novice-gapminder/instructor/06-for-loops.html</loc>
+  </url>
+  <url>
     <loc>uodataservices.github.io/python-novice-gapminder/instructor/06-libraries.html</loc>
+  </url>
+  <url>
+    <loc>uodataservices.github.io/python-novice-gapminder/instructor/07-conditionals.html</loc>
   </url>
   <url>
     <loc>uodataservices.github.io/python-novice-gapminder/instructor/07-reading-tabular.html</loc>
@@ -118,13 +148,25 @@
     <loc>uodataservices.github.io/python-novice-gapminder/instructor/08-data-frames.html</loc>
   </url>
   <url>
+    <loc>uodataservices.github.io/python-novice-gapminder/instructor/08-libraries.html</loc>
+  </url>
+  <url>
     <loc>uodataservices.github.io/python-novice-gapminder/instructor/09-plotting.html</loc>
+  </url>
+  <url>
+    <loc>uodataservices.github.io/python-novice-gapminder/instructor/09-reading-tabular.html</loc>
+  </url>
+  <url>
+    <loc>uodataservices.github.io/python-novice-gapminder/instructor/10-data-frames.html</loc>
   </url>
   <url>
     <loc>uodataservices.github.io/python-novice-gapminder/instructor/10-lunch.html</loc>
   </url>
   <url>
     <loc>uodataservices.github.io/python-novice-gapminder/instructor/11-lists.html</loc>
+  </url>
+  <url>
+    <loc>uodataservices.github.io/python-novice-gapminder/instructor/11-plotting.html</loc>
   </url>
   <url>
     <loc>uodataservices.github.io/python-novice-gapminder/instructor/12-for-loops.html</loc>

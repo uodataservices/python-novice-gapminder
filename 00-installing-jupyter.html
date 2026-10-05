@@ -24,7 +24,11 @@
   <div class="container-fluid top-nav-container">
     <div class="col-md-8">
       <div class="large-logo">
-        <img id="-logo" alt="" src="assets/images/-logo.svg"></div>
+        <a href="index.html">
+        <img id="-logo" alt="" src="assets/images/-logo.svg"></a>
+
+
+      </div>
     </div>
     <div class="selector-container">
       <menu class="theme-selector" id="theme-selector-menu"><li class="nav-item dropdown theme-button-list" id="theme-button-list-menu">
@@ -64,7 +68,9 @@
       <span class="menu-title">Menu</span>
     </button>
     <div class="nav-logo">
-      <img class="small-logo" alt="" src="assets/images/-logo-sm.svg"></div>
+      <a href="index.html">
+      <img class="small-logo" alt="" src="assets/images/-logo-sm.svg"></a>
+    </div>
     <div class="lesson-title-md">
       Introduction to Python
     </div>
@@ -105,7 +111,7 @@
       </fieldset>
     </form>
     -->
-    <a id="search-button" class="btn btn-primary" href="aio.html" role="button" aria-label="Search the All In One page">Search the All In One page</a>
+    <a id="search-button-nav" class="btn btn-primary" href="aio.html" role="button" aria-label="Search the All In One page">Search the All In One page</a>
   </div><!--/div.container-fluid -->
 </nav><aside class="col-md-12 lesson-progress"><div class="progress ">
     <div class="progress-bar " role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Lesson Progress">0%</div>
@@ -119,6 +125,9 @@
           <i class="search-icon" data-feather="x" role="img"></i>
         </button>
         <div class="sidebar-inner">
+          <div class="row mobile-row" id="theme-row-mobile">
+            <a id="search-button-sidebar" class="btn btn-primary" href="aio.html" role="button" aria-label="Search the All In One page">Search the All In One page</a>
+          </div>
           <div class="row mobile-row" id="theme-row-mobile">
             <menu class="col theme-selector" id="theme-selector-sidebar"><li class="nav-item dropdown theme-button-list" id="theme-button-list-sidebar">
                 <button class="btn btn-link nav-link px-0 px-lg-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme (auto)">
@@ -161,6 +170,7 @@
                     </div>
                   </div><!--/div.accordion-item-->
                 </div><!--/div.accordion-flush-->
+
               </div><!--div.sidenav-view-selector -->
             </div><!--/div.col -->
 
@@ -200,7 +210,6 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#getting-started-with-python">Getting Started with Python</a></li>
-<li><a href="#jupyter-notebooks">Jupyter Notebooks</a></li>
 <li><a href="#installing-python">Installing Python</a></li>
 <li><a href="#installing-python-macos">Installing Python: MacOS</a></li>
 <li><a href="#installing-python-windows">Installing Python: Windows</a></li>
@@ -254,7 +263,7 @@ Directory</a></li>
 <div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
-        <a href="06-libraries.html">6. Libraries</a>
+        <a href="05-lists.html">6. Lists</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -263,7 +272,7 @@ Directory</a></li>
 <div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
-        <a href="07-reading-tabular.html">7. Reading Tabular Data into DataFrames</a>
+        <a href="06-for-loops.html">7. For Loops</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -272,7 +281,7 @@ Directory</a></li>
 <div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
-        <a href="08-data-frames.html">8. Pandas DataFrames</a>
+        <a href="07-conditionals.html">8. Conditionals</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -281,7 +290,7 @@ Directory</a></li>
 <div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
-        <a href="09-plotting.html">9. Plotting</a>
+        <a href="08-libraries.html">9. Libraries</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -290,7 +299,7 @@ Directory</a></li>
 <div class="accordion accordion-flush" id="accordionFlush11">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading11">
-        <a href="11-lists.html">10. Lists</a>
+        <a href="09-reading-tabular.html">10. Reading Tabular Data into DataFrames</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -299,7 +308,7 @@ Directory</a></li>
 <div class="accordion accordion-flush" id="accordionFlush12">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading12">
-        <a href="12-for-loops.html">11. For Loops</a>
+        <a href="10-data-frames.html">11. Pandas DataFrames</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -308,7 +317,7 @@ Directory</a></li>
 <div class="accordion accordion-flush" id="accordionFlush13">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading13">
-        <a href="13-conditionals.html">12. Conditionals</a>
+        <a href="11-plotting.html">12. Plotting</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -317,7 +326,7 @@ Directory</a></li>
 <div class="accordion accordion-flush" id="accordionFlush14">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading14">
-        <a href="14-looping-data-sets.html">13. Looping Over Data Sets</a>
+        <a href="16-writing-functions.html">13. Writing Functions</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -326,7 +335,7 @@ Directory</a></li>
 <div class="accordion accordion-flush" id="accordionFlush15">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading15">
-        <a href="16-writing-functions.html">14. Writing Functions</a>
+        <a href="17-scope.html">14. Variable Scope</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -335,7 +344,7 @@ Directory</a></li>
 <div class="accordion accordion-flush" id="accordionFlush16">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading16">
-        <a href="17-scope.html">15. Variable Scope</a>
+        <a href="18-style.html">15. Programming Style</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -344,25 +353,7 @@ Directory</a></li>
 <div class="accordion accordion-flush" id="accordionFlush17">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading17">
-        <a href="18-style.html">16. Programming Style</a>
-    </div><!--/div.accordion-header-->
-
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush18">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading18">
-        <a href="19-wrap.html">17. Wrap-Up</a>
-    </div><!--/div.accordion-header-->
-
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush19">
-  <div class="accordion-item">
-    <div class="accordion-header" id="flush-heading19">
-        <a href="20-feedback.html">18. Feedback</a>
+        <a href="19-wrap.html">16. Wrap-Up</a>
     </div><!--/div.accordion-header-->
 
   </div><!--/div.accordion-item-->
@@ -371,6 +362,29 @@ Directory</a></li>
                 </div>
               </div>
             </div>
+
+            <hr class="half-width"><div class="accordion accordion-flush" id="accordion-links-toggle">
+                <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-heading-links-toggle">
+                  <button class="accordion-button collapsed" id="links" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse-links-toggle" aria-expanded="false" aria-controls="flush-collapse-links-toggle">
+                    LINKS
+                  </button>
+                </h2>
+                <div id="flush-collapse-links-toggle" class="accordion-collapse show collapse" data-bs-parent="#accordion-links-toggle">
+                    <div class="accordion-body">
+                        <ul><li>
+                            <a href="key-points.html">Key Points</a>
+                            </li>
+                            <li>
+                            <a href="reference.html#glossary">Glossary</a>
+                            </li>
+                            <li>
+                            <a href="profiles.html">Learner Profiles</a>
+                            </li>
+                        </ul></div>
+                </div>
+                </div><!--/div.accordion-item-->
+            </div><!--/div.accordion-flush-->
 
             <hr class="half-width"><div class="accordion accordion-flush lesson-resources" id="accordion-resources-toggle">
               <div class="accordion-item">
@@ -381,16 +395,7 @@ Directory</a></li>
                 </h2>
                 <div id="flush-collapse-resources-toggle" class="accordion-collapse collapse" data-bs-parent="#accordion-resources-toggle">
                   <div class="accordion-body">
-                    <ul><li>
-                        <a href="key-points.html">Key Points</a>
-                      </li>
-                      <li>
-                        <a href="reference.html#glossary">Glossary</a>
-                      </li>
-                      <li>
-                        <a href="profiles.html">Learner Profiles</a>
-                      </li>
-                      <li><a href="discuss.html">Discussion</a></li><li><a href="exercises.html">Further Exercises</a></li><li><a href="reference.html">Reference</a></li>
+                    <ul><li><a href="discuss.html">Discussion</a></li><li><a href="exercises.html">Further Exercises</a></li><li><a href="reference.html">Reference</a></li>
                     </ul></div>
                 </div>
               </div>
@@ -426,7 +431,7 @@ Directory</a></li>
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Installing Python and JupyterLab</h1>
-        <p>Last updated on 2026-04-06 |
+        <p>Last updated on 2026-10-05 |
 
         <a href="https://github.com/swcarpentry/python-novice-gapminder/edit/main/episodes/00-installing-jupyter.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -446,7 +451,7 @@ Directory</a></li>
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul><li>How do I install Python?</li>
-<li>How do I launch Jupyter Lab?</li>
+<li>How do I launch JupyterLab?</li>
 </ul></div>
 </div>
 </div>
@@ -455,8 +460,8 @@ Directory</a></li>
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
 <ul><li>Download and install Python.</li>
-<li>Install the JupyterLab and Pandas packages.</li>
-<li>Learn about folders and files on your computer.</li>
+<li>Install the JupyterLab, Pandas, and Matplotlib packages.</li>
+<li>Organize folders and files on your computer.</li>
 <li>Create a folder to hold the Jupyter notebooks you will create during
 this workshop series.</li>
 </ul></div>
@@ -468,30 +473,34 @@ this workshop series.</li>
 <hr class="half-width"><p>In this activity, you will install Python to your personal computer.
 You only need to install and configure Python once for this workshop, so
 future lessons will assume that you already have Python installed.</p>
-<p><a href="https://jupyterlab.readthedocs.io/en/latest/" class="external-link">Jupyter
-Lab</a> is a special Python library with an integrated web user
-interface from <a href="https://jupyter.org/" class="external-link">Project Jupyter</a> that
-enables one to work with documents and activities such as Jupyter
-notebooks, text editors, terminals, and even custom components in a
-flexible, integrated, and extensible manner.</p>
-</section><section><h2 class="section-heading" id="jupyter-notebooks">Jupyter Notebooks<a class="anchor" aria-label="anchor" href="#jupyter-notebooks"></a></h2>
-<hr class="half-width"><p>Jupyter notebooks are common in data science and visualization and
-serve as a convenient common-denominator experience for running Python
-code interactively where we can easily view and share the results of our
-Python code.</p>
-<p>There are other ways of editing, managing, and running code, but
-Jupyter notebooks let us execute and view the results of our Python code
-immediately within the notebook.</p>
+<p><a href="https://jupyterlab.readthedocs.io/en/latest/" class="external-link">JupyterLab</a>
+is an application developed by <a href="https://jupyter.org/" class="external-link">Project
+Jupyter</a> that enables one to working with Jupyter notebooks, text
+editors, terminals, and even custom components in a flexible,
+integrated, and extensible manner.</p>
 </section><section><h2 class="section-heading" id="installing-python">Installing Python<a class="anchor" aria-label="anchor" href="#installing-python"></a></h2>
 <hr class="half-width"><p>The easiest way to install Python and JupyterLab will depend on your
 operating system.</p>
-<ul><li><strong>If you have a Mac laptop, <a href="#installing-python-macos">click here</a>.</strong></li>
-<li><strong>If you have a Windows laptop, <a href="#installing-python-windows">click here</a>.</strong></li>
-</ul></section><section><h2 class="section-heading" id="installing-python-macos">Installing Python: MacOS<a class="anchor" aria-label="anchor" href="#installing-python-macos"></a></h2>
+<ul><li><strong>If you have a Mac laptop, <a href="#installing-python-macos">install for MacOS</a>.</strong></li>
+<li><strong>If you have a Windows laptop, <a href="#installing-python-windows">install for Windows</a>.</strong></li>
+</ul><div id="caution1" class="callout caution">
+<div class="callout-square">
+<i class="callout-icon" data-feather="alert-triangle"></i>
+</div>
+<span class="callout-header">Caution</span>
+<div class="callout-inner">
+<div class="callout-content">
+<p>If you encounter an error during the installation process, please
+flag down an assistant, ask a question over Zoom, or contact your
+instructor through Canvas if you are working asynchronously.</p>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="installing-python-macos">Installing Python: MacOS<a class="anchor" aria-label="anchor" href="#installing-python-macos"></a></h2>
 <hr class="half-width"><p>Before installing Python on a Mac, you will need to know the <a href="https://support.apple.com/en-us/116943" class="external-link">type of processor</a> it
 has.</p>
 <p>Depending on when you bought your laptop, your Mac may have an Apple
-Silicon chip or an Intel Chip. For Python to work correctly, you must
+Silicon chip or an Intel chip. For Python to work correctly, you must
 install the version that corresponds to your laptop’s chip.</p>
 <div class="section level3">
 <h3 id="finding-your-processor-chip-type">Finding Your Processor Chip Type<a class="anchor" aria-label="anchor" href="#finding-your-processor-chip-type"></a></h3>
@@ -526,12 +535,12 @@ select the <em>64-Bit (Apple silicon) Graphical Installer</em>.</p>
 <p>A graphical installer will launch.</p>
 <p align="center">
 <img alt="Installation Screen" src="fig/0_miniconda_mac_start.png" width="600" class="figure"></p>
-<p>Press <em>Continue</em> to nagivate through the installer. Click
+<p>Press <em>Continue</em> to navigate through the installer. Click
 <em>Agree</em> to the terms of the End User License Agreement.</p>
 <p>When prompted to select a destination for your Python installation,
 select “Install for all users of this computer”.</p>
-<p>This will install Miniconda (and Python) to the
-<code>/opt/bin/miniconda</code> folder. Click <em>Continue</em>.</p>
+<p>This will install Miniconda (and Python) to your computer. Click
+<em>Continue</em>.</p>
 <p align="center">
 <img alt="Select a Destination" src="fig/0_miniconda_mac_all.png" width="600" class="figure"></p>
 <p>When prompted, click <em>Install</em>.</p>
@@ -545,7 +554,7 @@ minutes.</p>
 clicking <em>Close</em>.</p>
 </div>
 <div class="section level3">
-<h3 id="installing-jupyter-lab">Installing Jupyter Lab<a class="anchor" aria-label="anchor" href="#installing-jupyter-lab"></a></h3>
+<h3 id="installing-jupyterlab">Installing JupyterLab<a class="anchor" aria-label="anchor" href="#installing-jupyterlab"></a></h3>
 <p>Look for the magnifying glass icon in the top right corner of your
 screen. Search for <em>Terminal</em> and click the icon to launch the
 Terminal application.</p>
@@ -554,24 +563,28 @@ Terminal application.</p>
 <p>The Terminal (or command line) is a special application that allows
 you to talk to software on your computer through textual commands. Some
 applications can <em>only</em> be accessed through the command line.</p>
-<p align="center">
-<img alt="Mac terminal" src="fig/0_mac_terminal.png" width="600" class="figure"></p>
 <p>Type the command
-<code>pip install jupyterlab pandas matplotlib</code> and press the
+<code>conda install jupyterlab pandas matplotlib</code> and press the
 Enter key.</p>
 <p align="center">
-<img alt="Pip Command finished" src="fig/0_mac_terminal_finished.png" width="600" class="figure"></p>
-<p>When the installation has finished, you will see a message like one
-above. You will see your username followed by a blinking cursor, which
-means that the terminal is waiting for another command.</p>
+<img alt="Mac terminal" src="fig/0_mac_terminal.png" width="600" class="figure"></p>
+<p>You may be prompted to press the <kbd>a</kbd> key twice, followed by
+the <kbd>y</kbd> key. The required software for this workshop will be
+downloaded from the internet.</p>
+<p align="center">
+<img alt="Conda Command finished" src="fig/0_mac_terminal_finished.png" width="600" class="figure"></p>
+<p>When you see your username followed by a blinking cursor, that means
+that the terminal is waiting for another command. You are ready to
+launch JupyterLab.</p>
 </div>
 <div class="section level3">
-<h3 id="launching-jupyter-lab">Launching Jupyter Lab<a class="anchor" aria-label="anchor" href="#launching-jupyter-lab"></a></h3>
+<h3 id="launching-jupyterlab">Launching JupyterLab<a class="anchor" aria-label="anchor" href="#launching-jupyterlab"></a></h3>
 <p align="center">
 <img alt="JupyterLab Launch" src="fig/0_mac_jupyter_prompt.png" width="600" class="figure"></p>
-<p>Congratulations! You’ve installed Jupyter Lab. You will not need to
+<p>Congratulations! You’ve installed JupyterLab. You will not need to
 perform these installation steps again.</p>
-<p>In the future you can launch Juptyer Lab by doing the following:</p>
+<p>Now, and in the future you can launch Juptyer Lab by doing the
+following:</p>
 <ol style="list-style-type: decimal"><li>Search for <em>Terminal</em>.</li>
 <li>Open <em>Terminal</em>.</li>
 <li>Type <code>jupyter lab</code> inside the terminal and press the
@@ -579,8 +592,6 @@ Enter key.</li>
 </ol><p>JupyterLab will launch in a new tab in your default web browser.</p>
 <p align="center">
 <img alt="JupyterLab at Launch" src="fig/0_jupyter_lab_interface.png" width="600" class="figure"></p>
-<p>After everyone has installed Jupyter Lab, we will talk about how to
-create, edit, and save Python projects.</p>
 </div>
 </section><section><h2 class="section-heading" id="installing-python-windows">Installing Python: Windows<a class="anchor" aria-label="anchor" href="#installing-python-windows"></a></h2>
 <hr class="half-width"><div class="section level3">
@@ -591,16 +602,16 @@ Python through an environment management tool called Miniconda.</p>
 <strong>Anaconda/Miniconda</strong> download page</a>.</p>
 <p align="center">
 <img alt="Installation Screen" src="fig/0_windows_selec.png" width="700" class="figure"></p>
-<p>Click the Miniconda link on the right to download the file to your
-computer.</p>
+<p>Click the Miniconda link to download the file to your computer.</p>
 </div>
 <div class="section level3">
-<h3 id="installing-minconda">Installing Minconda<a class="anchor" aria-label="anchor" href="#installing-minconda"></a></h3>
-<p>Locate the downloaded file (it will often go to your Downloads folder
-by default) to start the installation process. Double-click it.</p>
-<p>You will see a launcher like this open.</p>
+<h3 id="installing-miniconda-1">Installing Miniconda<a class="anchor" aria-label="anchor" href="#installing-miniconda-1"></a></h3>
+<p>Locate the downloaded file (likely in your <em>Downloads</em> folder
+if you did not specify a location) to start the installation process.
+Double-click it.</p>
+<p>You will see an installer like this open.</p>
 <p align="center">
-<img alt="Minconda Installer" src="fig/0_win_miniconda_installer.png" width="400" class="figure"></p>
+<img alt="Miniconda Installer" src="fig/0_win_miniconda_installer.png" width="400" class="figure"></p>
 <p>Click <em>Next</em> to proceed to the next screen of the
 installer.</p>
 <p>Read through Miniconda’s End User License Agreement (EULA) and click
@@ -620,11 +631,11 @@ appropriate.</p>
 <p>When asked about <em>Advanced Installation Options</em> make sure to
 check:</p>
 <ul><li>Create shortcuts</li>
-<li>Register Miniconda3 as my default Python 3.13</li>
+<li>Register Miniconda3 as my default Python.</li>
 </ul><p>Leave the other boxes unchecked.</p>
 <p align="center">
 <img alt="Miniconda Advanced Installation Options" src="fig/0_win_advanced_install.png" width="400" class="figure"></p>
-<p>Click <em>Install</em> to install Miniconda. This should take no more
+<p>Click <em>Install</em> to install Miniconda. This should take less
 than five minutes.</p>
 <p align="center">
 <img alt="Miniconda Installation Complete" src="fig/0_win_complete.png" width="400" class="figure"></p>
@@ -636,7 +647,7 @@ than five minutes.</p>
 Miniconda later) and click <em>Finish</em>.</p>
 </div>
 <div class="section level3">
-<h3 id="installing-jupyter-lab-1">Installing Jupyter Lab<a class="anchor" aria-label="anchor" href="#installing-jupyter-lab-1"></a></h3>
+<h3 id="installing-jupyterlab-1">Installing JupyterLab<a class="anchor" aria-label="anchor" href="#installing-jupyterlab-1"></a></h3>
 <p>Click the symbol on the bottom of your screen or press the
 <kbd>Windows ⊞</kbd> key on your keyboard. This will open up the Windows
 Start Menu.</p>
@@ -645,41 +656,40 @@ result like this:</p>
 <p align="center">
 <img alt="Anaconda Search Result" src="fig/0_anaconda_search.png" width="600" class="figure"></p>
 <p>Click <em>Pin to taskbar</em>, as you’ll need this later.</p>
-<p>Now, click on the <em>Anaconda Prompt</em> icon. A black screen with
-a flashing character will open</p>
+<p>Now, click on the <em>Anaconda Prompt</em> icon. A new window with a
+black screen will open.</p>
 <p align="center">
 <img alt="Anaconda Prompt" src="fig/0_windows_anaconda_prom.png" width="500" class="figure"></p>
 <p>Inside the prompt window, type
-<code>pip install pandas jupyterlab matplotlib</code> and press the
+<code>conda install jupyterlab pandas matplotlib</code> and press the
 <kbd>Enter</kbd> key.</p>
+<p>You may be prompted to press the <kbd>a</kbd> key twice, followed by
+the <kbd>y</kbd> key. The required software for this workshop will be
+downloaded from the internet.</p>
 <p align="center">
-<img alt="Anaconda Prompt" src="fig/0_win_pip_install.png" width="500" class="figure"></p>
-<p>The packages required for this workshop will install.</p>
-<p>After the installation finishes, the cursor will flash again.
-Congratulations, you have installed Python and Jupyter Lab!</p>
+<img alt="Installation Finished" src="fig/0_win_conda_install.png" width="500" class="figure"></p>
+<p>After the installation finishes, you will see a message like the one
+above. Congratulations, you have installed Python and JupyterLab!</p>
 </div>
 <div class="section level3">
-<h3 id="launching-jupyter-lab-1">Launching Jupyter Lab<a class="anchor" aria-label="anchor" href="#launching-jupyter-lab-1"></a></h3>
-<p>Congratulations! You’ve installed Jupyter Lab. You will not need to
-perform these installation steps again.</p>
-<p>In the future you can launch Juptyer Lab by doing the following:</p>
-<ol start="2" style="list-style-type: decimal"><li>Open <em>Anaconda Prompt</em>.</li>
-<li>Type <code>jupyter lab</code> inside the terminal and press the
-Enter key.</li>
+<h3 id="launching-jupyterlab-1">Launching JupyterLab<a class="anchor" aria-label="anchor" href="#launching-jupyterlab-1"></a></h3>
+<p>In the future, you can launch JupyterLab with the following
+steps:</p>
+<ol style="list-style-type: decimal"><li>Open <em>Anaconda Prompt</em>.</li>
+<li>Type <code>jupyter lab</code> inside the prompt window and press the
+<kbd>Enter</kbd> key.</li>
 </ol><p align="center">
 <img alt="JupyterLab Launch" src="fig/0_win_jupyter_launch.png" width="600" class="figure"></p>
 <p>JupyterLab will launch in a new tab in your default web browser.</p>
 <p align="center">
 <img alt="JupyterLab at Launch" src="fig/0_jupyter_lab_interface.png" width="600" class="figure"></p>
-<p>After everyone has installed Jupyter Lab, we will talk about how to
-create, edit, and save Python projects.</p>
 </div>
 </section><section><h2 class="section-heading" id="the-jupyterlab-interface">The JupyterLab Interface<a class="anchor" aria-label="anchor" href="#the-jupyterlab-interface"></a></h2>
 <hr class="half-width"><p>JupyterLab has many features found in traditional integrated
 development environments (IDEs) but is focused on providing flexible
 building blocks for interactive, exploratory computing.</p>
 <p>The <a href="https://jupyterlab.readthedocs.io/en/4.4.x/user/interface.html" class="external-link">JupyterLab
-Interface</a> consists of the Menu Bar, a collapsable Left Side Bar, and
+Interface</a> consists of the Menu Bar, a collapsible Left Side Bar, and
 the Main Work Area which contains tabs of documents and activities.</p>
 <div class="section level3">
 <h3 id="menu-bar">Menu Bar<a class="anchor" aria-label="anchor" href="#menu-bar"></a></h3>
@@ -696,30 +706,32 @@ shortcuts (where applicable).</p>
 (notebooks, text files, etc.) and other activities (terminals, code
 consoles, etc.) into panels of tabs that can be resized or subdivided. A
 screenshot of the default Main Work Area is provided below.</p>
-<p>If you do not see the Launcher tab, click the blue plus sign under
-the “File” and “Edit” menus and it will appear.</p>
+<p>If you do not see the <em>Launcher</em> tab, click the blue plus sign
+under the <em>File</em> and <em>Edit</em> menus and it will appear.</p>
 <p align="center">
 <img alt="JupyterLab Main Work Area" src="fig/0_jupyterlab_main_work_area.png" width="750" class="figure"></p>
 </div>
 <div class="section level3">
 <h3 id="left-sidebar">Left Sidebar<a class="anchor" aria-label="anchor" href="#left-sidebar"></a></h3>
-<p>The left sidebar contains a number of commonly used tabs. Most
-importantly for us, it has a file browser (showing the contents of the
-directory where the JupyterLab server was launched). The directory where
-the JupyterLab server was launched will function as your working
-directory. This matters because if you want to reference other data
-files in your code, JupyterLab will look for them here by default. A
-screenshot of the default Left Side Bar is provided below.</p>
+<ul><li>By default, the left sidebar of a Jupyter notebook has a file
+browser showing the contents of the folder where JupyterLab was
+launched.</li>
+</ul><p>The directory where the JupyterLab server was launched will function
+as your working directory. This matters because if you want to reference
+other data files in your code, JupyterLab will look for them here by
+default. A screenshot of the default Left Side Bar is provided
+below.</p>
 <p align="center">
 <img alt="JupyterLab Left Side Bar" src="fig/0_jupyterlab_left_side_bar.png" width="250" class="figure"></p>
 <p>The left sidebar can be collapsed or expanded by selecting “Show Left
 Sidebar” in the View menu or by clicking on the active sidebar tab.</p>
-Step 1: Click on view in the menu bar. This opens a drop down menu of
+<ol style="list-style-type: decimal"><li>Click on view in the menu bar. This opens a drop down menu of
 options. Select “File Browser”<br><p align="center">
-<img alt="Show File Browser in Menu" src="fig/0_jupyterlab_show_filebrowser.png" width="750" class="figure"></p>
-<p>Step 2: When you click on File Browser, this will open the file
-directory as shown above.</p>
-<div id="what-is-a-working-directory" class="callout">
+<img alt="Show File Browser in Menu" src="fig/0_jupyterlab_show_filebrowser.png" width="450" class="figure"></p>
+</li>
+<li>When you click on File Browser, this will open the file directory as
+shown above.</li>
+</ol><div id="what-is-a-working-directory" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
@@ -727,28 +739,24 @@ directory as shown above.</p>
 <div id="what-is-a-working-directory" class="callout-inner">
 <h3 class="callout-title">What is a Working Directory?</h3>
 <div class="callout-content">
-<ul><li>A working directory (or current working directory) is the current
-folder or location on a computer’s file system where a program
-operates.</li>
-<li>The working directory is the location where Python will look for
-files you want to load and where it will put any files you save.</li>
-<li>You will write your code in Jupyter Notebooks, and save the code
-file for later in a folder. Jupyter Notebooks are a special file type
-that end in <code>.ipynb</code>.</li>
-<li>It’s a good idea to save your code files in the same folder where
-you save any data files that you want to analyze. In this workshop your
-data files will be in the open source spreadsheet format
-<code>.csv</code>.</li>
+<ul><li>The working directory is, unless you specify otherwise, the location
+on your computer’s filesystem where Python will look for files you want
+to load and where it will put any files you save.</li>
+<li>You will write your code in Jupyter Notebooks, and save them later
+in a folder.</li>
+<li>It’s a good idea to save your data files in a named subfolder,
+separate from your code. In this workshop your data files will be in
+<code>.csv</code> format.</li>
 </ul></div>
 </div>
 </div>
 </div>
 </section><section><h2 class="section-heading" id="create-a-folder-for-this-workshop">Create a Folder for This Workshop<a class="anchor" aria-label="anchor" href="#create-a-folder-for-this-workshop"></a></h2>
-<hr class="half-width"><p>When you run the command <code>jupyter lab</code> in Terminal (Mac
-OS) or Anaconda Prompt (Windows), Jupyter Lab will launch in your home
+<hr class="half-width"><p>When you run the command <code>jupyter lab</code> in Terminal (MacOS)
+or Anaconda Prompt (Windows), JupyterLab will launch in your home
 directory.</p>
-<p>Inside your <em>Documents</em> folder, create a new folder named
-PythonWorkshop.</p>
+<p>Inside your <em>Documents</em> or <em>Desktop</em> folder, create a
+new folder named PythonWorkshop.</p>
 <p align="center">
 <img alt="Create PythonWorkshop folder" src="fig/0_jupyter_folder_creation.png" width="300" class="figure"></p>
 <ul><li>First, click on your Documents folder in the File Browser on the
@@ -756,21 +764,21 @@ left.
 <ul><li>You should now see the contents of your Documents or <em>My
 Documents</em> folder.</li>
 </ul></li>
-<li>Next to the blue plus botton at the top left of the File Browser,
+<li>Next to the blue plus button at the top left of the File Browser,
 you will see a folder icon.
 <ul><li>Click the New Folder icon.</li>
-<li>Name your new folder PythonWorkshop.</li>
+<li>Name your new folder <em>PythonWorkshop</em>.</li>
 </ul></li>
 </ul><p>Navigate to that folder in the JupyterLab File Browser by clicking on
 it. You will use this folder in all future workshop sessions.</p>
 </section><section><h2 class="section-heading" id="create-and-save-a-jupyter-notebook-file-to-your-working-directory">Create and Save a Jupyter Notebook File to your Working
 Directory<a class="anchor" aria-label="anchor" href="#create-and-save-a-jupyter-notebook-file-to-your-working-directory"></a></h2>
-<hr class="half-width"><p>In the central pane of the Jupyter Lab interface, click on Python 3
-in the Launcher to create a new Jupyter Notebook:</p>
+<hr class="half-width"><p>In the central pane of the JupyterLab interface, click on Python 3 in
+the Launcher to create a new Jupyter Notebook:</p>
 <p align="center">
 <img alt="Launch a New Python3 Notebook" src="fig/0_jupyterlab_new_notebook.png" width="250" class="figure"></p>
 <p>Use the menu or save icon to save this blank notebook. Make sure to
-name it something helpful! For example, <code>PythonWorkshop_1</code> or
+name it something helpful. For example, <code>PythonWorkshop_1</code> or
 <code>PythonDay1</code>. Notice that JupyterLab will append
 <code>.ipynb</code> to the end of the name of the notebook. This is the
 file extension for Jupyter Notebooks.</p>
@@ -778,21 +786,24 @@ file extension for Jupyter Notebooks.</p>
 PythonWorkshop folder through the <em>File Browser</em> pane in
 JupyterLab.</p>
 <p>You can see (and modify) this folder in File Explorer (Windows) or
-Finder (MacOS) too. You might, for example, want to add data to this
-folder, or add a data subfolder. Note, however that <strong>you cannot
-open your Python notebooks (.ipynb) by clicking on them from File
-Explorer or Finder</strong>. You must open them through the JupyterLab
-<em>File Browser</em>.</p>
+Finder (MacOS) too. Note that <strong>you cannot open your Python
+notebooks (.ipynb) by clicking on them from File Explorer or
+Finder</strong>. You must open them through the JupyterLab <em>File
+Browser</em>.</p>
 </section><section><h2 class="section-heading" id="verify-your-working-directory">Verify your Working Directory<a class="anchor" aria-label="anchor" href="#verify-your-working-directory"></a></h2>
 <hr class="half-width"><p>You can verify that you have the correct working directory by using
-what’s called a <em>magic</em> command. Use the %pwd magic command
-within a code cell to print the current working directory. The output
-will display the current directory path.</p>
+what’s called a <em>magic</em> command.</p>
+<p>Use the <code>%pwd</code> magic command within a code cell to print
+the current working directory. The output will display the current
+directory path.</p>
 <p align="center">
 <img alt="Print Working Directory from within Python" src="fig/0_pwd.png" width="700" class="figure"></p>
 <p>This magic command passes the “print working directory” command to
-your computer. <a href="https://superbasics.beholder.uk/command-line/example-pwd/" class="external-link">Learn
-more about pwd here</a> (<a href="https://superbasics.beholder.uk/command-line/example-pwd/" class="external-link">https://superbasics.beholder.uk/command-line/example-pwd/</a>).</p>
+your computer. <strong><a href="https://superbasics.beholder.uk/command-line/example-pwd/" class="external-link">Learn
+more about pwd here</a>.</strong></p>
+<p>Your working directory path should end with
+<code>PythonWorkshop</code>, the name of your project directory for this
+workshop.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -804,8 +815,8 @@ more about pwd here</a> (<a href="https://superbasics.beholder.uk/command-line/e
 Python code in files called Jupyter notebooks.</li>
 <li>You will only need to install JupyterLab once for this
 workshop.</li>
-<li>Your current working directory determines where programs are run and
-how filepaths are interpreted.</li>
+<li>Your working directory determines where programs are run and how
+filepaths are interpreted.</li>
 </ul></div>
 </div>
 </div>
@@ -847,7 +858,7 @@ how filepaths are interpreted.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.21.0" class="external-link">sandpaper (0.21.0)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.1.2" class="external-link">varnish (1.1.2)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.21.1" class="external-link">sandpaper (0.21.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.9" class="external-link">pegboard (0.7.9)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.1.3" class="external-link">varnish (1.1.3)</a></p>
 		</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -869,8 +880,8 @@ how filepaths are interpreted.</li>
   "url": "uodataservices.github.io/python-novice-gapminder/00-installing-jupyter.html",
   "identifier": "uodataservices.github.io/python-novice-gapminder/00-installing-jupyter.html",
   "dateCreated": "2016-01-07",
-  "dateModified": "2026-04-06",
-  "datePublished": "2026-09-29"
+  "dateModified": "2026-10-05",
+  "datePublished": "2026-10-05"
 }
 
   </script><script>
