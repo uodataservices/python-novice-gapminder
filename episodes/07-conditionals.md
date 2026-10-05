@@ -138,7 +138,8 @@ else:
 adjusting velocity
 ```
 
-- Often use conditionals in a loop to "evolve" the values of variables.
+- Programmers use conditionals in combinations with loops to make successive changes
+to a variable.
 
 ```python
 velocity = 10.0
@@ -167,22 +168,9 @@ moving too slow
 final velocity: 30.0
 ```
 
-## Create a table showing variables' values to trace a program's execution.
-
-<table>
-  <tr>   <td><strong>i</strong></td>   <td>0</td>   <td>.</td>   <td>1</td>   <td>.</td>   <td>2</td>   <td>.</td>   <td>3</td>   <td>.</td>   <td>4</td>   <td>.</td>
-  </tr>
-  <tr>   <td><strong>velocity</strong></td>   <td>10.0</td>   <td>20.0</td>   <td>.</td>   <td>30.0</td>   <td>.</td>   <td>25.0</td>   <td>.</td>   <td>20.0</td>   <td>.</td>   <td>30.0</td>
-  </tr>
-</table>
-
-- The program must have a `print` statement *outside* the body of the loop
-  to show the final value of `velocity`,
-  since its value is updated by the last iteration of the loop.
-
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Compound Relations Using `and`, `or`, and Parentheses
+## Conditional Statements Using `and`, `or`, and Parentheses
 
 Often, you want some combination of things to be true.  You can combine
 relations within a conditional using `and` and `or`.  Continuing the example
@@ -295,38 +283,6 @@ print(result)
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Processing Small Files
-
-Modify this program so that it only processes files with fewer than 50 records.
-
-```python
-import glob
-import pandas as pd
-for filename in glob.glob('data/*.csv'):
-    contents = pd.read_csv(filename)
-    ____:
-        print(filename, len(contents))
-```
-
-:::::::::::::::  solution
-
-## Solution
-
-```python
-import glob
-import pandas as pd
-for filename in glob.glob('data/*.csv'):
-    contents = pd.read_csv(filename)
-    if len(contents) < 50:
-        print(filename, len(contents))
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
 ## Initializing
 
 Modify this program so that it finds the largest and smallest values in the list
@@ -404,7 +360,6 @@ print(smallest, largest)
 - Use `else` to execute a block of code when an `if` condition is *not* true.
 - Use `elif` to specify additional tests.
 - Conditions are tested once, in order.
-- Create a table showing variables' values to trace a program's execution.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

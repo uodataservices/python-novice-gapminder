@@ -51,7 +51,7 @@ does not have that library installed.
 We recommended experienced Python users [manage their environment with Conda](https://docs.anaconda.com/working-with-conda/packages/install-packages/), but you can use pip like below in a pinch.
 
 ```python
-!pip install pandas
+!pip install pandas numpy
 ```
 
 Run this exactly once. 
@@ -66,7 +66,7 @@ Pandas *and* its dependencies with the following
 command.
 
 ```python
-!pip install --force-reinstall pandas
+!pip install --force-reinstall pandas numpy
 ```
 
 Run this exactly once.

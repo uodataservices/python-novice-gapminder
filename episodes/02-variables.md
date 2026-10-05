@@ -1,23 +1,27 @@
 ---
 title: Variables and Assignment
-teaching: 10
-exercises: 10
+teaching: 20
+exercises: 20
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Write programs that assign scalar values to variables and perform calculations with those values.
-- Correctly trace value changes in programs that use scalar assignment.
+- Write programs that assign values to variables and perform calculations with those values.
+- Correctly trace value changes in programs.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I store data in programs?
+- What basic data types can I work with in Python?
+- How can I create a new variable in Python?
+- How do I use the `print()` function?
+- Can I change the value associated with a variable after I create it?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Use variables to store values.
+
+## Variables
 
 - **Variables** are names for values.
 
@@ -90,7 +94,9 @@ NameError: name 'last_name' is not defined
 
 Be aware that it is the *order* of execution of cells that is important in a Jupyter notebook, not the order
 in which they appear. Python will remember *all* the code that was run previously, including any variables you have
-defined, irrespective of the order in the notebook. Therefore if you define variables lower down the notebook and then
+defined, irrespective of the order in the notebook. 
+
+Therefore if you define variables lower down the notebook and then
 (re)run cells further up, those defined further down will still be present. As an example, create two cells with the
 following content, in this order:
 
@@ -123,7 +129,7 @@ print('Age in three years:', age)
 Age in three years: 45
 ```
 
-## Use an index to get a single character from a string.
+## Use an index to get a character from a string.
 
 - The characters (individual letters, numbers, and so on) in a string are
   ordered. For example, the string `'AB'` is not the same as `'BA'`. Because of
