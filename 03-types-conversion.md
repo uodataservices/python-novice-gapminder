@@ -313,7 +313,7 @@ atom_name[1:3] is: ar
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Variables only change when something is assigned to them.
+## Variables change when something is assigned to them
 
 ```python
 v1 = 1
@@ -326,7 +326,7 @@ print('first is', v1, 'and second is', v2)
 first is 2 and second is 5
 ```
 
-- The computer reads the value of `v1` when doing the multiplication,
+- Python reads the value of `v1` when doing the multiplication,
   creates a new value, and assigns it to `v2`.
 - Afterwards, the value of `v1` is set to the new value and *not dependent on `variable_one`* so its value
   does not automatically change when `v2` changes.
@@ -487,9 +487,8 @@ print("fractional string to int:", int("3.4"))
 
 ## Solution
 
-What do you expect this program to do? It would not be so unreasonable to expect the Python 3 `int` command to
-convert the string "3.4" to 3.4 and an additional type conversion to 3. After all, Python 3 performs a lot of other
-magic - isn't that part of its charm?
+What do you expect this program to do? It would not be unreasonable to expect the `int` command to
+convert the string "3.4" to 3.4.
 
 ```python
 int("3.4")
@@ -503,8 +502,7 @@ ValueError                                Traceback (most recent call last)
 ValueError: invalid literal for int() with base 10: '3.4'
 ```
 
-However, Python 3 throws an error. Why? To be consistent, possibly. If you ask Python to perform two consecutive
-typecasts, you must convert it explicitly in code.
+However, Python throws an error. Why? To be consistent, possibly. If you ask Python to perform two consecutive typecasts, you must convert it explicitly in code.
 
 ```python
 int(float("3.4"))
