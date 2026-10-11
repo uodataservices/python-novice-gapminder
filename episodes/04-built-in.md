@@ -10,7 +10,7 @@ exercises: 10
 - Correctly call built-in Python functions.
 - Correctly nest calls to built-in functions.
 - Use help to display documentation for built-in functions.
-- Correctly describe situations in which SyntaxError and NameError occur.
+- Describe (and correct) situations in which SyntaxError and NameError occur.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -24,17 +24,31 @@ exercises: 10
 
 ## Use comments to add documentation to programs.
 
+Python ignores lines that begin with the `#` symbol. Use these
+to create comments to annotate your code.
+
 ```python
 # This sentence isn't executed by Python.
 adjustment = 0.5   # Neither is this - anything after '#' is ignored.
 ```
 
-## A function may take zero or more arguments.
+Comments do not change how Python code behaves. 
 
-- We have seen some functions already --- now let's take a closer look.
-- An *argument* is a value passed into a function.
+```python
+adjustment = 0.5
+# adjustment = 1
+print(adjustment)
+```
+```output
+0.5
+```
+
+## A function may take zero or more arguments.
+We have seen some functions already: now, let's take a closer look.
+
+- An *argument* is a value passed into a function. Functions take 0 or more arguments.
 - `len` takes exactly one.
-- `int`, `str`, and `float` create a new value from an existing one.
+- `int`, `str`, and `float` also take one argument.
 - `print` takes zero or more.
 - `print` with no arguments prints a blank line.
   - Must always use parentheses, even if they're empty,
@@ -61,7 +75,7 @@ after
 
 ```python
 result = print('example')
-print('result of print is', result)
+print('the result of a print statement is', result)
 ```
 
 ```output
@@ -72,9 +86,8 @@ result of print is None
 ## Commonly-used built-in functions include `max`, `min`, and `round`.
 
 - Use `max` to find the largest value of one or more values.
-- Use `min` to find the smallest.
-- Both work on character strings as well as numbers.
-  - "Larger" and "smaller" use (0-9, A-Z, a-z) to compare letters.
+- Use `min` to find the smallest of one or more values.
+- These functions work on strings as well. Characters in strings are compared using [ASCII values](https://commons.wikimedia.org/wiki/File:ASCII-Table.svg).
 
 ```python
 print(max(1, 2, 3))
@@ -88,9 +101,8 @@ print(min('a', 'A', '0'))
 
 ## Functions may only work for certain (combinations of) arguments.
 
-- `max` and `min` must be given at least one argument.
-  - "Largest of the empty set" is a meaningless question.
-- And they must be given things that can meaningfully be compared.
+- `max` and `min` must be given at least one argument. 
+- When given two or more arguments, they must be comparable.
 
 ```python
 print(max(1, 'a'))
@@ -106,8 +118,7 @@ TypeError: '>' not supported between instances of 'str' and 'int'
 
 ## Functions may have default values for some arguments.
 
-- `round` will round off a floating-point number.
-- By default, rounds to zero decimal places.
+The `round` function rounds off a floating-point number. By default, it rounds to zero decimal places, ie. the nearest integer.
 
 ```python
 round(3.712)
@@ -117,7 +128,7 @@ round(3.712)
 4
 ```
 
-- We can specify the number of decimal places we want.
+You can specify the number of decimal places to round to as a second argument.
 
 ```python
 round(3.712, 1)
@@ -127,14 +138,34 @@ round(3.712, 1)
 3.7
 ```
 
-## Functions attached to objects are called methods
+## Use `help` to get help for a function.
+How could you have known what the `1` in `round(3.712, 1)` does if you hadn't been told?
+When learning new Python functions, you should read about them carefully.
 
-- Functions take another form that will be common in the pandas episodes.
-- Methods have parentheses like functions, but come after the variable.
-- Some methods are used for internal Python operations, and are marked with double underlines.
+You can use `help()` followed by the name of a function (without parentheses)
+to get information about what a function does and what arguments it expects.
 
 ```python
-my_string = 'Hello world!'  # creation of a string object 
+help(round)
+```
+```output
+Help on built-in function round in module builtins:
+
+round(number, ndigits=None)
+    Round a number to a given precision in decimal digits.
+
+    The return value is an integer if ndigits is omitted or None.
+    Otherwise the return value has the same type as the number.  ndigits
+    may be negative.
+```
+
+## Functions attached to objects are called methods
+
+Methods are special functions that come after an object, followed by a `.` symbol.
+Methods are said to be *bound* to objects of a particular type.
+
+```python
+my_string = 'Hello world!'  # Create and assign my_string
 
 print(len(my_string))       # the len function takes a string as an argument and returns the length of the string
 
@@ -150,7 +181,7 @@ hELLO WORLD!
 12
 ```
 
-- You might even see them chained together.  They operate left to right.
+Methods (and functions) can be chained together.  They always operate from left to right.
 
 ```python
 print(my_string.isupper())          # Not all the letters are uppercase
@@ -165,35 +196,19 @@ HELLO WORLD
 True
 ```
 
-## Use the built-in function `help` to get help for a function.
-
-- Every built-in function has online documentation.
-
-```python
-help(round)
-```
-
-```output
-Help on built-in function round in module builtins:
-
-round(number, ndigits=None)
-    Round a number to a given precision in decimal digits.
-    
-    The return value is an integer if ndigits is omitted or None.  Otherwise
-    the return value has the same type as the number.  ndigits may be negative.
-```
 
 ## The Jupyter Notebook has two ways to get help.
 
-- Option 1: Place the cursor near where the function is invoked in a cell
+**Option 1:** Place the cursor near where the function is invoked in a cell
   (i.e., the function name or its parameters),
   - Hold down <kbd>Shift</kbd>, and press <kbd>Tab</kbd>.
   - Do this several times to expand the information returned.
-- Option 2: Type the function name in a cell with a question mark after it. Then run the cell.
+**Option 2:** Type the function name in a cell with a question mark after it. Then run the cell.
 
 ## Python reports a syntax error when it can't understand the source of a program.
 
-- Won't even try to run the program if it can't be parsed.
+Grammatically incorrect Python produces syntax errors. The most common syntax errors involve
+failure to close quotes, parentheses, or improper indentation. 
 
 ```python
 # Forgot to close the quote marks around the string.
@@ -219,7 +234,7 @@ age = = 52
 SyntaxError: invalid syntax
 ```
 
-- Look more closely at the error message:
+Look closely at error messages to figure out what to fix.
 
 ```python
 print("hello world"
@@ -232,10 +247,7 @@ print("hello world"
 SyntaxError: unexpected EOF while parsing
 ```
 
-- The message indicates a problem on first line of the input ("line 1").
-  - In this case the "ipython-input" section of the file name tells us that
-    we are working with input into IPython,
-    the Python interpreter used by the Jupyter Notebook.
+The message indicates a problem on first line of the input ("line 1").
 - The `-6-` part of the filename indicates that
   the error occurred in cell 6 of our Notebook.
 - Next is the problematic line of code,
@@ -360,48 +372,6 @@ TypeError                                 Traceback (most recent call last)
 
 TypeError: '>' not supported between instances of 'str' and 'int'
 ```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Why Not?
-
-Why is it that `max` and `min` do not return `None` when they are called with no arguments?
-
-:::::::::::::::  solution
-
-## Solution
-
-`max` and `min` return TypeErrors in this case because the correct number of parameters
-was not supplied. If it just returned `None`, the error would be much harder to trace as it
-would likely be stored into a variable and used later in the program, only to likely throw
-a runtime error.
-
-
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Last Character of a String
-
-If Python starts counting from zero,
-and `len` returns the number of characters in a string,
-what index expression will get the last character in the string `name`?
-(Note: we will see a simpler way to do this in a later episode.)
-
-:::::::::::::::  solution
-
-## Solution
-
-`name[len(name) - 1]`
-
-
 
 :::::::::::::::::::::::::
 

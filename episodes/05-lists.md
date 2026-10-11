@@ -1,11 +1,12 @@
 ---
 title: Lists
-teaching: 10
+teaching: 20
 exercises: 10
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
+- Explain what a Python list is.
 - Explain why programs need collections of values.
 - Write programs that create lists, index them, slice them, and modify them.
 
@@ -13,61 +14,63 @@ exercises: 10
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I store multiple values?
+- How can I store multiple values in one object.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## A list stores multiple values in a specific order.
+## A list stores multiple values in one variable in a specific order.
 
-- Doing calculations with a hundred variables called `pressure_001`, `pressure_002`, etc.,
-  would be at least as slow as doing them by hand.
-- Use a *list* to store many values together.
-  - Contained within square brackets `[...]`.
-  - Values separated by commas `,`.
-- Use `len` to find out how many values are in a list.
+Use a *list* to store many values together. Lists are contained within square brackets `[...]` with values separated by commas `,`.
 
 Let's create a list of floats called `pressures` that stores 
 ```python
 pressures = [0.27, 0.25, 0.27, 0.245, 0.2]
 print('pressures:', pressures)
-print('length:', len(pressures))
 ```
 
 ```output
 pressures: [0.27, 0.25, 0.27, 0.245, 0.2]
+```
+
+Use `len` to find out how many values are in a list.
+
+```print
+print('length:', len(pressures))
+```
+```output
 length: 5
 ```
 
-## Use an item's index to fetch it from a list.
+## Lists are indexed like strings
 
-- These behave just like strings. Remember, start at zero!
+Just like strings, lists are indexed starting at zero. Values in a list can be called "elements" or "items".
 
 ```python
-print('zeroth item of pressures:', pressures[0])
-print('fourth item of pressures:', pressures[4])
+print("first item:", pressures[0])
+print("fourth item:", pressures[3])
 ```
 
 ```output
-first item of pressures: 0.27
-fifth item of pressures: 0.2
+first item 0.27
+fourth item 0.245
 ```
 
-## Values in lists can be reassigned.
+## Values in lists can be reassigned
 
-- Use indexing on the left of an assignment statement to replace a value inside a list.
+Use indexing on the left side of an assignment statement to replace a value inside a list.
 
 ```python
 pressures[0] = 0.26
-print('The first value of pressures is now:', pressures)
+print('Pressures is now:', pressures)
 ```
 
 ```output
-pressures is now: [0.265, 0.275, 0.277, 0.275, 0.276]
+Pressures is now: [0.26, 0.25, 0.27, 0.245, 0.2]
 ```
 
 ## Appending items to a list lengthens it.
 
-- Use `list_name.append` to add items to the end of a list.
+Use the `.append` method to add items to the end of a list.
 
 ```python
 primes = [2, 3, 5]
@@ -81,12 +84,7 @@ primes is initially: [2, 3, 5]
 primes has become: [2, 3, 5, 7]
 ```
 
-- `append` is a *method* of lists.
-  - Like a function, but tied to a particular object.
-- Use `object_name.method_name` to call methods.
-- We will meet other methods of lists as we go along.
-  - Use `help(list)` for a preview.
-- `extend` is similar to `append`, but it allows you to combine two lists.  For example:
+## Extending a list concatenates two lists together
 
 ```python
 teen_primes = [11, 13, 17, 19]
@@ -108,7 +106,7 @@ Note that while `extend` maintains the "flat" structure of the list, appending a
 the last element in `primes` will itself be a list, not an integer. Lists can contain values of any
 type; therefore, lists of lists are possible.
 
-## Use `del` to remove items from a list entirely.
+## Use `del` to remove items from a list
 
 - We use `del list_name[index]` to remove an element from a list (in the example, 9 is not a prime number) and thus shorten it.
 - `del` is not a function or a method, but a statement in the language.
