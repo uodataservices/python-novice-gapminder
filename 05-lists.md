@@ -18,59 +18,124 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## A list stores multiple values in one variable in a specific order.
+##  Lists stores values of any type
 
-Use a *list* to store many values together. Lists are contained within square brackets `[...]` with values separated by commas `,`.
+A *list* stores multiple values in one object, in a specific order. Values in a list can be called "elements" or "items".
 
-Let's create a list of floats called `pressures` that stores 
+A list is represented by comma-separated items enclosed in `[]`.
+
 ```python
-pressures = [0.27, 0.25, 0.27, 0.245, 0.2]
-print('pressures:', pressures)
+first_list = ["my", "first", "list"]
+print(first_list)
+```
+```output
+['my', 'first', 'list']
 ```
 
+Items in a list do not have to be of the same type.
+
+```python
+lucky_numbers = ["15", 31, 12.0]
+print(lucky_numbers)
+```
 ```output
-pressures: [0.27, 0.25, 0.27, 0.245, 0.2]
+['15', 31, 12.0]
 ```
 
 Use `len` to find out how many values are in a list.
 
-```print
-print('length:', len(pressures))
+```python
+print(len(first_list))
 ```
 ```output
-length: 5
+3
 ```
 
 ## Lists are indexed like strings
 
-Just like strings, lists are indexed starting at zero. Values in a list can be called "elements" or "items".
+Just like strings, lists are indexed from 0 to n-1, where n is the length of the list. Use [] to select indexed values. 
 
 ```python
-print("first item:", pressures[0])
-print("fourth item:", pressures[3])
+alphabet = "abcde"
+words = ["apple", "boy", "camel", "dog"]
+
+print(alphabet[1])
+print(words[1])
 ```
 
 ```output
-first item 0.27
-fourth item 0.245
+b
+boy
 ```
+
+Make sure you check the length of a list before indexing into it. As with strings, indexing into a value that doesn't exist (because the list is too short) causes an IndexError.
+
+```python
+words[5] # This will fail
+```
+```output
+IndexError                                Traceback (most recent call last)
+Cell In[80], line 1
+----> 1 words[5]
+
+IndexError: list index out of range
+```
+
+You can also use the same syntax `[start:stop]` you used to express slices for strings with lists.
+
+```python
+print(words[:2])
+```
+```output
+['apple', 'boy']
+```
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## List Indexing, String Indexing
+
+How would I get a slice of a specific *character* in a specific item in `words`? Let's say I want to get a substring containing the letter `y` in `boy`.
+
+```python
+words = ["apple", "boy", "camel", "dog"]
+print(words_____) # Add indexing here
+```
+
+:::::::::::::::  solution
+
+## Solution
+You can accomplish this by indexing into the second item in words `[1]` and indexing into the third character of that `[2]`. 
+
+Nested indexing is read from left to right, starting from the outermost
+collection.
+```python
+words[1][2]
+```
+```output
+'y'
+```
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Values in lists can be reassigned
 
 Use indexing on the left side of an assignment statement to replace a value inside a list.
 
+Lists are **mutable**: they can be changed after they are instantiated. 
+
 ```python
+pressures = [0.273, 0.275, 0.277, 0.275, 0.276]
 pressures[0] = 0.26
 print('Pressures is now:', pressures)
 ```
-
 ```output
-Pressures is now: [0.26, 0.25, 0.27, 0.245, 0.2]
+pressures is now: [0.265, 0.275, 0.277, 0.275, 0.276]
 ```
 
-## Appending items to a list lengthens it.
+## The append method adds items to the end of a list
 
-Use the `.append` method to add items to the end of a list.
+Use the `.append` method to add items to the end of a list. 
 
 ```python
 primes = [2, 3, 5]
@@ -78,90 +143,218 @@ print('primes is initially:', primes)
 primes.append(7)
 print('primes has become:', primes)
 ```
-
 ```output
 primes is initially: [2, 3, 5]
 primes has become: [2, 3, 5, 7]
 ```
 
-## Extending a list concatenates two lists together
+The `.append()` method returns None and modifies the list in place. That is, it directly modifies the list
+that calls the method rather than returning a copy.
+
+This is an intentional design choice.
 
 ```python
-teen_primes = [11, 13, 17, 19]
-middle_aged_primes = [37, 41, 43, 47]
-print('primes is currently:', primes)
-primes.extend(teen_primes)
-print('primes has now become:', primes)
-primes.append(middle_aged_primes)
-print('primes has finally become:', primes)
+returned_by_append = primes.append(11) # Append 11 but return None
+print(returned_by_append)
+print(primes)
 ```
-
 ```output
-primes is currently: [2, 3, 5, 7]
-primes has now become: [2, 3, 5, 7, 11, 13, 17, 19]
-primes has finally become: [2, 3, 5, 7, 11, 13, 17, 19, [37, 41, 43, 47]]
+None
+[2, 3, 5, 7, 11]
 ```
 
-Note that while `extend` maintains the "flat" structure of the list, appending a list to a list means
-the last element in `primes` will itself be a list, not an integer. Lists can contain values of any
-type; therefore, lists of lists are possible.
+## Extending a list concatenates two lists together
 
-## Use `del` to remove items from a list
+Use the .extend() method to add a list passed in as an argument to the *end* of that list.
 
-- We use `del list_name[index]` to remove an element from a list (in the example, 9 is not a prime number) and thus shorten it.
+```python
+housemates = ["dave", "rose"]
+guests = ["bob", "yao", "sam"]
+guests.extend(housemates) # Also modifies in place
+print("The following people will be at my party", guests)
+print("There are", len(guests), "guests")
+```
+```output
+The following people will be at my party ['bob', 'yao', 'sam', 'dave', 'rose']
+There are 5 guests
+```
+
+Appending a list to a list creates a nested list: a list inside of a list.
+```python
+ml = [1, "dog", "antelope"]
+ml2 = [2, 2, 3]
+ml.append(ml2)
+print(ml)
+```
+```output
+[1, 'dog', 'antelope', [2, 2, 3]]
+```
+
+## The empty list contains no values.
+We don't have to create lists with items already in them. The empty list `[]` is a list with length 0. 
+
+```python
+x = []
+len(x)
+```
+```output
+0
+```
+You can think of it as "the zero of lists."
+
+The empty list is useful because we can add items to it using methods like .`append()` and `.extend()`.
+
+```python
+x.append(4)
+x.append(5)
+print(x)
+```
+```output
+[4, 5]
+```
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Append or Extend?
+
+Can you make `z` into `[1, 2, 3, 4, 5]` using `.append()`? How about with `.extend()`?
+```python
+z = [1, 2, 3]
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+We can append 4, then 5.
+```python
+z = [1, 2, 3]
+z.append(4)
+z.append(5)
+print(z)
+```
+```output
+[1, 2, 3, 4, 5]
+```
+
+Or we can extend the list with `[4, 5]`.
+```python
+z = [1, 2, 3] # Reset z
+z.extend([4,5])
+print(z)
+```
+```output
+[1, 2, 3, 4, 5]
+```
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Inserting into list with `.insert()`
+So far, we've looked at methods that modify the *end* of a list. 
+
+The method **.insert(i, x)** inserts item `x` before the item at position `i`.
+
+```python
+alpha = ["apple", "berry", "durian"]
+alpha.insert(2, "cherry") # Before the item at index 2 ("durian") 
+print(alpha)
+```
+```output
+['apple', 'berry', 'cherry', 'durian']
+```
+
+## Removing items from lists: del, .remove(), and .pop()
+
+We use `del list_name[index]` to remove an element from a list.
 - `del` is not a function or a method, but a statement in the language.
 
 ```python
 primes = [2, 3, 5, 7, 9]
-print('primes before removing last item:', primes)
+print('primes before removing', primes)
 del primes[4]
-print('primes after removing last item:', primes)
+print('primes after removing', primes)
 ```
-
 ```output
-primes before removing last item: [2, 3, 5, 7, 9]
-primes after removing last item: [2, 3, 5, 7]
+primes before removing: [2, 3, 5, 7, 9]
+primes after removing: [2, 3, 5, 7]
 ```
 
-## The empty list contains no values.
-
-- Use `[]` on its own to represent a list that doesn't contain any values.
-  - "The zero of lists."
-- Helpful as a starting point for collecting values
-  (which we will see in the [next episode](12-for-loops.md)).
-
-## Lists may contain values of different types.
-
-- A single list may contain numbers, strings, and anything else.
+However, it is more common to see items removed from lists using the `.remove()` and `.pop()` methods.
+`.remove(x)` will remove the first instance of value(x) from a list. Like `.append()`, the `.remove()`
+function returns None.
 
 ```python
-goals = [1, 'Create lists.', 2, 'Extract items from lists.', 3, 'Modify lists.']
+housemates = ["rose", "sam"] 
+housemates.remove("rose") 
+housemates
+```
+```output
+['sam']
 ```
 
-## Character strings can be indexed like lists.
+It will return a ValueError if there are no instances of x in the list.
+Now that "rose" has already moved out, `.remove()` will fail because 
+it cannot find a "rose" in the list to remove.
 
-- Get single characters from a character string using indexes in square brackets.
 
 ```python
-element = 'carbon'
-print('zeroth character:', element[0])
-print('third character:', element[3])
+housemates.remove("rose") # This will fail
+```
+```output
+----> 1 housemates.remove("rose")
+
+ValueError: list.remove(x): x not in list
 ```
 
-```output
-zeroth character: c
-third character: b
+Let's say two new housemates move in: "josh" and "joe". 
+
+```python
+housemates.append("josh")
+housemates.append("joe")
+print("There are now", len(housemates), "people in the house.")
 ```
+
+The landlord imposes a new rule. Only two people are allowed in the house.
+The person who moved in most recently (the end of the list) must move out. 
+
+We can use the `.pop()` method to remove (and return) the last item in a list. 
+
+```python
+evicted = housemates.pop() # Removes and returns the last item in a list
+print(evicted, "was evicted.")
+print(housemates, "live in the house")
+```
+output```
+joe was evicted.
+['sam', 'josh'] live in the house
+```
+
+You cannot `.pop()` values from an empty list.
+
+```python
+empty_house = []
+empty_house.pop() # This will fails
+```
+```output
+IndexError                                Traceback (most recent call last)
+Cell In[23], line 2
+      1 empty_house = []
+----> 2 empty_house.pop()
+
+IndexError: pop from empty list
+```
+
 
 ## Character strings are immutable.
 
-- Cannot change the characters in a string after it has been created.
-  - *Immutable*: can't be changed after creation.
-  - In contrast, lists are *mutable*: they can be modified in place.
-- Python considers the string to be a single value with parts,
-  not a collection of values.
+We cannot change the characters in a string after it has been created because Python considers the string to be a single *primitive* value.
+
+Primitives (strings, ints, floats, booleans) are **immutable**. This means that when we want to change the value of a string or number variable, we can only replace the old value with a completely new value.
 
 ```python
+element = "Helium"
 element[0] = 'C'
 ```
 
@@ -169,22 +362,89 @@ element[0] = 'C'
 TypeError: 'str' object does not support item assignment
 ```
 
-- Lists and character strings are both *collections*.
+Lists and character strings are both *collections*. 
 
-## Indexing beyond the end of the collection is an error.
 
-- Python reports an `IndexError` if we attempt to access a value that doesn't exist.
-  - This is a kind of [runtime error](04-built-in.md).
-  - Cannot be detected as the code is parsed
-    because the index might be calculated based on data.
+## Mutable and immutable objects: when a copy isn't a copy
+Be careful when modifying data in-place. 
+If two variables refer to the same list, and you modify the list value, it will change for both variables!
+
+This has to do with the mechanics of assignment and mutability in Python.
 
 ```python
-print('99th element of element is:', element[99])
+x = [1, 3]
+y = x # y points to x
+x.append(5)
+print(x)
+print("y", y, "is another name for x")
+```
+```output
+[1, 3, 5]
+y [1, 3, 5] is another name for x
 ```
 
-```output
-IndexError: string index out of range
+If you wish to make two copies of the same list, use the `.copy()` method instead.
+This method returns a new list with the same contents. This principle applies for all *mutable* variables. (We'll learn about another mutable
+data type---the DataFrame---later in this workshop.)
+
+```python
+x = [1, 3]
+y = x.copy() # Y points to a different, mutable list
+x.append(5)
+print("x", x)
+print("y", y, "hasn't changed.")
 ```
+```output
+x [1, 3, 5]
+y [1, 3] hasn't changed.
+```
+
+For additional reading on this topic, see this question from the [official Python FAQ](https://docs.python.org/3/faq/programming.html#why-did-changing-list-y-also-change-list-x).
+
+
+## Two ways of sorting lists
+There are two common ways to sort lists by their values: 
+the sorted() function which returns a sorted collection as a copy and .sort() method which sorts a list in place.
+
+```python
+numbers = [1, 5, 3, 4, 2]
+snumbers = sorted(numbers) # Returns a copy
+print(numbers) # Unchanged
+print(snumbers)
+```
+```output
+[1, 5, 3, 4, 2]
+[1, 2, 3, 4, 5]
+```
+
+Notice that the `.sort()` method returns `None` and permanently changes `numbers`.
+```python
+print("Numbers before .sort()", numbers)
+numbers.sort() # Permanently changes numbers
+print("Numbers after", numbers)
+```
+```output
+Numbers before .sort() [1, 5, 3, 4, 2]
+Numbers after [1, 2, 3, 4, 5]
+```
+
+However, sorting a list only works when all its values are of the same data type. Remember those rules about comparing items of different types
+with `min()` and `max()`?
+
+```python
+valid_list = ["a", 3, [1]] # This will work
+```
+```python
+valid_list.sort()
+```
+```output
+TypeError                                 Traceback (most recent call last)
+Cell In[27], line 1
+----> 1 valid_list.sort()
+
+TypeError: '<' not supported between instances of 'int' and 'str'
+```
+
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -318,45 +578,7 @@ The program prints `m`.
 
 :::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Stepping Through a List
-
-What does the following program print?
-
-```python
-element = 'fluorine'
-print(element[::2])
-print(element[::-1])
-```
-
-1. If we write a slice as `low:high:stride`, what does `stride` do?
-2. What expression would select all of the even-numbered items from a collection?
-
-:::::::::::::::  solution
-
-## Solution
-
-The program prints
-
-```python
-furn
-eniroulf
-```
-
-1. `stride` is the step size of the slice.
-2. The slice `1::2` selects all even-numbered items from a collection: it starts
-  with element `1` (which is the second element, since indexing starts at `0`),
-  goes on until the end (since no `end` is given), and uses a step size of `2`
-  (i.e., selects every second element).
-  
-  
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::   
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -428,57 +650,6 @@ letters is ['d', 'g', 'l', 'o'] and result is None
 `sorted(letters)` returns a sorted copy of the list `letters` (the original
 list `letters` remains unchanged), while `letters.sort()` sorts the list
 `letters` in-place and does not return anything.
-
-
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Copying (or Not)
-
-What do these two programs print?
-In simple terms, explain the difference between `new = old` and `new = old[:]`.
-
-```python
-# Program A
-old = list('gold')
-new = old      # simple assignment
-new[0] = 'D'
-print('new is', new, 'and old is', old)
-```
-
-```python
-# Program B
-old = list('gold')
-new = old[:]   # assigning a slice
-new[0] = 'D'
-print('new is', new, 'and old is', old)
-```
-
-:::::::::::::::  solution
-
-## Solution
-
-Program A prints
-
-```output
-new is ['D', 'o', 'l', 'd'] and old is ['D', 'o', 'l', 'd']
-```
-
-Program B prints
-
-```output
-new is ['D', 'o', 'l', 'd'] and old is ['g', 'o', 'l', 'd']
-```
-
-`new = old` makes `new` a reference to the list `old`; `new` and `old` point
-towards the same object.
-
-`new = old[:]` however creates a new list object `new` containing all elements
-from the list `old`; `new` and `old` are different objects.
 
 
 
