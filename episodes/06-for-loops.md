@@ -6,82 +6,107 @@ exercises: 15
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain what for loops are normally used for.
-- Trace the execution of a simple (unnested) loop and correctly state the values of variables in each iteration.
-- Write for loops that use the Accumulator pattern to aggregate values.
+- Explain what a for loop does.
+- Correctly write for loops to repeat simple calculations.
+- Trace changes to a loop variableas the loop runs.
+- Trace chages to other variables as they are updated by a for loop.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I make a program do many things?
+- How can I make a program repeat things?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## A *for loop* executes commands once for each value in a collection.
+## The power of programming comes from repetition
+So far, we've been looking manipulating one value at a time. To write programs that are useful
+for manipulating real data, we need to make Python perform repetitive tasks *for us*.
 
-- Doing calculations on the values in a list one by one
-  is as painful as working with `pressure_001`, `pressure_002`, etc.
-- A *for loop* tells Python to execute some statements once for each value in a list,
-  a character string,
-  or some other collection.
-- "for each thing in this group, do these operations"
+An example task that we might want to repeat is accessing numbers in a list. We could do this printing each number on a line of its own.
 
 ```python
-for number in [2, 3, 5]:
-    print(number)
+odds = [1, 3, 5, 7]
+print(odds[0])
+print(odds[1])
+print(odds[2])
+print(odds[3])
+```
+```output
+1
+3
+5
+7
 ```
 
-- This `for` loop is equivalent to:
+This is a bad approach for three reasons:
 
+1. It's not scalable. We'd have to write hundreds of `print()` statements for a longer list.
+2. It's difficult to maintain.
+3. It's fragile. What happens if a list is shorter than we expected? (An error.)
+
+We can solve this problem using a for loop that steps through each item in a collection.
+
+```python
+odds = [1, 3, 5, 7]
+for num in odds:
+    print(num)
+```
+```output
+1
+3
+5
+7
+```
+
+## A *for loop* executes commands once for each value in a collection.
+
+A for loop tells Python to execute some statements once for each value in a list, a character string, or some other *collection*. 
+
+The loop has three parts: an iterable, a loop variable, and a body that is repeated once for each item in the iterable. The name of a loop variable can be any valid variable name you choose, but it should indicate what you're looping over for readability. 
+
+```python
+for number in [2, 3, 5]: # the colon is important
+    print(number) # so is the indentation
+```
+
+Let's anatomize this loop:
+
+* The iterable, `[2, 3, 5]`, is what the loop is being run on. It is followed by a `:`.
+* The body, `print(number)`, specifies what to do for each value in the collection.
+* The loop variable, `number`, is what changes for each iteration of the loop.
+
+This `for` loop is equivalent to:
 ```python
 print(2)
 print(3)
 print(5)
 ```
 
-- And the `for` loop's output is:
-
+And the `for` loop's output is:
 ```output
 2
 3
 5
 ```
 
-## A `for` loop is made up of a collection, a loop variable, and a body.
-
-```python
-for number in [2, 3, 5]:
-    print(number)
-```
-
-- The collection, `[2, 3, 5]`, is what the loop is being run on.
-- The body, `print(number)`, specifies what to do for each value in the collection.
-- The loop variable, `number`, is what changes for each *iteration* of the loop.
-  - The "current thing".
-
 ## The first line of the `for` loop must end with a colon, and the body must be indented.
-
-- The colon at the end of the first line signals the start of a *block* of statements.
-- Python uses indentation rather than `{}` or `begin`/`end` to show *nesting*.
-  - Any consistent indentation is legal, but almost everyone uses four spaces.
+The colon at the end of the first line signals the start of a *block* of statements.
+Any consistent indentation is grammatical, but almost everyone uses four spaces or the tab key.
 
 ```python
 for number in [2, 3, 5]:
 print(number)
 ```
-
 ```error
 IndentationError: expected an indented block
 ```
 
-- Indentation is always meaningful in Python.
-
+Python is picky about indentation and will not parse unexpected indents.
 ```python
 firstName = "Jon"
   lastName = "Smith"
 ```
-
 ```error
   File "<ipython-input-7-f65f2962bf9c>", line 2
     lastName = "Smith"
@@ -89,38 +114,88 @@ firstName = "Jon"
 IndentationError: unexpected indent
 ```
 
-- This error can be fixed by removing the extra spaces
-  at the beginning of the second line.
-
 ## Loop variables can be called anything.
 
-- As with all variables, loop variables are:
-  - Created on demand.
-  - Meaningless: their names can be anything at all.
+As with all variables, loop variables are:
+* Created on demand.
+* Can have any valid variable name.
 
 ```python
 for kitten in [2, 3, 5]:
     print(kitten)
 ```
+```output
+2
+3
+5
+```
 
-## The body of a loop can contain many statements.
-
-- But no loop should be more than a few lines long.
-- Hard for human beings to keep larger chunks of code in mind.
+### You are not required to use loop variables in the body
+You are not required to use the loop variable in the body of your loop. You can do **anything** `len(iterable)` times.
 
 ```python
-primes = [2, 3, 5]
+for number in [1, 2, 3]:
+    print("Hello")
+```
+```output
+Hello
+Hello
+Hello
+```
+
+## The body of a loop can contain many statements.
+The body of a loop can contain multiple statements, as long as they're all indented appropriately. 
+All indented lines (an indented block) before the first unintended line are treated as part of the same loop and are evaluated in order.
+
+```python
+primes = [2, 3, 5] # First three primes
 for p in primes:
     squared = p ** 2
     cubed = p ** 3
     print(p, squared, cubed)
 ```
-
 ```output
 2 4 8
 3 9 27
 5 25 125
 ```
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Debugging Loops
+
+Your friend wants to compute the square roots of 1, 4, 9, and 16 using a loop. 
+They do not get the answer they expect with the following code.
+
+What is the problem and how can it be fixed?
+```python
+squares = [1, 4, 9, 16]
+for s in squares:
+    print("The square root is", squares ** 0.5)
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+This code has a common mistake: the iterable (squares) is used in place of the loop variable. While raising a number to the `0.5` power is equivalent to applying the square root of a number, you can't get the square root of a list!
+
+
+```python
+squares = [1, 4, 9, 16]
+for square in squares:
+    print(square ** 0.5)
+```
+```output
+1.0
+2.0
+3.0
+4.0
+```
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ## Use `range` to iterate over a sequence of numbers.
 
