@@ -254,18 +254,17 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#a-list-stores-multiple-values-in-one-variable-in-a-specific-order.">A list stores multiple values in one variable in a specific
-order.</a></li>
+        <ul><li><a href="#lists-stores-values-of-any-type">Lists stores values of any type</a></li>
 <li><a href="#lists-are-indexed-like-strings">Lists are indexed like strings</a></li>
 <li><a href="#values-in-lists-can-be-reassigned">Values in lists can be reassigned</a></li>
-<li><a href="#appending-items-to-a-list-lengthens-it.">Appending items to a list lengthens it.</a></li>
+<li><a href="#the-append-method-adds-items-to-the-end-of-a-list">The append method adds items to the end of a list</a></li>
 <li><a href="#extending-a-list-concatenates-two-lists-together">Extending a list concatenates two lists together</a></li>
-<li><a href="#use-del-to-remove-items-from-a-list">Use <code>del</code> to remove items from a list</a></li>
 <li><a href="#the-empty-list-contains-no-values.">The empty list contains no values.</a></li>
-<li><a href="#lists-may-contain-values-of-different-types.">Lists may contain values of different types.</a></li>
-<li><a href="#character-strings-can-be-indexed-like-lists.">Character strings can be indexed like lists.</a></li>
+<li><a href="#inserting-into-list-with-.insert">Inserting into list with <code>.insert()</code></a></li>
+<li><a href="#removing-items-from-lists-del-.remove-and-.pop">Removing items from lists: del, .remove(), and .pop()</a></li>
 <li><a href="#character-strings-are-immutable.">Character strings are immutable.</a></li>
-<li><a href="#indexing-beyond-the-end-of-the-collection-is-an-error.">Indexing beyond the end of the collection is an error.</a></li>
+<li><a href="#mutable-and-immutable-objects-when-a-copy-isnt-a-copy">Mutable and immutable objects: when a copy isn’t a copy</a></li>
+<li><a href="#two-ways-of-sorting-lists">Two ways of sorting lists</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -434,7 +433,7 @@ order.</a></li>
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Lists</h1>
-        <p>Last updated on 2026-10-11 |
+        <p>Last updated on 2026-10-14 |
 
         <a href="https://github.com/swcarpentry/python-novice-gapminder/edit/main/episodes/05-lists.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -472,70 +471,165 @@ them.</li>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="a-list-stores-multiple-values-in-one-variable-in-a-specific-order-">A list stores multiple values in one variable in a specific
-order.<a class="anchor" aria-label="anchor" href="#a-list-stores-multiple-values-in-one-variable-in-a-specific-order-"></a></h2>
-<hr class="half-width"><p>Use a <em>list</em> to store many values together. Lists are
-contained within square brackets <code>[...]</code> with values
-separated by commas <code>,</code>.</p>
-<p>Let’s create a list of floats called <code>pressures</code> that
-stores</p>
+<section><h2 class="section-heading" id="lists-stores-values-of-any-type">Lists stores values of any type<a class="anchor" aria-label="anchor" href="#lists-stores-values-of-any-type"></a></h2>
+<hr class="half-width"><p>A <em>list</em> stores multiple values in one object, in a specific
+order. Values in a list can be called “elements” or “items”.</p>
+<p>A list is represented by comma-separated items enclosed in
+<code>[]</code>.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1" aria-label="code-block-1-1"></a>pressures <span class="op">=</span> [<span class="fl">0.27</span>, <span class="fl">0.25</span>, <span class="fl">0.27</span>, <span class="fl">0.245</span>, <span class="fl">0.2</span>]</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1" aria-label="code-block-1-2"></a><span class="bu">print</span>(<span class="st">'pressures:'</span>, pressures)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1" aria-label="code-block-1-1"></a>first_list <span class="op">=</span> [<span class="st">"my"</span>, <span class="st">"first"</span>, <span class="st">"list"</span>]</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1" aria-label="code-block-1-2"></a><span class="bu">print</span>(first_list)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>pressures: [0.27, 0.25, 0.27, 0.245, 0.2]</code></pre>
+<pre class="output" tabindex="0"><code>['my', 'first', 'list']</code></pre>
+</div>
+<p>Items in a list do not have to be of the same type.</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1" aria-label="code-block-3-1"></a>lucky_numbers <span class="op">=</span> [<span class="st">"15"</span>, <span class="dv">31</span>, <span class="fl">12.0</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1" aria-label="code-block-3-2"></a><span class="bu">print</span>(lucky_numbers)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>['15', 31, 12.0]</code></pre>
 </div>
 <p>Use <code>len</code> to find out how many values are in a list.</p>
-<pre class="print"><code><span><span class="fu">print</span><span class="op">(</span><span class="st">'length:'</span>, <span class="fu">len</span><span class="op">(</span><span class="va">pressures</span><span class="op">)</span><span class="op">)</span></span></code></pre>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code><span><span class="va">length</span><span class="op">:</span> <span class="fl">5</span></span></code></pre>
-</div>
-</section><section><h2 class="section-heading" id="lists-are-indexed-like-strings">Lists are indexed like strings<a class="anchor" aria-label="anchor" href="#lists-are-indexed-like-strings"></a></h2>
-<hr class="half-width"><p>Just like strings, lists are indexed starting at zero. Values in a
-list can be called “elements” or “items”.</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1" aria-label="code-block-5-1"></a><span class="bu">print</span>(<span class="st">"first item:"</span>, pressures[<span class="dv">0</span>])</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1" aria-label="code-block-5-2"></a><span class="bu">print</span>(<span class="st">"fourth item:"</span>, pressures[<span class="dv">3</span>])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1" aria-label="code-block-5-1"></a><span class="bu">print</span>(<span class="bu">len</span>(first_list))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>first item 0.27
-fourth item 0.245</code></pre>
+<pre class="output" tabindex="0"><code><span><span class="fl">3</span></span></code></pre>
+</div>
+</section><section><h2 class="section-heading" id="lists-are-indexed-like-strings">Lists are indexed like strings<a class="anchor" aria-label="anchor" href="#lists-are-indexed-like-strings"></a></h2>
+<hr class="half-width"><p>Just like strings, lists are indexed from 0 to n-1, where n is the
+length of the list. Use [] to select indexed values.</p>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1" aria-label="code-block-7-1"></a>alphabet <span class="op">=</span> <span class="st">"abcde"</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1" aria-label="code-block-7-2"></a>words <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"boy"</span>, <span class="st">"camel"</span>, <span class="st">"dog"</span>]</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1" aria-label="code-block-7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1" aria-label="code-block-7-4"></a><span class="bu">print</span>(alphabet[<span class="dv">1</span>])</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1" aria-label="code-block-7-5"></a><span class="bu">print</span>(words[<span class="dv">1</span>])</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code><span><span class="va">b</span></span>
+<span><span class="va">boy</span></span></code></pre>
+</div>
+<p>Make sure you check the length of a list before indexing into it. As
+with strings, indexing into a value that doesn’t exist (because the list
+is too short) causes an IndexError.</p>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1" aria-label="code-block-9-1"></a>words[<span class="dv">5</span>] <span class="co"># This will fail</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>IndexError                                Traceback (most recent call last)
+Cell In[80], line 1
+----&gt; 1 words[5]
+
+IndexError: list index out of range</code></pre>
+</div>
+<p>You can also use the same syntax <code>[start:stop]</code> you used
+to express slices for strings with lists.</p>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1" aria-label="code-block-11-1"></a><span class="bu">print</span>(words[:<span class="dv">2</span>])</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>['apple', 'boy']</code></pre>
+</div>
+<div id="list-indexing-string-indexing" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="list-indexing-string-indexing" class="callout-inner">
+<h3 class="callout-title">List Indexing, String Indexing</h3>
+<div class="callout-content">
+<p>How would I get a slice of a specific <em>character</em> in a
+specific item in <code>words</code>? Let’s say I want to get a substring
+containing the letter <code>y</code> in <code>boy</code>.</p>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1" aria-label="code-block-13-1"></a>words <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"boy"</span>, <span class="st">"camel"</span>, <span class="st">"dog"</span>]</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1" aria-label="code-block-13-2"></a><span class="bu">print</span>(words_____) <span class="co"># Add indexing here</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<p>You can accomplish this by indexing into the second item in words
+<code>[1]</code> and indexing into the third character of that
+<code>[2]</code>.</p>
+<p>Nested indexing is read from left to right, starting from the
+outermost collection.</p>
+<div class="codewrapper sourceCode" id="cb14">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1" aria-label="code-block-14-1"></a>words[<span class="dv">1</span>][<span class="dv">2</span>]</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code><span><span class="st">'y'</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section><section><h2 class="section-heading" id="values-in-lists-can-be-reassigned">Values in lists can be reassigned<a class="anchor" aria-label="anchor" href="#values-in-lists-can-be-reassigned"></a></h2>
 <hr class="half-width"><p>Use indexing on the left side of an assignment statement to replace a
 value inside a list.</p>
-<div class="codewrapper sourceCode" id="cb7">
+<p>Lists are <strong>mutable</strong>: they can be changed after they
+are instantiated.</p>
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1" aria-label="code-block-7-1"></a>pressures[<span class="dv">0</span>] <span class="op">=</span> <span class="fl">0.26</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1" aria-label="code-block-7-2"></a><span class="bu">print</span>(<span class="st">'Pressures is now:'</span>, pressures)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1" aria-label="code-block-16-1"></a>pressures <span class="op">=</span> [<span class="fl">0.273</span>, <span class="fl">0.275</span>, <span class="fl">0.277</span>, <span class="fl">0.275</span>, <span class="fl">0.276</span>]</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1" aria-label="code-block-16-2"></a>pressures[<span class="dv">0</span>] <span class="op">=</span> <span class="fl">0.26</span></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1" aria-label="code-block-16-3"></a><span class="bu">print</span>(<span class="st">'Pressures is now:'</span>, pressures)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>Pressures is now: [0.26, 0.25, 0.27, 0.245, 0.2]</code></pre>
+<pre class="output" tabindex="0"><code>pressures is now: [0.265, 0.275, 0.277, 0.275, 0.276]</code></pre>
 </div>
-</section><section><h2 class="section-heading" id="appending-items-to-a-list-lengthens-it-">Appending items to a list lengthens it.<a class="anchor" aria-label="anchor" href="#appending-items-to-a-list-lengthens-it-"></a></h2>
+</section><section><h2 class="section-heading" id="the-append-method-adds-items-to-the-end-of-a-list">The append method adds items to the end of a list<a class="anchor" aria-label="anchor" href="#the-append-method-adds-items-to-the-end-of-a-list"></a></h2>
 <hr class="half-width"><p>Use the <code>.append</code> method to add items to the end of a
 list.</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1" aria-label="code-block-9-1"></a>primes <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>]</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1" aria-label="code-block-9-2"></a><span class="bu">print</span>(<span class="st">'primes is initially:'</span>, primes)</span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1" aria-label="code-block-9-3"></a>primes.append(<span class="dv">7</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1" aria-label="code-block-9-4"></a><span class="bu">print</span>(<span class="st">'primes has become:'</span>, primes)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1" aria-label="code-block-18-1"></a>primes <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>]</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1" aria-label="code-block-18-2"></a><span class="bu">print</span>(<span class="st">'primes is initially:'</span>, primes)</span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1" aria-label="code-block-18-3"></a>primes.append(<span class="dv">7</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1" aria-label="code-block-18-4"></a><span class="bu">print</span>(<span class="st">'primes has become:'</span>, primes)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -543,115 +637,364 @@ list.</p>
 <pre class="output" tabindex="0"><code>primes is initially: [2, 3, 5]
 primes has become: [2, 3, 5, 7]</code></pre>
 </div>
+<p>The <code>.append()</code> method returns None and modifies the list
+in place. That is, it directly modifies the list that calls the method
+rather than returning a copy.</p>
+<p>This is an intentional design choice.</p>
+<div class="codewrapper sourceCode" id="cb20">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1" aria-label="code-block-20-1"></a>returned_by_append <span class="op">=</span> primes.append(<span class="dv">11</span>) <span class="co"># Append 11 but return None</span></span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1" aria-label="code-block-20-2"></a><span class="bu">print</span>(returned_by_append)</span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1" aria-label="code-block-20-3"></a><span class="bu">print</span>(primes)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>None
+[2, 3, 5, 7, 11]</code></pre>
+</div>
 </section><section><h2 class="section-heading" id="extending-a-list-concatenates-two-lists-together">Extending a list concatenates two lists together<a class="anchor" aria-label="anchor" href="#extending-a-list-concatenates-two-lists-together"></a></h2>
-<hr class="half-width"><div class="codewrapper sourceCode" id="cb11">
+<hr class="half-width"><p>Use the .extend() method to add a list passed in as an argument to
+the <em>end</em> of that list.</p>
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1" aria-label="code-block-11-1"></a>teen_primes <span class="op">=</span> [<span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">17</span>, <span class="dv">19</span>]</span>
-<span id="cb11-2"><a href="#cb11-2" tabindex="-1" aria-label="code-block-11-2"></a>middle_aged_primes <span class="op">=</span> [<span class="dv">37</span>, <span class="dv">41</span>, <span class="dv">43</span>, <span class="dv">47</span>]</span>
-<span id="cb11-3"><a href="#cb11-3" tabindex="-1" aria-label="code-block-11-3"></a><span class="bu">print</span>(<span class="st">'primes is currently:'</span>, primes)</span>
-<span id="cb11-4"><a href="#cb11-4" tabindex="-1" aria-label="code-block-11-4"></a>primes.extend(teen_primes)</span>
-<span id="cb11-5"><a href="#cb11-5" tabindex="-1" aria-label="code-block-11-5"></a><span class="bu">print</span>(<span class="st">'primes has now become:'</span>, primes)</span>
-<span id="cb11-6"><a href="#cb11-6" tabindex="-1" aria-label="code-block-11-6"></a>primes.append(middle_aged_primes)</span>
-<span id="cb11-7"><a href="#cb11-7" tabindex="-1" aria-label="code-block-11-7"></a><span class="bu">print</span>(<span class="st">'primes has finally become:'</span>, primes)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1" aria-label="code-block-22-1"></a>housemates <span class="op">=</span> [<span class="st">"dave"</span>, <span class="st">"rose"</span>]</span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1" aria-label="code-block-22-2"></a>guests <span class="op">=</span> [<span class="st">"bob"</span>, <span class="st">"yao"</span>, <span class="st">"sam"</span>]</span>
+<span id="cb22-3"><a href="#cb22-3" tabindex="-1" aria-label="code-block-22-3"></a>guests.extend(housemates) <span class="co"># Also modifies in place</span></span>
+<span id="cb22-4"><a href="#cb22-4" tabindex="-1" aria-label="code-block-22-4"></a><span class="bu">print</span>(<span class="st">"The following people will be at my party"</span>, guests)</span>
+<span id="cb22-5"><a href="#cb22-5" tabindex="-1" aria-label="code-block-22-5"></a><span class="bu">print</span>(<span class="st">"There are"</span>, <span class="bu">len</span>(guests), <span class="st">"guests"</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>primes is currently: [2, 3, 5, 7]
-primes has now become: [2, 3, 5, 7, 11, 13, 17, 19]
-primes has finally become: [2, 3, 5, 7, 11, 13, 17, 19, [37, 41, 43, 47]]</code></pre>
+<pre class="output" tabindex="0"><code>The following people will be at my party ['bob', 'yao', 'sam', 'dave', 'rose']
+There are 5 guests</code></pre>
 </div>
-<p>Note that while <code>extend</code> maintains the “flat” structure of
-the list, appending a list to a list means the last element in
-<code>primes</code> will itself be a list, not an integer. Lists can
-contain values of any type; therefore, lists of lists are possible.</p>
-</section><section><h2 class="section-heading" id="use-del-to-remove-items-from-a-list">Use <code>del</code> to remove items from a list<a class="anchor" aria-label="anchor" href="#use-del-to-remove-items-from-a-list"></a></h2>
-<hr class="half-width"><ul><li>We use <code>del list_name[index]</code> to remove an element from a
-list (in the example, 9 is not a prime number) and thus shorten it.</li>
-<li>
-<code>del</code> is not a function or a method, but a statement in
-the language.</li>
-</ul><div class="codewrapper sourceCode" id="cb13">
+<p>Appending a list to a list creates a nested list: a list inside of a
+list.</p>
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1" aria-label="code-block-13-1"></a>primes <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>]</span>
-<span id="cb13-2"><a href="#cb13-2" tabindex="-1" aria-label="code-block-13-2"></a><span class="bu">print</span>(<span class="st">'primes before removing last item:'</span>, primes)</span>
-<span id="cb13-3"><a href="#cb13-3" tabindex="-1" aria-label="code-block-13-3"></a><span class="kw">del</span> primes[<span class="dv">4</span>]</span>
-<span id="cb13-4"><a href="#cb13-4" tabindex="-1" aria-label="code-block-13-4"></a><span class="bu">print</span>(<span class="st">'primes after removing last item:'</span>, primes)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1" aria-label="code-block-24-1"></a>ml <span class="op">=</span> [<span class="dv">1</span>, <span class="st">"dog"</span>, <span class="st">"antelope"</span>]</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1" aria-label="code-block-24-2"></a>ml2 <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1" aria-label="code-block-24-3"></a>ml.append(ml2)</span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1" aria-label="code-block-24-4"></a><span class="bu">print</span>(ml)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>primes before removing last item: [2, 3, 5, 7, 9]
-primes after removing last item: [2, 3, 5, 7]</code></pre>
+<pre class="output" tabindex="0"><code>[1, 'dog', 'antelope', [2, 2, 3]]</code></pre>
 </div>
 </section><section><h2 class="section-heading" id="the-empty-list-contains-no-values-">The empty list contains no values.<a class="anchor" aria-label="anchor" href="#the-empty-list-contains-no-values-"></a></h2>
-<hr class="half-width"><ul><li>Use <code>[]</code> on its own to represent a list that doesn’t
-contain any values.
-<ul><li>“The zero of lists.”</li>
-</ul></li>
-<li>Helpful as a starting point for collecting values (which we will see
-in the <a href="12-for-loops.html">next episode</a>).</li>
-</ul></section><section><h2 class="section-heading" id="lists-may-contain-values-of-different-types-">Lists may contain values of different types.<a class="anchor" aria-label="anchor" href="#lists-may-contain-values-of-different-types-"></a></h2>
-<hr class="half-width"><ul><li>A single list may contain numbers, strings, and anything else.</li>
-</ul><div class="codewrapper sourceCode" id="cb15">
+<hr class="half-width"><p>We don’t have to create lists with items already in them. The empty
+list <code>[]</code> is a list with length 0.</p>
+<div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1" aria-label="code-block-15-1"></a>goals <span class="op">=</span> [<span class="dv">1</span>, <span class="st">'Create lists.'</span>, <span class="dv">2</span>, <span class="st">'Extract items from lists.'</span>, <span class="dv">3</span>, <span class="st">'Modify lists.'</span>]</span></code></pre>
-</div>
-</section><section><h2 class="section-heading" id="character-strings-can-be-indexed-like-lists-">Character strings can be indexed like lists.<a class="anchor" aria-label="anchor" href="#character-strings-can-be-indexed-like-lists-"></a></h2>
-<hr class="half-width"><ul><li>Get single characters from a character string using indexes in
-square brackets.</li>
-</ul><div class="codewrapper sourceCode" id="cb16">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1" aria-label="code-block-16-1"></a>element <span class="op">=</span> <span class="st">'carbon'</span></span>
-<span id="cb16-2"><a href="#cb16-2" tabindex="-1" aria-label="code-block-16-2"></a><span class="bu">print</span>(<span class="st">'zeroth character:'</span>, element[<span class="dv">0</span>])</span>
-<span id="cb16-3"><a href="#cb16-3" tabindex="-1" aria-label="code-block-16-3"></a><span class="bu">print</span>(<span class="st">'third character:'</span>, element[<span class="dv">3</span>])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" tabindex="-1" aria-label="code-block-26-1"></a>x <span class="op">=</span> []</span>
+<span id="cb26-2"><a href="#cb26-2" tabindex="-1" aria-label="code-block-26-2"></a><span class="bu">len</span>(x)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>zeroth character: c
-third character: b</code></pre>
+<pre class="output" tabindex="0"><code><span><span class="fl">0</span></span></code></pre>
 </div>
-</section><section><h2 class="section-heading" id="character-strings-are-immutable-">Character strings are immutable.<a class="anchor" aria-label="anchor" href="#character-strings-are-immutable-"></a></h2>
-<hr class="half-width"><ul><li>Cannot change the characters in a string after it has been created.
-<ul><li>
-<em>Immutable</em>: can’t be changed after creation.</li>
-<li>In contrast, lists are <em>mutable</em>: they can be modified in
-place.</li>
-</ul></li>
-<li>Python considers the string to be a single value with parts, not a
-collection of values.</li>
-</ul><div class="codewrapper sourceCode" id="cb18">
+<p>You can think of it as “the zero of lists.”</p>
+<p>The empty list is useful because we can add items to it using methods
+like .<code>append()</code> and <code>.extend()</code>.</p>
+<div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1" aria-label="code-block-18-1"></a>element[<span class="dv">0</span>] <span class="op">=</span> <span class="st">'C'</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" tabindex="-1" aria-label="code-block-28-1"></a>x.append(<span class="dv">4</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1" aria-label="code-block-28-2"></a>x.append(<span class="dv">5</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1" aria-label="code-block-28-3"></a><span class="bu">print</span>(x)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[4, 5]</code></pre>
+</div>
+<div id="append-or-extend" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<span class="callout-header">Challenge</span>
+<div id="append-or-extend" class="callout-inner">
+<h3 class="callout-title">Append or Extend?</h3>
+<div class="callout-content">
+<p>Can you make <code>z</code> into <code>[1, 2, 3, 4, 5]</code> using
+<code>.append()</code>? How about with <code>.extend()</code>?</p>
+<div class="codewrapper sourceCode" id="cb30">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" tabindex="-1" aria-label="code-block-30-1"></a>z <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<p>We can append 4, then 5.</p>
+<div class="codewrapper sourceCode" id="cb31">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" tabindex="-1" aria-label="code-block-31-1"></a>z <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1" aria-label="code-block-31-2"></a>z.append(<span class="dv">4</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" tabindex="-1" aria-label="code-block-31-3"></a>z.append(<span class="dv">5</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" tabindex="-1" aria-label="code-block-31-4"></a><span class="bu">print</span>(z)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[1, 2, 3, 4, 5]</code></pre>
+</div>
+<p>Or we can extend the list with <code>[4, 5]</code>.</p>
+<div class="codewrapper sourceCode" id="cb33">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" tabindex="-1" aria-label="code-block-33-1"></a>z <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>] <span class="co"># Reset z</span></span>
+<span id="cb33-2"><a href="#cb33-2" tabindex="-1" aria-label="code-block-33-2"></a>z.extend([<span class="dv">4</span>,<span class="dv">5</span>])</span>
+<span id="cb33-3"><a href="#cb33-3" tabindex="-1" aria-label="code-block-33-3"></a><span class="bu">print</span>(z)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[1, 2, 3, 4, 5]</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section><h2 class="section-heading" id="inserting-into-list-with--insert">Inserting into list with <code>.insert()</code>
+<a class="anchor" aria-label="anchor" href="#inserting-into-list-with--insert"></a></h2>
+<hr class="half-width"><p>So far, we’ve looked at methods that modify the <em>end</em> of a
+list.</p>
+<p>The method <strong>.insert(i, x)</strong> inserts item <code>x</code>
+before the item at position <code>i</code>.</p>
+<div class="codewrapper sourceCode" id="cb35">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" tabindex="-1" aria-label="code-block-35-1"></a>alpha <span class="op">=</span> [<span class="st">"apple"</span>, <span class="st">"berry"</span>, <span class="st">"durian"</span>]</span>
+<span id="cb35-2"><a href="#cb35-2" tabindex="-1" aria-label="code-block-35-2"></a>alpha.insert(<span class="dv">2</span>, <span class="st">"cherry"</span>) <span class="co"># Before the item at index 2 ("durian") </span></span>
+<span id="cb35-3"><a href="#cb35-3" tabindex="-1" aria-label="code-block-35-3"></a><span class="bu">print</span>(alpha)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>['apple', 'berry', 'cherry', 'durian']</code></pre>
+</div>
+</section><section><h2 class="section-heading" id="removing-items-from-lists-del--remove-and--pop">Removing items from lists: del, .remove(), and .pop()<a class="anchor" aria-label="anchor" href="#removing-items-from-lists-del--remove-and--pop"></a></h2>
+<hr class="half-width"><p>We use <code>del list_name[index]</code> to remove an element from a
+list. - <code>del</code> is not a function or a method, but a statement
+in the language.</p>
+<div class="codewrapper sourceCode" id="cb37">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" tabindex="-1" aria-label="code-block-37-1"></a>primes <span class="op">=</span> [<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">9</span>]</span>
+<span id="cb37-2"><a href="#cb37-2" tabindex="-1" aria-label="code-block-37-2"></a><span class="bu">print</span>(<span class="st">'primes before removing'</span>, primes)</span>
+<span id="cb37-3"><a href="#cb37-3" tabindex="-1" aria-label="code-block-37-3"></a><span class="kw">del</span> primes[<span class="dv">4</span>]</span>
+<span id="cb37-4"><a href="#cb37-4" tabindex="-1" aria-label="code-block-37-4"></a><span class="bu">print</span>(<span class="st">'primes after removing'</span>, primes)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>primes before removing: [2, 3, 5, 7, 9]
+primes after removing: [2, 3, 5, 7]</code></pre>
+</div>
+<p>However, it is more common to see items removed from lists using the
+<code>.remove()</code> and <code>.pop()</code> methods.
+<code>.remove(x)</code> will remove the first instance of value(x) from
+a list. Like <code>.append()</code>, the <code>.remove()</code> function
+returns None.</p>
+<div class="codewrapper sourceCode" id="cb39">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" tabindex="-1" aria-label="code-block-39-1"></a>housemates <span class="op">=</span> [<span class="st">"rose"</span>, <span class="st">"sam"</span>] </span>
+<span id="cb39-2"><a href="#cb39-2" tabindex="-1" aria-label="code-block-39-2"></a>housemates.remove(<span class="st">"rose"</span>) </span>
+<span id="cb39-3"><a href="#cb39-3" tabindex="-1" aria-label="code-block-39-3"></a>housemates</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>['sam']</code></pre>
+</div>
+<p>It will return a ValueError if there are no instances of x in the
+list. Now that “rose” has already moved out, <code>.remove()</code> will
+fail because it cannot find a “rose” in the list to remove.</p>
+<div class="codewrapper sourceCode" id="cb41">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" tabindex="-1" aria-label="code-block-41-1"></a>housemates.remove(<span class="st">"rose"</span>) <span class="co"># This will fail</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>----&gt; 1 housemates.remove("rose")
+
+ValueError: list.remove(x): x not in list</code></pre>
+</div>
+<p>Let’s say two new housemates move in: “josh” and “joe”.</p>
+<div class="codewrapper sourceCode" id="cb43">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" tabindex="-1" aria-label="code-block-43-1"></a>housemates.append(<span class="st">"josh"</span>)</span>
+<span id="cb43-2"><a href="#cb43-2" tabindex="-1" aria-label="code-block-43-2"></a>housemates.append(<span class="st">"joe"</span>)</span>
+<span id="cb43-3"><a href="#cb43-3" tabindex="-1" aria-label="code-block-43-3"></a><span class="bu">print</span>(<span class="st">"There are now"</span>, <span class="bu">len</span>(housemates), <span class="st">"people in the house."</span>)</span></code></pre>
+</div>
+<p>The landlord imposes a new rule. Only two people are allowed in the
+house. The person who moved in most recently (the end of the list) must
+move out.</p>
+<p>We can use the <code>.pop()</code> method to remove (and return) the
+last item in a list.</p>
+<div class="codewrapper sourceCode" id="cb44">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" tabindex="-1" aria-label="code-block-44-1"></a>evicted <span class="op">=</span> housemates.pop() <span class="co"># Removes and returns the last item in a list</span></span>
+<span id="cb44-2"><a href="#cb44-2" tabindex="-1" aria-label="code-block-44-2"></a><span class="bu">print</span>(evicted, <span class="st">"was evicted."</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" tabindex="-1" aria-label="code-block-44-3"></a><span class="bu">print</span>(housemates, <span class="st">"live in the house"</span>)</span></code></pre>
+</div>
+<p>output<code>joe was evicted. ['sam', 'josh'] live in the house</code></p>
+<p>You cannot <code>.pop()</code> values from an empty list.</p>
+<div class="codewrapper sourceCode" id="cb45">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" tabindex="-1" aria-label="code-block-45-1"></a>empty_house <span class="op">=</span> []</span>
+<span id="cb45-2"><a href="#cb45-2" tabindex="-1" aria-label="code-block-45-2"></a>empty_house.pop() <span class="co"># This will fails</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>IndexError                                Traceback (most recent call last)
+Cell In[23], line 2
+      1 empty_house = []
+----&gt; 2 empty_house.pop()
+
+IndexError: pop from empty list</code></pre>
+</div>
+</section><section><h2 class="section-heading" id="character-strings-are-immutable-">Character strings are immutable.<a class="anchor" aria-label="anchor" href="#character-strings-are-immutable-"></a></h2>
+<hr class="half-width"><p>We cannot change the characters in a string after it has been created
+because Python considers the string to be a single <em>primitive</em>
+value.</p>
+<p>Primitives (strings, ints, floats, booleans) are
+<strong>immutable</strong>. This means that when we want to change the
+value of a string or number variable, we can only replace the old value
+with a completely new value.</p>
+<div class="codewrapper sourceCode" id="cb47">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" tabindex="-1" aria-label="code-block-47-1"></a>element <span class="op">=</span> <span class="st">"Helium"</span></span>
+<span id="cb47-2"><a href="#cb47-2" tabindex="-1" aria-label="code-block-47-2"></a>element[<span class="dv">0</span>] <span class="op">=</span> <span class="st">'C'</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="error" tabindex="0"><code>TypeError: 'str' object does not support item assignment</code></pre>
 </div>
-<ul><li>Lists and character strings are both <em>collections</em>.</li>
-</ul></section><section><h2 class="section-heading" id="indexing-beyond-the-end-of-the-collection-is-an-error-">Indexing beyond the end of the collection is an error.<a class="anchor" aria-label="anchor" href="#indexing-beyond-the-end-of-the-collection-is-an-error-"></a></h2>
-<hr class="half-width"><ul><li>Python reports an <code>IndexError</code> if we attempt to access a
-value that doesn’t exist.
-<ul><li>This is a kind of <a href="04-built-in.html">runtime error</a>.</li>
-<li>Cannot be detected as the code is parsed because the index might be
-calculated based on data.</li>
-</ul></li>
-</ul><div class="codewrapper sourceCode" id="cb20">
+<p>Lists and character strings are both <em>collections</em>.</p>
+</section><section><h2 class="section-heading" id="mutable-and-immutable-objects-when-a-copy-isnt-a-copy">Mutable and immutable objects: when a copy isn’t a copy<a class="anchor" aria-label="anchor" href="#mutable-and-immutable-objects-when-a-copy-isnt-a-copy"></a></h2>
+<hr class="half-width"><p>Be careful when modifying data in-place. If two variables refer to
+the same list, and you modify the list value, it will change for both
+variables!</p>
+<p>This has to do with the mechanics of assignment and mutability in
+Python.</p>
+<div class="codewrapper sourceCode" id="cb49">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1" aria-label="code-block-20-1"></a><span class="bu">print</span>(<span class="st">'99th element of element is:'</span>, element[<span class="dv">99</span>])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" tabindex="-1" aria-label="code-block-49-1"></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>]</span>
+<span id="cb49-2"><a href="#cb49-2" tabindex="-1" aria-label="code-block-49-2"></a>y <span class="op">=</span> x <span class="co"># y points to x</span></span>
+<span id="cb49-3"><a href="#cb49-3" tabindex="-1" aria-label="code-block-49-3"></a>x.append(<span class="dv">5</span>)</span>
+<span id="cb49-4"><a href="#cb49-4" tabindex="-1" aria-label="code-block-49-4"></a><span class="bu">print</span>(x)</span>
+<span id="cb49-5"><a href="#cb49-5" tabindex="-1" aria-label="code-block-49-5"></a><span class="bu">print</span>(<span class="st">"y"</span>, y, <span class="st">"is another name for x"</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>IndexError: string index out of range</code></pre>
+<pre class="output" tabindex="0"><code>[1, 3, 5]
+y [1, 3, 5] is another name for x</code></pre>
+</div>
+<p>If you wish to make two copies of the same list, use the
+<code>.copy()</code> method instead. This method returns a new list with
+the same contents. This principle applies for all <em>mutable</em>
+variables. (We’ll learn about another mutable data type—the
+DataFrame—later in this workshop.)</p>
+<div class="codewrapper sourceCode" id="cb51">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" tabindex="-1" aria-label="code-block-51-1"></a>x <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">3</span>]</span>
+<span id="cb51-2"><a href="#cb51-2" tabindex="-1" aria-label="code-block-51-2"></a>y <span class="op">=</span> x.copy() <span class="co"># Y points to a different, mutable list</span></span>
+<span id="cb51-3"><a href="#cb51-3" tabindex="-1" aria-label="code-block-51-3"></a>x.append(<span class="dv">5</span>)</span>
+<span id="cb51-4"><a href="#cb51-4" tabindex="-1" aria-label="code-block-51-4"></a><span class="bu">print</span>(<span class="st">"x"</span>, x)</span>
+<span id="cb51-5"><a href="#cb51-5" tabindex="-1" aria-label="code-block-51-5"></a><span class="bu">print</span>(<span class="st">"y"</span>, y, <span class="st">"hasn't changed."</span>)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>x [1, 3, 5]
+y [1, 3] hasn't changed.</code></pre>
+</div>
+<p>For additional reading on this topic, see this question from the <a href="https://docs.python.org/3/faq/programming.html#why-did-changing-list-y-also-change-list-x" class="external-link">official
+Python FAQ</a>.</p>
+</section><section><h2 class="section-heading" id="two-ways-of-sorting-lists">Two ways of sorting lists<a class="anchor" aria-label="anchor" href="#two-ways-of-sorting-lists"></a></h2>
+<hr class="half-width"><p>There are two common ways to sort lists by their values: the sorted()
+function which returns a sorted collection as a copy and .sort() method
+which sorts a list in place.</p>
+<div class="codewrapper sourceCode" id="cb53">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" tabindex="-1" aria-label="code-block-53-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>]</span>
+<span id="cb53-2"><a href="#cb53-2" tabindex="-1" aria-label="code-block-53-2"></a>snumbers <span class="op">=</span> <span class="bu">sorted</span>(numbers) <span class="co"># Returns a copy</span></span>
+<span id="cb53-3"><a href="#cb53-3" tabindex="-1" aria-label="code-block-53-3"></a><span class="bu">print</span>(numbers) <span class="co"># Unchanged</span></span>
+<span id="cb53-4"><a href="#cb53-4" tabindex="-1" aria-label="code-block-53-4"></a><span class="bu">print</span>(snumbers)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[1, 5, 3, 4, 2]
+[1, 2, 3, 4, 5]</code></pre>
+</div>
+<p>Notice that the <code>.sort()</code> method returns <code>None</code>
+and permanently changes <code>numbers</code>.</p>
+<div class="codewrapper sourceCode" id="cb55">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" tabindex="-1" aria-label="code-block-55-1"></a><span class="bu">print</span>(<span class="st">"Numbers before .sort()"</span>, numbers)</span>
+<span id="cb55-2"><a href="#cb55-2" tabindex="-1" aria-label="code-block-55-2"></a>numbers.sort() <span class="co"># Permanently changes numbers</span></span>
+<span id="cb55-3"><a href="#cb55-3" tabindex="-1" aria-label="code-block-55-3"></a><span class="bu">print</span>(<span class="st">"Numbers after"</span>, numbers)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>Numbers before .sort() [1, 5, 3, 4, 2]
+Numbers after [1, 2, 3, 4, 5]</code></pre>
+</div>
+<p>However, sorting a list only works when all its values are of the
+same data type. Remember those rules about comparing items of different
+types with <code>min()</code> and <code>max()</code>?</p>
+<div class="codewrapper sourceCode" id="cb57">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" tabindex="-1" aria-label="code-block-57-1"></a>valid_list <span class="op">=</span> [<span class="st">"a"</span>, <span class="dv">3</span>, [<span class="dv">1</span>]] <span class="co"># This will work</span></span></code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb58">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" tabindex="-1" aria-label="code-block-58-1"></a>valid_list.sort()</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>TypeError                                 Traceback (most recent call last)
+Cell In[27], line 1
+----&gt; 1 valid_list.sort()
+
+TypeError: '&lt;' not supported between instances of 'int' and 'str'</code></pre>
 </div>
 <div id="fill-in-the-blanks" class="callout challenge">
 <div class="callout-square">
@@ -663,16 +1006,16 @@ calculated based on data.</li>
 <div class="callout-content">
 <p>Fill in the blanks so that the program below produces the output
 shown.</p>
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb60">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1" aria-label="code-block-22-1"></a>values <span class="op">=</span> ____</span>
-<span id="cb22-2"><a href="#cb22-2" tabindex="-1" aria-label="code-block-22-2"></a>values.____(<span class="dv">1</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" tabindex="-1" aria-label="code-block-22-3"></a>values.____(<span class="dv">3</span>)</span>
-<span id="cb22-4"><a href="#cb22-4" tabindex="-1" aria-label="code-block-22-4"></a>values.____(<span class="dv">5</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" tabindex="-1" aria-label="code-block-22-5"></a><span class="bu">print</span>(<span class="st">'first time:'</span>, values)</span>
-<span id="cb22-6"><a href="#cb22-6" tabindex="-1" aria-label="code-block-22-6"></a>values <span class="op">=</span> values[____]</span>
-<span id="cb22-7"><a href="#cb22-7" tabindex="-1" aria-label="code-block-22-7"></a><span class="bu">print</span>(<span class="st">'second time:'</span>, values)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" tabindex="-1" aria-label="code-block-60-1"></a>values <span class="op">=</span> ____</span>
+<span id="cb60-2"><a href="#cb60-2" tabindex="-1" aria-label="code-block-60-2"></a>values.____(<span class="dv">1</span>)</span>
+<span id="cb60-3"><a href="#cb60-3" tabindex="-1" aria-label="code-block-60-3"></a>values.____(<span class="dv">3</span>)</span>
+<span id="cb60-4"><a href="#cb60-4" tabindex="-1" aria-label="code-block-60-4"></a>values.____(<span class="dv">5</span>)</span>
+<span id="cb60-5"><a href="#cb60-5" tabindex="-1" aria-label="code-block-60-5"></a><span class="bu">print</span>(<span class="st">'first time:'</span>, values)</span>
+<span id="cb60-6"><a href="#cb60-6" tabindex="-1" aria-label="code-block-60-6"></a>values <span class="op">=</span> values[____]</span>
+<span id="cb60-7"><a href="#cb60-7" tabindex="-1" aria-label="code-block-60-7"></a><span class="bu">print</span>(<span class="st">'second time:'</span>, values)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -683,23 +1026,23 @@ second time: [3, 5]</code></pre>
 </div>
 </div>
 </div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb62">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1" aria-label="code-block-24-1"></a>values <span class="op">=</span> []</span>
-<span id="cb24-2"><a href="#cb24-2" tabindex="-1" aria-label="code-block-24-2"></a>values.append(<span class="dv">1</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" tabindex="-1" aria-label="code-block-24-3"></a>values.append(<span class="dv">3</span>)</span>
-<span id="cb24-4"><a href="#cb24-4" tabindex="-1" aria-label="code-block-24-4"></a>values.append(<span class="dv">5</span>)</span>
-<span id="cb24-5"><a href="#cb24-5" tabindex="-1" aria-label="code-block-24-5"></a><span class="bu">print</span>(<span class="st">'first time:'</span>, values)</span>
-<span id="cb24-6"><a href="#cb24-6" tabindex="-1" aria-label="code-block-24-6"></a>values <span class="op">=</span> values[<span class="dv">1</span>:]</span>
-<span id="cb24-7"><a href="#cb24-7" tabindex="-1" aria-label="code-block-24-7"></a><span class="bu">print</span>(<span class="st">'second time:'</span>, values)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" tabindex="-1" aria-label="code-block-62-1"></a>values <span class="op">=</span> []</span>
+<span id="cb62-2"><a href="#cb62-2" tabindex="-1" aria-label="code-block-62-2"></a>values.append(<span class="dv">1</span>)</span>
+<span id="cb62-3"><a href="#cb62-3" tabindex="-1" aria-label="code-block-62-3"></a>values.append(<span class="dv">3</span>)</span>
+<span id="cb62-4"><a href="#cb62-4" tabindex="-1" aria-label="code-block-62-4"></a>values.append(<span class="dv">5</span>)</span>
+<span id="cb62-5"><a href="#cb62-5" tabindex="-1" aria-label="code-block-62-5"></a><span class="bu">print</span>(<span class="st">'first time:'</span>, values)</span>
+<span id="cb62-6"><a href="#cb62-6" tabindex="-1" aria-label="code-block-62-6"></a>values <span class="op">=</span> values[<span class="dv">1</span>:]</span>
+<span id="cb62-7"><a href="#cb62-7" tabindex="-1" aria-label="code-block-62-7"></a><span class="bu">print</span>(<span class="st">'second time:'</span>, values)</span></code></pre>
 </div>
 </div>
 </div>
@@ -718,12 +1061,12 @@ integers, how long is the list <code>values[start:stop]</code>?</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>The list <code>values[start:stop]</code> has up to
 <code>stop - start</code> elements. For example,
@@ -745,11 +1088,11 @@ will still get a list back but it will be shorter than expected.</p>
 <h3 class="callout-title">From Strings to Lists and Back</h3>
 <div class="callout-content">
 <p>Given this:</p>
-<div class="codewrapper sourceCode" id="cb25">
+<div class="codewrapper sourceCode" id="cb63">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" tabindex="-1" aria-label="code-block-25-1"></a><span class="bu">print</span>(<span class="st">'string to list:'</span>, <span class="bu">list</span>(<span class="st">'tin'</span>))</span>
-<span id="cb25-2"><a href="#cb25-2" tabindex="-1" aria-label="code-block-25-2"></a><span class="bu">print</span>(<span class="st">'list to string:'</span>, <span class="st">''</span>.join([<span class="st">'g'</span>, <span class="st">'o'</span>, <span class="st">'l'</span>, <span class="st">'d'</span>]))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" tabindex="-1" aria-label="code-block-63-1"></a><span class="bu">print</span>(<span class="st">'string to list:'</span>, <span class="bu">list</span>(<span class="st">'tin'</span>))</span>
+<span id="cb63-2"><a href="#cb63-2" tabindex="-1" aria-label="code-block-63-2"></a><span class="bu">print</span>(<span class="st">'list to string:'</span>, <span class="st">''</span>.join([<span class="st">'g'</span>, <span class="st">'o'</span>, <span class="st">'l'</span>, <span class="st">'d'</span>]))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -762,12 +1105,12 @@ list to string: gold</code></pre>
 </ol></div>
 </div>
 </div>
-<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
+  <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" class="external-link"><code>list('some string')</code></a>
@@ -791,11 +1134,11 @@ elements is the string that provides this method.</li>
 <h3 class="callout-title">Working With the End</h3>
 <div class="callout-content">
 <p>What does the following program print?</p>
-<div class="codewrapper sourceCode" id="cb27">
+<div class="codewrapper sourceCode" id="cb65">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" tabindex="-1" aria-label="code-block-27-1"></a>element <span class="op">=</span> <span class="st">'helium'</span></span>
-<span id="cb27-2"><a href="#cb27-2" tabindex="-1" aria-label="code-block-27-2"></a><span class="bu">print</span>(element[<span class="op">-</span><span class="dv">1</span>])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" tabindex="-1" aria-label="code-block-65-1"></a>element <span class="op">=</span> <span class="st">'helium'</span></span>
+<span id="cb65-2"><a href="#cb65-2" tabindex="-1" aria-label="code-block-65-2"></a><span class="bu">print</span>(element[<span class="op">-</span><span class="dv">1</span>])</span></code></pre>
 </div>
 <ol style="list-style-type: decimal"><li>How does Python interpret a negative index?</li>
 <li>If a list or string has N elements, what is the most negative index
@@ -809,12 +1152,12 @@ negative indexing.)</li>
 </ol></div>
 </div>
 </div>
-<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution6" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
-  <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
+  <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <p>The program prints <code>m</code>.</p>
 <ol style="list-style-type: decimal"><li>Python interprets a negative index as starting from the end (as
@@ -830,54 +1173,6 @@ list.</li>
 </div>
 </div>
 </div>
-<div id="stepping-through-a-list" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="stepping-through-a-list" class="callout-inner">
-<h3 class="callout-title">Stepping Through a List</h3>
-<div class="callout-content">
-<p>What does the following program print?</p>
-<div class="codewrapper sourceCode" id="cb28">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" tabindex="-1" aria-label="code-block-28-1"></a>element <span class="op">=</span> <span class="st">'fluorine'</span></span>
-<span id="cb28-2"><a href="#cb28-2" tabindex="-1" aria-label="code-block-28-2"></a><span class="bu">print</span>(element[::<span class="dv">2</span>])</span>
-<span id="cb28-3"><a href="#cb28-3" tabindex="-1" aria-label="code-block-28-3"></a><span class="bu">print</span>(element[::<span class="op">-</span><span class="dv">1</span>])</span></code></pre>
-</div>
-<ol style="list-style-type: decimal"><li>If we write a slice as <code>low:high:stride</code>, what does
-<code>stride</code> do?</li>
-<li>What expression would select all of the even-numbered items from a
-collection?</li>
-</ol></div>
-</div>
-</div>
-<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
-  <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
-</button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
-<div class="accordion-body">
-<p>The program prints</p>
-<div class="codewrapper sourceCode" id="cb29">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" tabindex="-1" aria-label="code-block-29-1"></a>furn</span>
-<span id="cb29-2"><a href="#cb29-2" tabindex="-1" aria-label="code-block-29-2"></a>eniroulf</span></code></pre>
-</div>
-<ol style="list-style-type: decimal"><li>
-<code>stride</code> is the step size of the slice.</li>
-<li>The slice <code>1::2</code> selects all even-numbered items from a
-collection: it starts with element <code>1</code> (which is the second
-element, since indexing starts at <code>0</code>), goes on until the end
-(since no <code>end</code> is given), and uses a step size of
-<code>2</code> (i.e., selects every second element).</li>
-</ol></div>
-</div>
-</div>
-</div>
 <div id="slice-bounds" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -887,22 +1182,22 @@ element, since indexing starts at <code>0</code>), goes on until the end
 <h3 class="callout-title">Slice Bounds</h3>
 <div class="callout-content">
 <p>What does the following program print?</p>
-<div class="codewrapper sourceCode" id="cb30">
+<div class="codewrapper sourceCode" id="cb66">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" tabindex="-1" aria-label="code-block-30-1"></a>element <span class="op">=</span> <span class="st">'lithium'</span></span>
-<span id="cb30-2"><a href="#cb30-2" tabindex="-1" aria-label="code-block-30-2"></a><span class="bu">print</span>(element[<span class="dv">0</span>:<span class="dv">20</span>])</span>
-<span id="cb30-3"><a href="#cb30-3" tabindex="-1" aria-label="code-block-30-3"></a><span class="bu">print</span>(element[<span class="op">-</span><span class="dv">1</span>:<span class="dv">3</span>])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" tabindex="-1" aria-label="code-block-66-1"></a>element <span class="op">=</span> <span class="st">'lithium'</span></span>
+<span id="cb66-2"><a href="#cb66-2" tabindex="-1" aria-label="code-block-66-2"></a><span class="bu">print</span>(element[<span class="dv">0</span>:<span class="dv">20</span>])</span>
+<span id="cb66-3"><a href="#cb66-3" tabindex="-1" aria-label="code-block-66-3"></a><span class="bu">print</span>(element[<span class="op">-</span><span class="dv">1</span>:<span class="dv">3</span>])</span></code></pre>
 </div>
 </div>
 </div>
 </div>
-<div id="accordionSolution6" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution7" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
-  <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
+  <h4 class="accordion-header" id="headingSolution7"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -927,31 +1222,31 @@ empty string, because the slice goes “out of bounds” of the string.</p>
 <p>What do these two programs print? In simple terms, explain the
 difference between <code>sorted(letters)</code> and
 <code>letters.sort()</code>.</p>
-<div class="codewrapper sourceCode" id="cb32">
+<div class="codewrapper sourceCode" id="cb68">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" tabindex="-1" aria-label="code-block-32-1"></a><span class="co"># Program A</span></span>
-<span id="cb32-2"><a href="#cb32-2" tabindex="-1" aria-label="code-block-32-2"></a>letters <span class="op">=</span> <span class="bu">list</span>(<span class="st">'gold'</span>)</span>
-<span id="cb32-3"><a href="#cb32-3" tabindex="-1" aria-label="code-block-32-3"></a>result <span class="op">=</span> <span class="bu">sorted</span>(letters)</span>
-<span id="cb32-4"><a href="#cb32-4" tabindex="-1" aria-label="code-block-32-4"></a><span class="bu">print</span>(<span class="st">'letters is'</span>, letters, <span class="st">'and result is'</span>, result)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" tabindex="-1" aria-label="code-block-68-1"></a><span class="co"># Program A</span></span>
+<span id="cb68-2"><a href="#cb68-2" tabindex="-1" aria-label="code-block-68-2"></a>letters <span class="op">=</span> <span class="bu">list</span>(<span class="st">'gold'</span>)</span>
+<span id="cb68-3"><a href="#cb68-3" tabindex="-1" aria-label="code-block-68-3"></a>result <span class="op">=</span> <span class="bu">sorted</span>(letters)</span>
+<span id="cb68-4"><a href="#cb68-4" tabindex="-1" aria-label="code-block-68-4"></a><span class="bu">print</span>(<span class="st">'letters is'</span>, letters, <span class="st">'and result is'</span>, result)</span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb33">
+<div class="codewrapper sourceCode" id="cb69">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" tabindex="-1" aria-label="code-block-33-1"></a><span class="co"># Program B</span></span>
-<span id="cb33-2"><a href="#cb33-2" tabindex="-1" aria-label="code-block-33-2"></a>letters <span class="op">=</span> <span class="bu">list</span>(<span class="st">'gold'</span>)</span>
-<span id="cb33-3"><a href="#cb33-3" tabindex="-1" aria-label="code-block-33-3"></a>result <span class="op">=</span> letters.sort()</span>
-<span id="cb33-4"><a href="#cb33-4" tabindex="-1" aria-label="code-block-33-4"></a><span class="bu">print</span>(<span class="st">'letters is'</span>, letters, <span class="st">'and result is'</span>, result)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" tabindex="-1" aria-label="code-block-69-1"></a><span class="co"># Program B</span></span>
+<span id="cb69-2"><a href="#cb69-2" tabindex="-1" aria-label="code-block-69-2"></a>letters <span class="op">=</span> <span class="bu">list</span>(<span class="st">'gold'</span>)</span>
+<span id="cb69-3"><a href="#cb69-3" tabindex="-1" aria-label="code-block-69-3"></a>result <span class="op">=</span> letters.sort()</span>
+<span id="cb69-4"><a href="#cb69-4" tabindex="-1" aria-label="code-block-69-4"></a><span class="bu">print</span>(<span class="st">'letters is'</span>, letters, <span class="st">'and result is'</span>, result)</span></code></pre>
 </div>
 </div>
 </div>
 </div>
-<div id="accordionSolution7" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution8" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
-  <h4 class="accordion-header" id="headingSolution7"> Show me the solution </h4>
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution8" aria-expanded="false" aria-controls="collapseSolution8">
+  <h4 class="accordion-header" id="headingSolution8"> Show me the solution </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
 <div class="accordion-body">
 <p>Program A prints</p>
 <div class="codewrapper">
@@ -969,67 +1264,6 @@ difference between <code>sorted(letters)</code> and
 <code>letters</code> (the original list <code>letters</code> remains
 unchanged), while <code>letters.sort()</code> sorts the list
 <code>letters</code> in-place and does not return anything.</p>
-</div>
-</div>
-</div>
-</div>
-<div id="copying-or-not" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<span class="callout-header">Challenge</span>
-<div id="copying-or-not" class="callout-inner">
-<h3 class="callout-title">Copying (or Not)</h3>
-<div class="callout-content">
-<p>What do these two programs print? In simple terms, explain the
-difference between <code>new = old</code> and
-<code>new = old[:]</code>.</p>
-<div class="codewrapper sourceCode" id="cb36">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" tabindex="-1" aria-label="code-block-36-1"></a><span class="co"># Program A</span></span>
-<span id="cb36-2"><a href="#cb36-2" tabindex="-1" aria-label="code-block-36-2"></a>old <span class="op">=</span> <span class="bu">list</span>(<span class="st">'gold'</span>)</span>
-<span id="cb36-3"><a href="#cb36-3" tabindex="-1" aria-label="code-block-36-3"></a>new <span class="op">=</span> old      <span class="co"># simple assignment</span></span>
-<span id="cb36-4"><a href="#cb36-4" tabindex="-1" aria-label="code-block-36-4"></a>new[<span class="dv">0</span>] <span class="op">=</span> <span class="st">'D'</span></span>
-<span id="cb36-5"><a href="#cb36-5" tabindex="-1" aria-label="code-block-36-5"></a><span class="bu">print</span>(<span class="st">'new is'</span>, new, <span class="st">'and old is'</span>, old)</span></code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb37">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" tabindex="-1" aria-label="code-block-37-1"></a><span class="co"># Program B</span></span>
-<span id="cb37-2"><a href="#cb37-2" tabindex="-1" aria-label="code-block-37-2"></a>old <span class="op">=</span> <span class="bu">list</span>(<span class="st">'gold'</span>)</span>
-<span id="cb37-3"><a href="#cb37-3" tabindex="-1" aria-label="code-block-37-3"></a>new <span class="op">=</span> old[:]   <span class="co"># assigning a slice</span></span>
-<span id="cb37-4"><a href="#cb37-4" tabindex="-1" aria-label="code-block-37-4"></a>new[<span class="dv">0</span>] <span class="op">=</span> <span class="st">'D'</span></span>
-<span id="cb37-5"><a href="#cb37-5" tabindex="-1" aria-label="code-block-37-5"></a><span class="bu">print</span>(<span class="st">'new is'</span>, new, <span class="st">'and old is'</span>, old)</span></code></pre>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSolution8" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution8" aria-expanded="false" aria-controls="collapseSolution8">
-  <h4 class="accordion-header" id="headingSolution8"> Show me the solution </h4>
-</button>
-<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
-<div class="accordion-body">
-<p>Program A prints</p>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>new is ['D', 'o', 'l', 'd'] and old is ['D', 'o', 'l', 'd']</code></pre>
-</div>
-<p>Program B prints</p>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>new is ['D', 'o', 'l', 'd'] and old is ['g', 'o', 'l', 'd']</code></pre>
-</div>
-<p><code>new = old</code> makes <code>new</code> a reference to the list
-<code>old</code>; <code>new</code> and <code>old</code> point towards
-the same object.</p>
-<p><code>new = old[:]</code> however creates a new list object
-<code>new</code> containing all elements from the list <code>old</code>;
-<code>new</code> and <code>old</code> are different objects.</p>
 </div>
 </div>
 </div>
@@ -1114,8 +1348,8 @@ the same object.</p>
   "url": "uodataservices.github.io/python-novice-gapminder/instructor/05-lists.html",
   "identifier": "uodataservices.github.io/python-novice-gapminder/instructor/05-lists.html",
   "dateCreated": "2016-01-07",
-  "dateModified": "2026-10-11",
-  "datePublished": "2026-10-13"
+  "dateModified": "2026-10-14",
+  "datePublished": "2026-10-14"
 }
 
   </script><script>
