@@ -8,8 +8,8 @@ exercises: 15
 
 - Explain what a for loop does.
 - Correctly write for loops to repeat simple calculations.
-- Trace changes to a loop variableas the loop runs.
-- Trace chages to other variables as they are updated by a for loop.
+- Trace changes to a loop variable as the loop runs.
+- Trace changes to other variables as they are updated by a for loop.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -63,7 +63,7 @@ for num in odds:
 
 A for loop tells Python to execute some statements once for each value in a list, a character string, or some other *collection*. 
 
-The loop has three parts: an iterable, a loop variable, and a body that is repeated once for each item in the iterable. The name of a loop variable can be any valid variable name you choose, but it should indicate what you're looping over for readability. 
+The loop has three parts: an iterable, a loop variable, and a body that is repeated once for each item in the iterable. The name of a loop variable can be any valid variable name.
 
 ```python
 for number in [2, 3, 5]: # the colon is important
@@ -113,6 +113,25 @@ firstName = "Jon"
     ^
 IndentationError: unexpected indent
 ```
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Classifying Errors
+
+Is an indentation error a syntax error or a runtime error?
+
+:::::::::::::::  solution
+
+## Solution
+
+An IndentationError is a syntax error. Programs with syntax errors cannot be started.
+A program with a runtime error will start but an error will be thrown under certain conditions.
+
+
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Loop variables can be called anything.
 
@@ -197,96 +216,143 @@ for square in squares:
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-## Use `range` to iterate over a sequence of numbers.
+## The `range()` function iterates over a sequence of numbers.
 
-- The built-in function [`range`](https://docs.python.org/3/library/stdtypes.html#range) produces a sequence of numbers.
-  - *Not* a list: the numbers are produced on demand
-    to make looping over large ranges more efficient.
-- `range(N)` is the numbers 0..N-1
-  - Exactly the legal indices of a list or character string of length N
+Use `range()` to iterate over a sequence of numbers.
+
+* The built-in function range produces a sequence of numbers.
+* Not a list: the numbers are produced on demand to make looping over large ranges more efficient.
+* `range(N)` is the numbers 0..N-1
 
 ```python
-print('a range is not a list: range(0, 3)')
-for number in range(0, 3):
-    print(number)
+for i in range(5):
+    print(i)
 ```
 
 ```output
-a range is not a list: range(0, 3)
 0
 1
 2
+3
+4
 ```
 
-## The Accumulator pattern turns many values into one.
+The `range()` function is convenient when you want to do an operation a fixed number of times.
 
-- A common pattern in programs is to:
-  1. Initialize an *accumulator* variable to zero, the empty string, or the empty list.
-  2. Update the variable with values from a collection.
+```python
+housemates = ["joe", "james", "yao"] # Iterated in order
+for housemate in range(len(housemates)):
+    name = housemates.pop()
+    print(name, "moved out")
+print(housemates)
+```
+```output
+yao moved out
+james moved out
+joe moved out
+[]
+```
+
+The numbers in a range can be adjusted by their *start*, *stop*, and *step* arguments. If a single integer is supplied, it is assumed to be the *stop*. The default value of step is 1, ie. it is incremented by 1.
+
+```python
+one_to_five = range(1, 6) # Start at 1, stop before 6 (exclusive)
+for num in one_to_five:
+    print(num)
+```
+```output
+1
+2
+3
+4
+5
+```
+
+Set the step parameter to -1 to have the range count down rather than up. The start is still inclusive and the stop is still exclusive.
+
+```python
+five_to_one = range(5, 0, -1) # Start at 5 (inclusive), stop at 0 (exclusive), -1 to step
+for num in five_to_one:
+    print(num)
+```
+```output
+5
+4
+3
+2
+1
+```
+
+## Programming pattern: accumulation
+
+A common pattern in programs is to:
+
+1. Initialize an accumulator variable to zero, the empty string, or the empty list.
+2. Update the variable with values from a collection
+
+Let's say we want to compute the sum of the first five integers starting at 1. You will need to initalize a varable called `total` to 0. This will be our accumulator variable.
 
 ```python
 # Sum the first 10 integers.
-total = 0
-for number in range(10):
-   total = total + (number + 1)
+total = 0 # Initialize a variable called sum
+for num in range(1, 6):
+    print("Total", total)
+    print("Adding", num)
+    total = total + num # same as total += num
 print(total)
 ```
-
 ```output
-55
+Total 0
+Adding 1
+Total 1
+Adding 2
+Total 3
+Adding 3
+Total 6
+Adding 4
+Total 10
+Adding 5
+15
 ```
 
-- Read `total = total + (number + 1)` as:
-  - Add 1 to the current value of the loop variable `number`.
-  - Add that to the current value of the accumulator variable `total`.
-  - Assign that to `total`, replacing the current value.
-- We have to add `number + 1` because `range` produces 0..9, not 1..10.
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Classifying Errors
-
-Is an indentation error a syntax error or a runtime error?
-
-:::::::::::::::  solution
-
-## Solution
-
-An IndentationError is a syntax error. Programs with syntax errors cannot be started.
-A program with a runtime error will start but an error will be thrown under certain conditions.
-
-
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Tracing Execution
-
-Create a table showing the numbers of the lines that are executed when this program runs,
-and the values of the variables after each line is executed.
+Let's find the total length (in characters) of the strings in the following list: `["red", "green", "blue"]`.
 
 ```python
 total = 0
-for char in "tin":
-    total = total + 1
+for word in ["red", "green", "blue"]:
+    total = total + len(word)
+print(total)
+```
+```output
+12
+```
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Making an Acronym
+
+Using that same `["red", "green", "blue"]` list, how could we derive the acronym `"rgb"` using
+an accumulator pattern?
+
+```python
+acronym = _____
+for word in ["red", "green", "blue"]:
+    acronym = ___________ + ________
+print(acronym)
 ```
 
 :::::::::::::::  solution
 
 ## Solution
 
-| Line no | Variables            | 
-| ------- | -------------------- |
-| 1       | total = 0            | 
-| 2       | total = 0 char = 't' | 
-| 3       | total = 1 char = 't' | 
-| 2       | total = 1 char = 'i' | 
-| 3       | total = 2 char = 'i' | 
-| 2       | total = 2 char = 'n' | 
-| 3       | total = 3 char = 'n' | 
+Instead of accumulating a number starting at 0, accumulate a string one character at a time starting with the empty string.
+
+```python
+acronym = ""
+for word in ["red", "green", "blue"]:
+    acronym = acronym + word[0]
+print(acronym)
+```
 
 :::::::::::::::::::::::::
 
@@ -317,98 +383,6 @@ result = ""
 for char in original:
     result = char + result
 print(result)
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Practice Accumulating
-
-Fill in the blanks in each of the programs below
-to produce the indicated result.
-
-```python
-# Total length of the strings in the list: ["red", "green", "blue"] => 12
-total = 0
-for word in ["red", "green", "blue"]:
-    ____ = ____ + len(word)
-print(total)
-```
-
-:::::::::::::::  solution
-
-## Solution
-
-```python
-total = 0
-for word in ["red", "green", "blue"]:
-    total = total + len(word)
-print(total)
-```
-
-:::::::::::::::::::::::::
-
-```python
-# List of word lengths: ["red", "green", "blue"] => [3, 5, 4]
-lengths = ____
-for word in ["red", "green", "blue"]:
-    lengths.____(____)
-print(lengths)
-```
-
-:::::::::::::::  solution
-
-## Solution
-
-```python
-lengths = []
-for word in ["red", "green", "blue"]:
-    lengths.append(len(word))
-print(lengths)
-```
-
-:::::::::::::::::::::::::
-
-```python
-# Concatenate all words: ["red", "green", "blue"] => "redgreenblue"
-words = ["red", "green", "blue"]
-result = ____
-for ____ in ____:
-    ____
-print(result)
-```
-
-:::::::::::::::  solution
-
-## Solution
-
-```python
-words = ["red", "green", "blue"]
-result = ""
-for word in words:
-    result = result + word
-print(result)
-```
-
-:::::::::::::::::::::::::
-
-**Create an acronym:** Starting from the list `["red", "green", "blue"]`, create the acronym `"RGB"` using
-a for loop.
-
-**Hint:** You may need to use a string method to properly format the acronym.
-
-:::::::::::::::  solution
-
-## Solution
-
-```python
-acronym = ""
-for word in ["red", "green", "blue"]:
-    acronym = acronym + word[0].upper()
-print(acronym)
 ```
 
 :::::::::::::::::::::::::
@@ -453,73 +427,36 @@ print(cumulative)
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Identifying Variable Name Errors
+## Debugging Accumulators
 
-1. Read the code below and try to identify what the errors are
-  *without* running it.
-2. Run the code and read the error message.
-  What type of `NameError` do you think this is?
-  Is it a string with no quotes, a misspelled variable, or a
-  variable that should have been defined but was not?
-3. Fix the error.
-4. Repeat steps 2 and 3, until you have fixed all the errors.
+Let's say you want to compute the **factorial** of 6 or $6!$ by hand. This is equal to 6 * 5 * 4 * 3 * 2 * 1. We can use a for-loop and an accumulator pattern to do this.
+
+Let's say your first draft looks like this. 
 
 ```python
-for number in range(10):
-    # use a if the number is a multiple of 3, otherwise use b
-    if (Number % 3) == 0:
-        message = message + a
-    else:
-        message = message + "b"
-print(message)
+accumulator = 0
+for i in range(1, 7): # 1 inclusive to 7 exclusive
+    print(i)
+    accumulator = accumulator * i
+print("6! = ", accumulator)
 ```
+
+Is the answer correct? What needs to be changed about this block of code in order for it to compute $6!$ correctly? 
 
 :::::::::::::::  solution
 
-## Solution
-
-- Python variable names are case sensitive: `number` and `Number` refer to different variables.
-- The variable `message` needs to be initialized as an empty string.
-- We want to add the string `"a"` to `message`, not the undefined variable `a`.
-
-```python
-message = ""
-for number in range(10):
-    # use a if the number is a multiple of 3, otherwise use b
-    if (number % 3) == 0:
-        message = message + "a"
-    else:
-        message = message + "b"
-print(message)
-```
-
-:::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::  challenge
-
-## Identifying Item Errors
-
-1. Read the code below and try to identify what the errors are
-  *without* running it.
-2. Run the code, and read the error message. What type of error is it?
-3. Fix the error.
-
-```python
-seasons = ['Spring', 'Summer', 'Fall', 'Winter']
-print('My favorite season is ', seasons[4])
-```
-
-:::::::::::::::  solution
+You're *multiplying* rather than adding. Making your accumulator start at 0 will 0 out your results, as the product of any number * 0 is 0. Therefore, to get the correct result, you want $1 * (6 * 5 * 4 * 3 * 2 * 1)$. Setting accumulator to 1 fixes this.s
 
 ## Solution
 
-This list has 4 elements and the index to access the last element in the list is `3`.
-
 ```python
-seasons = ['Spring', 'Summer', 'Fall', 'Winter']
-print('My favorite season is ', seasons[3])
+accumulator = 1
+for i in range(1, 7): # 1 inclusive to 7 exclusive
+    accumulator = accumulator * i
+print("6! = ", accumulator)
+```
+```output
+6! =  720
 ```
 
 :::::::::::::::::::::::::
@@ -528,14 +465,13 @@ print('My favorite season is ', seasons[3])
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- A *for loop* executes commands once for each value in a collection.
-- A `for` loop is made up of a collection, a loop variable, and a body.
-- The first line of the `for` loop must end with a colon, and the body must be indented.
+- A for loop executes commands once for each value in a collection.
+- A for loop is made up of a collection, a loop variable, and a body.
+- The first line of the for loop must end with a colon, and the body must be indented.
 - Indentation is always meaningful in Python.
 - Loop variables can be called anything (but it is strongly advised to have a meaningful name to the looping variable).
 - The body of a loop can contain many statements.
-- Use `range` to iterate over a sequence of numbers.
-- The Accumulator pattern turns many values into one.
+- Use range() to iterate over a sequence of numbers.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
