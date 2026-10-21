@@ -6,108 +6,167 @@ exercises: 15
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Correctly write programs that use if and else statements and simple Boolean expressions (without logical operators).
-- Trace the execution of unnested conditionals and conditionals inside loops.
+- Write conditional statements including if, elif, and else branches.
+- Trace the execution of conditionals.
+- Apply conditionals inside loops.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can programs do different things for different data?
+- How can my programs do different things based on data values?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Use `if` statements to control whether or not a block of code is executed.
+## Booleans can be True or False
 
-- An `if` statement (more properly called a *conditional* statement)
-  controls whether some block of code is executed or not.
-- Structure is similar to a `for` statement:
-  - First line opens with `if` and ends with a colon
-  - Body containing one or more statements is indented (usually by 4 spaces)
+We've discussed the following *primitive* data types so far: strings, ints, and floats. Let's add bools or Booleans to that list.
+
+Booleans can be `True` or `False`. They are returned by conditional statements formed with operators like `==`, `<`, or `>`.
 
 ```python
-mass = 3.54
-if mass > 3.0:
-    print(mass, 'is large')
-
-mass = 2.07
-if mass > 3.0:
-    print (mass, 'is large')
+print(3 > 5) # Should return False
 ```
-
 ```output
-3.54 is large
+False
 ```
 
-## Conditionals are often used inside loops.
-
-- Not much point using a conditional when we know the value (as above).
-- But useful when we have a collection to process.
+The `==` sign and `=` have very different meanings in Python. The `==` sign tests whether or not two values are equal.
 
 ```python
-masses = [3.54, 2.07, 9.22, 1.86, 1.71]
-for m in masses:
-    if m > 3.0:
-        print(m, 'is large')
+y = 4 # Assignment
+print (y == 4) # Is y (4) equal to 4?
+```
+```output
+True
 ```
 
+## Use if statements to control whether or not a block of code is executed
+Today, we will discuss [**control flow**](https://docs.python.org/3/tutorial/controlflow.html), one of the most powerful aspects of programming languages.
+
+* An **if statement** controls whether or not a block of code is executed.
+* The first line of an if statement starts with `if` and ends with a colon.
+* The body of an if statement is indented, just like a for loop.
+
+```python
+temp_f = 95
+if temp_f > 90: # The indented block runs if (temp_f > 90) is True
+    print("Specimen is too hot")
+```
 ```output
-3.54 is large
-9.22 is large
+Specimen is too hot
+```
+
+If the condition tested in the if statement evalutates to `True`, then the block of code underneath the if statement executes. If it evaluates to `False`, the code block is skipped.
+
+## Conditionals can be used with loops
+Conditionals can be used used inside loops to do different things with different items in a collection.
+
+```python
+grades = [70, 85, 90, 42, 95, 63]
+for grade in grades:
+    if grade >= 70:
+        print("This is a passing grade", grade)
+```
+```output
+This is a passing grade 70
+This is a passing grade 85
+This is a passing grade 90
+This is a passing grade 95
+```
+
+Let's combine this with the accumulator pattern to answer a more sophisticated question. Rather than print the passing grades, let's print the *number* of students who passed.
+
+```python
+passed = 0 # Initialize to zero
+for grade in grades:
+    if grade >= 70:
+        passed = passed + 1
+print(passed, "students passed the class.")
+```
+```output
+4 students passed the class.
 ```
 
 ## Use `else` to execute a block of code when an `if` condition is *not* true.
 
-- `else` can be used following an `if`.
-- Allows us to specify an alternative to execute when the `if` *branch* isn't taken.
+**Else** executes a block of code when an if condition is **not** `True`. It is always paired with an **if** statement.
+
+* `else` is indented like the **if** it is paired with.
+* Not every `if` needs an `else` but every `else` needs an `if`.
 
 ```python
-masses = [3.54, 2.07, 9.22, 1.86, 1.71]
-for m in masses:
-    if m > 3.0:
-        print(m, 'is large')
-    else:
-        print(m, 'is small')
+temp = 32
+if temp > 90:
+    print("It's too hot")
+else:
+    print("It's freezing.")
 ```
+```output
+It's freezing.
+```
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## If, else, and indentation
+
+When using conditional statements, `if variable` is shorthand for `if variable == True`.
+
+In the example below, how many print statements will print if `no_gas` is `True`? How many if `no_gas` is `False`?
+```python
+no_gas = _____
+if no_gas:
+    print("Getting gas")
+    no_gas = False
+else:
+    print("Buying snacks")
+print("Resumed driving")
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+If `no_gas` is True, the "Getting gas" and "Resumed driving" statements will print.
 
 ```output
-3.54 is large
-2.07 is small
-9.22 is large
-1.86 is small
-1.71 is small
+Getting gas
+Resumed driving
 ```
 
-## Use `elif` to specify additional tests.
+If `no_gas` is False, the "Buying snacks" and "Resumed driving" statements will print.
+```output
+Buying snacks
+Resumed driving
+```
 
-- May want to provide several alternative choices, each with its own test.
-- Use `elif` (short for "else if") and a condition to specify these.
-- Always associated with an `if`.
-- Must come before the `else` (which is the "catch all").
+Though the value of `no_gas` was changed within the code block under the `if` statement, the `else` statement was skipped over. Which block of code executes in an if/else pair is decided at the the time the `if` is tested. 
+
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Use `elif` to specify additional tests
+
+We can also chain several tests together using elif, which is short for “else if”. The following Python code uses `elif` to print the sign of a number.
 
 ```python
-masses = [3.54, 2.07, 9.22, 1.86, 1.71]
-for m in masses:
-    if m > 9.0:
-        print(m, 'is HUGE')
-    elif m > 3.0:
-        print(m, 'is large')
-    else:
-        print(m, 'is small')
+num = -3
+if num > 0:
+    print(num, 'is positive')
+elif num == 0:
+    print(num, 'is zero')
+else:
+    print(num, 'is negative')
 ```
-
 ```output
-3.54 is large
-2.07 is small
-9.22 is HUGE
-1.86 is small
-1.71 is small
+-3 is negative
 ```
 
-## Conditions are tested once, in order.
+## Conditions are tested once, in order
 
-- Python steps through the branches of the conditional in order, testing each in turn.
-- So ordering matters.
+* Exactly one condition of an `if`/`else` pair or an `if`/`elif`/`else` trio will execute.
+* Consecutive `if` statements are tested independently and in order.
 
 ```python
 grade = 85
@@ -118,12 +177,11 @@ elif grade >= 80:
 elif grade >= 70:
     print('grade is C')
 ```
-
 ```output
 grade is B
 ```
 
-- Does *not* automatically go back and re-evaluate if values change.
+Python does *not* go back and re-evaluate a statement if the values change.
 
 ```python
 velocity = 10.0
@@ -133,84 +191,33 @@ else:
     print('adjusting velocity')
     velocity = 50.0
 ```
-
 ```output
 adjusting velocity
 ```
 
-- Programmers use conditionals in combinations with loops to make successive changes
-to a variable.
+## Use `and` and `or` to combine tests
+
+We can also combine tests using `and` and `or`. `and` is only true if both parts are true:
 
 ```python
-velocity = 10.0
-for i in range(5): # execute the loop 5 times
-    print(i, ':', velocity)
-    if velocity > 20.0:
-        print('moving too fast')
-        velocity = velocity - 5.0
-    else:
-        print('moving too slow')
-        velocity = velocity + 10.0
-print('final velocity:', velocity)
+if (1 > 0) and (-1 >= 0):
+    print('both parts are true')
+else:
+    print('at least one part is false')
 ```
-
 ```output
-0 : 10.0
-moving too slow
-1 : 20.0
-moving too slow
-2 : 30.0
-moving too fast
-3 : 25.0
-moving too fast
-4 : 20.0
-moving too slow
-final velocity: 30.0
+at least one part is false
 ```
 
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## Conditional Statements Using `and`, `or`, and Parentheses
-
-Often, you want some combination of things to be true.  You can combine
-relations within a conditional using `and` and `or`.  Continuing the example
-above, suppose you have
+`or` is true if at least one part is true:
 
 ```python
-mass     = [ 3.54,  2.07,  9.22,  1.86,  1.71]
-velocity = [10.00, 20.00, 30.00, 25.00, 20.00]
-
-i = 0
-for i in range(5):
-    if mass[i] > 5 and velocity[i] > 20:
-        print("Fast heavy object.  Duck!")
-    elif mass[i] > 2 and mass[i] <= 5 and velocity[i] <= 20:
-        print("Normal traffic")
-    elif mass[i] <= 2 and velocity[i] <= 20:
-        print("Slow light object.  Ignore it")
-    else:
-        print("Whoa!  Something is up with the data.  Check it")
+if (1 < 0) or (1 >= 0):
+    print('at least one test is true')
 ```
-
-Just like with arithmetic, you can and should use parentheses whenever there
-is possible ambiguity.  A good general rule is to *always* use parentheses
-when mixing `and` and `or` in the same condition.  That is, instead of:
-
-```python
-if mass[i] <= 2 or mass[i] >= 5 and velocity[i] > 20:
+```output
+at least one test is true
 ```
-
-write one of these:
-
-```python
-if (mass[i] <= 2 or mass[i] >= 5) and velocity[i] > 20:
-if mass[i] <= 2 or (mass[i] >= 5 and velocity[i] > 20):
-```
-
-so it is perfectly clear to a reader (and to Python) what you really mean.
-
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -283,70 +290,39 @@ print(result)
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Initializing
+## Computing absolute value using conditionals
 
-Modify this program so that it finds the largest and smallest values in the list
-no matter what the range of values originally is.
+Let's say you want to compute the absolute value $|x|$ of each float x in a list. Append each value to a new list called `result` in the same order as the `original` input. Do not change the values in `original`.
+
+I have provided a skeleton to get you started.
 
 ```python
-values = [...some test data...]
-smallest, largest = None, None
-for v in values:
-    if ____:
-        smallest, largest = v, v
-    ____:
-        smallest = min(____, v)
-        largest = max(____, v)
-print(smallest, largest)
+original = [-1.5, 0.2, 0.4, -1.3]
+result = ___
+for value in original:
+    if value < ___: # if negative
+        result.append(value * __)
+    else: # if positive
+        result.append(____)
+print(result)
 ```
-
-What are the advantages and disadvantages of using this method
-to find the range of the data?
 
 :::::::::::::::  solution
 
 ## Solution
 
 ```python
-values = [-2,1,65,78,-54,-24,100]
-smallest, largest = None, None
-for v in values:
-    if smallest is None and largest is None:
-        smallest, largest = v, v
-    else:
-        smallest = min(smallest, v)
-        largest = max(largest, v)
-print(smallest, largest)
+original = [-1.5, 0.2, 0.4, -1.3]
+result = [] # Initialize an empty list
+for value in original:
+    if value < 0: # if negative
+        result.append(value * -1)
+    else: # if positive
+        result.append(value) # abs val of a positive number is itself 
+print(result)
 ```
-
-If you wrote `== None` instead of `is None`, that works too, but Python programmers always
-write `is None` because of the special way `None` works in the language.
-
-It can be argued that an advantage of using this method would be to make the code more readable.
-However, a disadvantage is that this code is not efficient because within each iteration of the
-`for` loop statement, there are two more loops that run over two numbers each (the `min` and
-`max` functions). It would be more efficient to iterate over each number just once:
-
-```python
-values = [-2,1,65,78,-54,-24,100]
-smallest, largest = None, None
-for v in values:
-    if smallest is None or v < smallest:
-        smallest = v
-    if largest is None or v > largest:
-        largest = v
-print(smallest, largest)
-```
-
-Now we have one loop, but four comparison tests. There are two ways we could improve it further:
-either use fewer comparisons in each iteration, or use two loops that each contain only one
-comparison test. The simplest solution is often the best:
-
-```python
-values = [-2,1,65,78,-54,-24,100]
-smallest = min(values)
-largest = max(values)
-print(smallest, largest)
+```output
+[1.5, 0.2, 0.4, 1.3]
 ```
 
 :::::::::::::::::::::::::
@@ -360,6 +336,8 @@ print(smallest, largest)
 - Use `else` to execute a block of code when an `if` condition is *not* true.
 - Use `elif` to specify additional tests.
 - Conditions are tested once, in order.
+- X `and` Y is only true if both X and Y are true.
+- X `or` Y is true if either X or Y, or both, are true.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

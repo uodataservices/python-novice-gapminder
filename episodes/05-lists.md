@@ -404,7 +404,7 @@ For additional reading on this topic, see this question from the [official Pytho
 
 ## Two ways of sorting lists
 There are two common ways to sort lists by their values: 
-the sorted() function which returns a sorted collection as a copy and .sort() method which sorts a list in place.
+the `sorted()` function which returns a sorted collection as a copy and the `.sort()` method which sorts a list in place.
 
 ```python
 numbers = [1, 5, 3, 4, 2]
