@@ -6,7 +6,7 @@ exercises: 20
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain what software libraries are and why programmers create and use them.
+- Explain what software libraries are and why programmers use them.
 - Write programs that import and use modules from Python's standard library.
 - Find and read documentation for the standard library interactively (in the interpreter) and online.
 
@@ -21,14 +21,11 @@ exercises: 20
 
 ## Most of the power of a programming language is in its libraries.
 
-- A *library* is a collection of files (called *modules*) that contains
-  functions for use by other programs.
-  - May also contain data values (e.g., numerical constants) and other things.
-  - Library's contents are supposed to be related, but there's no way to enforce that.
-- The Python [standard library][stdlib] is an extensive suite of modules that comes
-  with Python itself.
-- Many additional libraries are available from [PyPI][pypi] (the Python Package Index).
-- We will see later how to write new libraries.
+A *library* or *module* is a collection of files that contain functions for use by other programs. They can also contain constants like Pi and Tau.
+
+The Python standard library is a suite of modules that come with **all** Python installations.
+
+You have additional libraries available to you from **Anaconda** and from package managers like **PyPi**.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -43,37 +40,36 @@ module, so don't worry if you mix them.
 
 ## A program must import a library module before using it.
 
-- Use `import` to load a library module into a program's memory.
-- Then refer to things from the module as `module_name.thing_name`.
-  - Python uses `.` to mean "part of" or "in".
+To use a library module you must import it. You only need to import a module once per file or interactive session.
 
 Let's use the [math](https://docs.python.org/3/library/math.html) module
-to find the cosine of pi.
+to find the cosine of pi. This is a module from Python's standard library.
 
 ```python
-import math
-
-print('pi is', math.pi)
-print('cos(pi) is', math.cos(math.pi))
+import math 
+print("Pi is", math.pi) # Prints the constant pi stored in the math library
 ```
-
 ```output
 pi is 3.141592653589793
-cos(pi) is -1.0
 ```
 
-- Have to refer to each item with the module's name.
-  - `math.cos(pi)` won't work: the reference to `pi`
-    doesn't somehow "inherit" the function's reference to `math`.
+You can use imported functions using dot-notation. Prefix the function with the name of the library (math), add a `.', then call it just as you would any function.
+
+```python
+x = math.cos(math.pi) # Assigns x the value returned by cos(pi)
+print(x)
+```
+```output
+-1.0
+```
 
 ## Use `help` to learn about the contents of a library module.
 
-- This just like `help` for a function.
+- This just like `help` for a function. It lists all the functions and constants available in the module.
 
 ```python
 help(math)
 ```
-
 ```output
 Help on module math:
 
@@ -101,7 +97,7 @@ FUNCTIONS
 
 ## Import specific items from a library module to shorten programs.
 
-- Use `from ... import ...` to load only specific items from a library module.
+- Use `from ... import ...` syntax to load only specific items from a library module.
 - In this format, you don't have to use the library name as a prefix.
 
 
@@ -112,7 +108,6 @@ radius = 5
 area = pi * pow(5, 2)
 print("The area of a circle with radius 5 is", area)
 ```
-
 ```output
 The area of a circle with radius 5 is 78.53981633974483
 ```
@@ -125,15 +120,13 @@ The area of a circle with radius 5 is 78.53981633974483
 ```python
 import math as m
 
-print('cos(pi) is', m.cos(m.pi))
+print('The cube root of 27 is', m.cbrt(27))
 ```
-
 ```output
-cos(pi) is -1.0
+The cube root of 27 is 3.0
 ```
 
-- Commonly used for libraries that are frequently used and/or have long names.
-  - For example, the library `pandas`, used later in this workshop, is aliased `pd`.
+This is commonly used for libraries that are frequently used and/or have long names. For example, the library `pandas`, used later in this workshop, is aliased `pd`.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -152,6 +145,42 @@ cos(pi) is -1.0
 Using `help(math)` we see that we've got `pow(x,y)` in addition to `sqrt(x)`,
   so we could use `pow(x, 0.5)` to find a square root too! The `sqrt(x)` function is more readable than `pow(x, 0.5)`. Readability is a cornerstone of good programming, so it makes sense to provide a special function for this common case.
   
+  
+:::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Rewriting Absolute Value
+
+Remember our previous absolute value exercise? The math module has a [.fabs()](https://docs.python.org/3/library/math.html#math.fabs) function that returns the absolute value of a number. 
+
+Update the following code to simplify the process of computing the absolute value of each number in a list of numbers.
+```python
+from math import fabs
+original = [-1.5, 0.2, 0.4, -1.3]
+result = [] # Initialize an empty list
+for value in original:
+  result.append(____(value)) # Update this line
+print(result)
+```
+
+:::::::::::::::  solution
+
+## Solution
+
+```python
+from math import fabs
+original = [-1.5, 0.2, 0.4, -1.3]
+result = [] # Initialize an empty list
+for value in original:
+  result.append(fabs(value)) 
+print(result)
+```
+```output
+[1.5, 0.2, 0.4, 1.3]
+```
   
 :::::::::::::::::::::::::
 
