@@ -232,10 +232,10 @@ New Zealand     18363.32494     21050.41377     23189.80135     25185.00911
 ## Use `DataFrame.T` to transpose a DataFrame.
 
 Sometimes we want to treat columns as rows and vice versa.
-Transpose (written `.T`) doesn't copy the data, retunrs. 
+Transpose (written `.T`) stores this in a special attribute. It does not change the original DataFrame.
 
 ```python
-gdp_oceania_country.T
+oceania_country.T
 ```
 ```output
 country 	Australia 	New Zealand
@@ -259,7 +259,7 @@ gdpPercap_2007 	34435.36744 	25185.00911
 All other columns are ignored, unless you use the argument `include='all'`.
 
 ```python
-gdp_oceania_country.describe()
+oceania_country.describe()
 ```
 
 ```output
