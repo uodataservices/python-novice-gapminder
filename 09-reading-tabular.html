@@ -290,14 +290,14 @@
 
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#use-the-pandas-library-to-manipulate-tabular-data.">Use the Pandas library to manipulate tabular data.</a></li>
-<li><a href="#use-index_col-to-specify-that-a-columns-values-should-be-used-as-row-headings.">Use <code>index_col</code> to specify that a column’s values should
-be used as row headings.</a></li>
-<li><a href="#use-the-dataframe.info-method-to-find-out-more-about-a-dataframe.">Use the <code>DataFrame.info()</code> method to find out more about
-a dataframe.</a></li>
-<li><a href="#the-dataframe.columns-variable-stores-information-about-the-dataframes-columns.">The <code>DataFrame.columns</code> variable stores information about
-the dataframe’s columns.</a></li>
-<li><a href="#use-dataframe.t-to-transpose-a-dataframe.">Use <code>DataFrame.T</code> to transpose a dataframe.</a></li>
+        <ul><li><a href="#pandas-is-a-library-for-manipulating-data">Pandas is a library for manipulating data</a></li>
+<li><a href="#reading-dataframes-from-files">Reading DataFrames from Files</a></li>
+<li><a href="#a-dataframe-has-a-shape-and-columns">A DataFrame has a shape and columns</a></li>
+<li><a href="#use-the-dataframe.info-method-to-find-out-more-about-a-dataframe">Use the <code>DataFrame.info()</code> method to find out more about
+a DataFrame</a></li>
+<li><a href="#use-index_col-to-specify-that-a-columns-values-should-be-used-to-name-rows">Use <code>index_col</code> to specify that a column’s values should
+be used to name rows</a></li>
+<li><a href="#use-dataframe.t-to-transpose-a-dataframe.">Use <code>DataFrame.T</code> to transpose a DataFrame.</a></li>
 <li><a href="#use-dataframe.describe-to-get-summary-statistics-about-data.">Use <code>DataFrame.describe()</code> to get summary statistics
 about data.</a></li>
         </ul></div><!--/div.accordion-body-->
@@ -432,7 +432,7 @@ about data.</a></li>
       </div>
     </nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Reading Tabular Data into DataFrames</h1>
-        <p>Last updated on 2026-10-05 |
+        <p>Last updated on 2026-10-26 |
 
         <a href="https://github.com/swcarpentry/python-novice-gapminder/edit/main/episodes/09-reading-tabular.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -468,27 +468,38 @@ about data.</a></li>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="use-the-pandas-library-to-manipulate-tabular-data-">Use the Pandas library to manipulate tabular data.<a class="anchor" aria-label="anchor" href="#use-the-pandas-library-to-manipulate-tabular-data-"></a></h2>
-<hr class="half-width"><ul><li>
-<a href="https://pandas.pydata.org/" class="external-link">Pandas</a> is a widely-used
-Python library for statistics, particularly on tabular data.</li>
-<li>A DataFrame is a table whose columns have names and potentially have
-different data types.</li>
-<li>Load Pandas with <code>import pandas as pd</code>. The alias
-<code>pd</code> is commonly used to refer to the Pandas library in
-code.</li>
-<li>Print the <em>version</em> of the Pandas library you have installed.
-Any version greater than 2.0 is acceptable.</li>
-</ul><div class="codewrapper sourceCode" id="cb1">
+<section><h2 class="section-heading" id="pandas-is-a-library-for-manipulating-data">Pandas is a library for manipulating data<a class="anchor" aria-label="anchor" href="#pandas-is-a-library-for-manipulating-data"></a></h2>
+<hr class="half-width"><p>In previous lessons, you were introduced to modules from Python’s
+[standard library](<a href="https://docs.python.org/3/library/index.html" class="external-link uri">https://docs.python.org/3/library/index.html</a>. Python
+also allows you to integrate libraries developed by third-party
+communities of developers.</p>
+<p>This lesson introduces Pandas, an open-source library developed by
+NumFocus that you installed on the first day of the workhsop.</p>
+<div class="section level3">
+<h3 id="what-is-pandas">What is Pandas?<a class="anchor" aria-label="anchor" href="#what-is-pandas"></a></h3>
+<ul><li>
+<a href="https://pandas.pydata.org/docs/user_guide/index.html" class="external-link">Pandas</a>
+is a popular library for importing, managing, and manipulating tabular
+data.</li>
+<li>Pandas was inspired by R’s dataframes.</li>
+<li>Pandas can read in data from many tabular formats including .csv
+files, .xlsx files, and relational database tables.</li>
+<li>We will use Pandas to read in CSV (comma-separated value)
+files.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="version-check">Version Check<a class="anchor" aria-label="anchor" href="#version-check"></a></h3>
+<p>First, check that you have Pandas installed.</p>
+<div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1" aria-label="code-block-1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1" aria-label="code-block-1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># This alias is conventional</span></span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1" aria-label="code-block-1-2"></a><span class="bu">print</span>(pd.__version__)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>2.3.3</code></pre>
+<pre class="output" tabindex="0"><code>3.0.6</code></pre>
 </div>
 <div id="debugging-import-statements" class="callout">
 <div class="callout-square">
@@ -506,15 +517,12 @@ problems and how to fix them.</p>
 <p>If you get a <strong>ModuleNotFoundError</strong> when trying to
 import a third-party library like Pandas, that means the current <a href="https://blog.jupyter.org/python-environment-management-in-jupyterlab-desktop-3b119c5811d9" class="external-link">Python
 environment</a> does not have that library installed.</p>
-<p>We recommended experienced Python users <a href="https://docs.anaconda.com/working-with-conda/packages/install-packages/" class="external-link">manage
-their environment with Conda</a>, but you can use pip like below in a
-pinch.</p>
+<p>Run this exactly once to prepare your environment.</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1" aria-label="code-block-3-1"></a><span class="op">!</span>pip install pandas numpy</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1" aria-label="code-block-3-1"></a><span class="op">!</span>conda install pandas numpy matlplotlib <span class="op">-</span>y</span></code></pre>
 </div>
-<p>Run this exactly once.</p>
 </div>
 <div class="section level3">
 <h3 id="importerror-unable-to-import-required-dependencies">ImportError: Unable to import required dependencies<a class="anchor" aria-label="anchor" href="#importerror-unable-to-import-required-dependencies"></a></h3>
@@ -527,27 +535,37 @@ with the following command.</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1" aria-label="code-block-4-1"></a><span class="op">!</span>pip install <span class="op">--</span>force<span class="op">-</span>reinstall pandas numpy</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1" aria-label="code-block-4-1"></a><span class="op">!</span>conda update pandas numpy matlplotlib <span class="op">-</span>y</span></code></pre>
 </div>
 <p>Run this exactly once.</p>
 </div>
 </div>
 </div>
 </div>
-<div class="section level3">
-<h3 id="reading-dataframes-from-files">Reading Dataframes from Files<a class="anchor" aria-label="anchor" href="#reading-dataframes-from-files"></a></h3>
-<ul><li>Pandas represents tabular data using DataFrames.</li>
-<li>The columns in a dataframe are the observed variables, and the rows
-are the observations.</li>
-<li>Pandas uses backslash <code>\</code> to show wrapped lines when
-output is too wide to fit the screen.</li>
-<li>Using descriptive dataframe names helps us distinguish between
-multiple dataframes so we won’t accidentally overwrite a dataframe or
-read from the wrong one.</li>
-</ul><div class="codewrapper sourceCode" id="cb5">
+</div>
+</section><section><h2 class="section-heading" id="reading-dataframes-from-files">Reading DataFrames from Files<a class="anchor" aria-label="anchor" href="#reading-dataframes-from-files"></a></h2>
+<hr class="half-width"><p>To read in CSV files as DataFrames using Pandas, use the <a href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html" class="external-link"><strong>read_csv()</strong></a>
+function. - The first argument is the name of the file to be read. - The
+function returns a DataFrame that you can assign to a variable</p>
+<p>This is a peek of what a <code>gapminder_gdp_oceania.csv</code> looks
+like. As you can see, it’s a comma-separated text file, with one line
+per row of data. The first row is special, as it gives the name of each
+column.</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>	country	gdpPercap_1952	gdpPercap_1957	gdpPercap_1962	gdpPercap_1967	gdpPercap_1972	gdpPercap_1977	gdpPercap_1982	gdpPercap_1987	gdpPercap_1992	gdpPercap_1997	gdpPercap_2002	gdpPercap_2007
+1	Australia	10039.59564	10949.64959	12217.22686	14526.12465	16788.62948	18334.19751	19477.00928	21888.88903	23424.76683	26997.93657	30687.75473	34435.36744
+2	New Zealand	10556.57566	12247.39532	13175.678	14463.91893	16046.03728	16233.7177	17632.4104	19007.19129	18363.32494	21050.41377	23189.80135	25185.00911</code></pre>
+</div>
+<p>To read in <code>gapminder_gdp_ocenia.csv</code>, you must supply its
+<em>path</em> relative to your <strong>current working
+directory</strong>. It should be in the <code>data</code> directory we
+created on the first day of class.</p>
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1" aria-label="code-block-5-1"></a>gdp_oceania <span class="op">=</span> pd.read_csv(<span class="st">"data/gapminder_gdp_oceania.csv"</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1" aria-label="code-block-6-1"></a>gdp_oceania <span class="op">=</span> pd.read_csv(<span class="st">"data/gapminder_gdp_oceania.csv"</span>)</span></code></pre>
 </div>
 <div id="file-not-found" class="callout">
 <div class="callout-square">
@@ -571,17 +589,14 @@ error</a> that ends with a line like this:</p>
 </div>
 </div>
 </div>
-<ul><li>Read a Comma Separated Values (CSV) data file with
-<code>pd.read_csv</code>.
-<ul><li>Argument is the name of the file to be read.</li>
-<li>Returns a dataframe that you can assign to a variable</li>
-</ul></li>
-</ul><p>Take a peek at the <code>gdp_oceania</code> dataframe returned by
-<code>pd.read_csv</code>.</p>
-<div class="codewrapper sourceCode" id="cb7">
+<p>Take a peek at the <code>gdp_oceania</code> DataFrame returned by
+<code>pd.read_csv</code>. A Pandas DataFrame is optimized to display in
+a human-readable format in a Jupyter Notebook, so you will see your data
+with bolded column names, just like a spreadsheet.</p>
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1" aria-label="code-block-7-1"></a>gdp_oceania</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1" aria-label="code-block-8-1"></a>gdp_oceania</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -602,23 +617,102 @@ error</a> that ends with a line like this:</p>
 0     34435.36744
 1     25185.00911</code></pre>
 </div>
-<p>This dataframe has two rows – one for Australia and one for Oceania –
-and several columns.</p>
-</div>
-</section><section><h2 class="section-heading" id="use-index_col-to-specify-that-a-columns-values-should-be-used-as-row-headings-">Use <code>index_col</code> to specify that a column’s values should
-be used as row headings.<a class="anchor" aria-label="anchor" href="#use-index_col-to-specify-that-a-columns-values-should-be-used-as-row-headings-"></a></h2>
-<hr class="half-width"><ul><li>Row headings are numbers (0 and 1 in this case).</li>
-<li>Really want to index by country.</li>
-<li>Pass the name of the column to <code>read_csv</code> as its
-<code>index_col</code> parameter to do this.</li>
-<li>Naming the dataframe <code>gdp_oceania_country</code> tells us which
-region the data includes (<code>oceania</code>) and how it is indexed
-(<code>country</code>).</li>
-</ul><div class="codewrapper sourceCode" id="cb9">
+</section><section><h2 class="section-heading" id="a-dataframe-has-a-shape-and-columns">A DataFrame has a shape and columns<a class="anchor" aria-label="anchor" href="#a-dataframe-has-a-shape-and-columns"></a></h2>
+<hr class="half-width"><p>The shape of a DataFrame is stored the <code>.shape</code> attribute
+in the form <code>(rows, columns</code>). Attributes are variables bound
+to specific objects, just like methods are bound to specific objects.
+Because attributes are variables rather than functions, you don’t need
+to call them with <code>()</code>.</p>
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1" aria-label="code-block-9-1"></a>gdp_oceania_country <span class="op">=</span> pd.read_csv(<span class="st">'data/gapminder_gdp_oceania.csv'</span>, index_col<span class="op">=</span><span class="st">'country'</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1" aria-label="code-block-9-2"></a><span class="bu">print</span>(gdp_oceania_country)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1" aria-label="code-block-10-1"></a>gdp_oceania.shape <span class="co"># Prints the shape of DF in row, column form</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>(2, 13)</code></pre>
+</div>
+<p>We can get a list of those named columns using the
+<code>.columns</code> attribute.</p>
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1" aria-label="code-block-12-1"></a>gdp_oceania.columns</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>Index(['country', 'gdpPercap_1952', 'gdpPercap_1957', 'gdpPercap_1962',
+       'gdpPercap_1967', 'gdpPercap_1972', 'gdpPercap_1977', 'gdpPercap_1982',
+       'gdpPercap_1987', 'gdpPercap_1992', 'gdpPercap_1997', 'gdpPercap_2002',
+       'gdpPercap_2007'],
+      dtype='str')</code></pre>
+</div>
+<p>We have read in a DataFrame with two rows and 13 columns. The first
+column is the name of a country, the following 12 represent GDP
+measurements in that country between 1952 and 2007.</p>
+</section><section><h2 class="section-heading" id="use-the-dataframe-info-method-to-find-out-more-about-a-dataframe">Use the <code>DataFrame.info()</code> method to find out more about
+a DataFrame<a class="anchor" aria-label="anchor" href="#use-the-dataframe-info-method-to-find-out-more-about-a-dataframe"></a></h2>
+<hr class="half-width"><div class="codewrapper sourceCode" id="cb14">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1" aria-label="code-block-14-1"></a>gdp_oceania.info()</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>&lt;class 'pandas.DataFrame'&gt;
+RangeIndex: 2 entries, 0 to 1
+Data columns (total 13 columns):
+ #   Column          Non-Null Count  Dtype
+---  ------          --------------  -----
+ 0   country         2 non-null      str
+ 1   gdpPercap_1952  2 non-null      float64
+ 2   gdpPercap_1957  2 non-null      float64
+ 3   gdpPercap_1962  2 non-null      float64
+ 4   gdpPercap_1967  2 non-null      float64
+ 5   gdpPercap_1972  2 non-null      float64
+ 6   gdpPercap_1977  2 non-null      float64
+ 7   gdpPercap_1982  2 non-null      float64
+ 8   gdpPercap_1987  2 non-null      float64
+ 9   gdpPercap_1992  2 non-null      float64
+ 10  gdpPercap_1997  2 non-null      float64
+ 11  gdpPercap_2002  2 non-null      float64
+ 12  gdpPercap_2007  2 non-null      float64
+dtypes: float64(12), str(1)
+memory usage: 340.0 bytes</code></pre>
+</div>
+<p>Every column in a DataFrame has an assigned data type that specifies
+what types of values can be in that column. This information is inferred
+when data is read in from a file by Pandas.</p>
+</section><section><h2 class="section-heading" id="use-index_col-to-specify-that-a-columns-values-should-be-used-to-name-rows">Use <code>index_col</code> to specify that a column’s values should
+be used to name rows<a class="anchor" aria-label="anchor" href="#use-index_col-to-specify-that-a-columns-values-should-be-used-to-name-rows"></a></h2>
+<hr class="half-width"><p>Both columns and rows in a DataFrame have names. We can look at the
+row names in the <code>.index</code> attribute. Row names will default
+to a RangeIndex starting at 0 and stopping at num_rows - 1.</p>
+<div class="codewrapper sourceCode" id="cb16">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1" aria-label="code-block-16-1"></a>gdp_oceania.index</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code><span><span class="fu">RangeIndex</span><span class="op">(</span>start<span class="op">=</span><span class="fl">0</span>, stop<span class="op">=</span><span class="fl">2</span>, step<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre>
+</div>
+<p>What if we want to name each row by <code>country</code> instead? We
+can do this by passing the name of the column to <code>read_csv</code>
+as its <code>index_col</code>. This is called a <strong>keyword
+argument</strong>. Keyword arguments are optional and listed in
+<code>parameter_name=argument</code> form.</p>
+<p>Let’s create a new DataFrame called <code>oceania_country</code> that
+is indexed by <code>country</code> instead.</p>
+<div class="codewrapper sourceCode" id="cb18">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1" aria-label="code-block-18-1"></a>oceania_country <span class="op">=</span> pd.read_csv(<span class="st">'data/gapminder_gdp_oceania.csv'</span>, index_col<span class="op">=</span><span class="st">'country'</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1" aria-label="code-block-18-2"></a>oceania_country</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -638,138 +732,55 @@ country
 Australia       23424.76683     26997.93657     30687.75473     34435.36744
 New Zealand     18363.32494     21050.41377     23189.80135     25185.00911</code></pre>
 </div>
-</section><section><h2 class="section-heading" id="use-the-dataframe-info-method-to-find-out-more-about-a-dataframe-">Use the <code>DataFrame.info()</code> method to find out more about
-a dataframe.<a class="anchor" aria-label="anchor" href="#use-the-dataframe-info-method-to-find-out-more-about-a-dataframe-"></a></h2>
-<hr class="half-width"><div class="codewrapper sourceCode" id="cb11">
+</section><section><h2 class="section-heading" id="use-dataframe-t-to-transpose-a-dataframe-">Use <code>DataFrame.T</code> to transpose a DataFrame.<a class="anchor" aria-label="anchor" href="#use-dataframe-t-to-transpose-a-dataframe-"></a></h2>
+<hr class="half-width"><p>Sometimes we want to treat columns as rows and vice versa. Transpose
+(written <code>.T</code>) doesn’t copy the data, retunrs.</p>
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1" aria-label="code-block-11-1"></a>gdp_oceania_country.info()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1" aria-label="code-block-20-1"></a>gdp_oceania_country.T</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
-Index: 2 entries, Australia to New Zealand
-Data columns (total 12 columns):
-gdpPercap_1952    2 non-null float64
-gdpPercap_1957    2 non-null float64
-gdpPercap_1962    2 non-null float64
-gdpPercap_1967    2 non-null float64
-gdpPercap_1972    2 non-null float64
-gdpPercap_1977    2 non-null float64
-gdpPercap_1982    2 non-null float64
-gdpPercap_1987    2 non-null float64
-gdpPercap_1992    2 non-null float64
-gdpPercap_1997    2 non-null float64
-gdpPercap_2002    2 non-null float64
-gdpPercap_2007    2 non-null float64
-dtypes: float64(12)
-memory usage: 208.0+ bytes</code></pre>
-</div>
-<ul><li>This is a <code>DataFrame</code>
-</li>
-<li>Two rows named <code>'Australia'</code> and
-<code>'New Zealand'</code>
-</li>
-<li>Twelve columns, each of which has values, one for each row.
-<ul><li>We will talk later about null values, which are used to represent
-missing observations.</li>
-</ul></li>
-<li>Uses 208 bytes of memory.</li>
-</ul></section><section><h2 class="section-heading" id="the-dataframe-columns-variable-stores-information-about-the-dataframes-columns-">The <code>DataFrame.columns</code> variable stores information about
-the dataframe’s columns.<a class="anchor" aria-label="anchor" href="#the-dataframe-columns-variable-stores-information-about-the-dataframes-columns-"></a></h2>
-<hr class="half-width"><ul><li>Note that this is data, <em>not</em> a method. (It doesn’t have
-parentheses.)
-<ul><li>Like <code>math.pi</code>.</li>
-<li>So do not use <code>()</code> to try to call it.</li>
-</ul></li>
-<li>Called a <em>member variable</em>, or just <em>member</em>.</li>
-</ul><div class="codewrapper sourceCode" id="cb13">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1" aria-label="code-block-13-1"></a>gdp_oceania_country.columns</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>Index(['gdpPercap_1952', 'gdpPercap_1957', 'gdpPercap_1962', 'gdpPercap_1967',
-       'gdpPercap_1972', 'gdpPercap_1977', 'gdpPercap_1982', 'gdpPercap_1987',
-       'gdpPercap_1992', 'gdpPercap_1997', 'gdpPercap_2002', 'gdpPercap_2007'],
-      dtype='object')</code></pre>
-</div>
-</section><section><h2 class="section-heading" id="use-dataframe-t-to-transpose-a-dataframe-">Use <code>DataFrame.T</code> to transpose a dataframe.<a class="anchor" aria-label="anchor" href="#use-dataframe-t-to-transpose-a-dataframe-"></a></h2>
-<hr class="half-width"><ul><li>Sometimes want to treat columns as rows and vice versa.</li>
-<li>Transpose (written <code>.T</code>) doesn’t copy the data, just
-changes the program’s view of it.</li>
-<li>Like <code>columns</code>, it is a member variable.</li>
-</ul><div class="codewrapper sourceCode" id="cb15">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1" aria-label="code-block-15-1"></a><span class="bu">print</span>(gdp_oceania_country.T)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>country           Australia  New Zealand
-gdpPercap_1952  10039.59564  10556.57566
-gdpPercap_1957  10949.64959  12247.39532
-gdpPercap_1962  12217.22686  13175.67800
-gdpPercap_1967  14526.12465  14463.91893
-gdpPercap_1972  16788.62948  16046.03728
-gdpPercap_1977  18334.19751  16233.71770
-gdpPercap_1982  19477.00928  17632.41040
-gdpPercap_1987  21888.88903  19007.19129
-gdpPercap_1992  23424.76683  18363.32494
-gdpPercap_1997  26997.93657  21050.41377
-gdpPercap_2002  30687.75473  23189.80135
-gdpPercap_2007  34435.36744  25185.00911</code></pre>
+<pre class="output" tabindex="0"><code>country 	Australia 	New Zealand
+gdpPercap_1952 	10039.59564 	10556.57566
+gdpPercap_1957 	10949.64959 	12247.39532
+gdpPercap_1962 	12217.22686 	13175.678
+gdpPercap_1967 	14526.12465 	14463.91893
+gdpPercap_1972 	16788.62948 	16046.03728
+gdpPercap_1977 	18334.19751 	16233.7177
+gdpPercap_1982 	19477.00928 	17632.4104
+gdpPercap_1987 	21888.88903 	19007.19129
+gdpPercap_1992 	23424.76683 	18363.32494
+gdpPercap_1997 	26997.93657 	21050.41377
+gdpPercap_2002 	30687.75473 	23189.80135
+gdpPercap_2007 	34435.36744 	25185.00911</code></pre>
 </div>
 </section><section><h2 class="section-heading" id="use-dataframe-describe-to-get-summary-statistics-about-data-">Use <code>DataFrame.describe()</code> to get summary statistics
 about data.<a class="anchor" aria-label="anchor" href="#use-dataframe-describe-to-get-summary-statistics-about-data-"></a></h2>
 <hr class="half-width"><p><code>DataFrame.describe()</code> gets the summary statistics of only
 the columns that have numerical data. All other columns are ignored,
 unless you use the argument <code>include='all'</code>.</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1" aria-label="code-block-17-1"></a>gdp_oceania_country.describe()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1" aria-label="code-block-22-1"></a>gdp_oceania_country.describe()</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>       gdpPercap_1952  gdpPercap_1957  gdpPercap_1962  gdpPercap_1967  \
-count        2.000000        2.000000        2.000000        2.000000
-mean     10298.085650    11598.522455    12696.452430    14495.021790
-std        365.560078      917.644806      677.727301       43.986086
-min      10039.595640    10949.649590    12217.226860    14463.918930
-25%      10168.840645    11274.086022    12456.839645    14479.470360
-50%      10298.085650    11598.522455    12696.452430    14495.021790
-75%      10427.330655    11922.958888    12936.065215    14510.573220
-max      10556.575660    12247.395320    13175.678000    14526.124650
-
-       gdpPercap_1972  gdpPercap_1977  gdpPercap_1982  gdpPercap_1987  \
-count         2.00000        2.000000        2.000000        2.000000
-mean      16417.33338    17283.957605    18554.709840    20448.040160
-std         525.09198     1485.263517     1304.328377     2037.668013
-min       16046.03728    16233.717700    17632.410400    19007.191290
-25%       16231.68533    16758.837652    18093.560120    19727.615725
-50%       16417.33338    17283.957605    18554.709840    20448.040160
-75%       16602.98143    17809.077557    19015.859560    21168.464595
-max       16788.62948    18334.197510    19477.009280    21888.889030
-
-       gdpPercap_1992  gdpPercap_1997  gdpPercap_2002  gdpPercap_2007
-count        2.000000        2.000000        2.000000        2.000000
-mean     20894.045885    24024.175170    26938.778040    29810.188275
-std       3578.979883     4205.533703     5301.853680     6540.991104
-min      18363.324940    21050.413770    23189.801350    25185.009110
-25%      19628.685413    22537.294470    25064.289695    27497.598692
-50%      20894.045885    24024.175170    26938.778040    29810.188275
-75%      22159.406358    25511.055870    28813.266385    32122.777857
-max      23424.766830    26997.936570    30687.754730    34435.367440</code></pre>
+<pre class="output" tabindex="0"><code> 	gdpPercap_1952 	gdpPercap_1957 	gdpPercap_1962 	gdpPercap_1967 	gdpPercap_1972 	gdpPercap_1977 	gdpPercap_1982 	gdpPercap_1987 	gdpPercap_1992 	gdpPercap_1997 	gdpPercap_2002 	gdpPercap_2007
+count 	2.000000 	2.000000 	2.000000 	2.000000 	2.00000 	2.000000 	2.000000 	2.000000 	2.000000 	2.000000 	2.000000 	2.000000
+mean 	10298.085650 	11598.522455 	12696.452430 	14495.021790 	16417.33338 	17283.957605 	18554.709840 	20448.040160 	20894.045885 	24024.175170 	26938.778040 	29810.188275
+std 	365.560078 	917.644806 	677.727301 	43.986086 	525.09198 	1485.263517 	1304.328377 	2037.668013 	3578.979883 	4205.533703 	5301.853680 	6540.991104
+min 	10039.595640 	10949.649590 	12217.226860 	14463.918930 	16046.03728 	16233.717700 	17632.410400 	19007.191290 	18363.324940 	21050.413770 	23189.801350 	25185.009110
+25% 	10168.840645 	11274.086022 	12456.839645 	14479.470360 	16231.68533 	16758.837652 	18093.560120 	19727.615725 	19628.685412 	22537.294470 	25064.289695 	27497.598692
+50% 	10298.085650 	11598.522455 	12696.452430 	14495.021790 	16417.33338 	17283.957605 	18554.709840 	20448.040160 	20894.045885 	24024.175170 	26938.778040 	29810.188275
+75% 	10427.330655 	11922.958888 	12936.065215 	14510.573220 	16602.98143 	17809.077558 	19015.859560 	21168.464595 	22159.406358 	25511.055870 	28813.266385 	32122.777858
+max 	10556.575660 	12247.395320 	13175.678000 	14526.124650 	16788.62948 	18334.197510 	19477.009280 	21888.889030 	23424.766830 	26997.936570 	30687.754730 	34435.367440</code></pre>
 </div>
-<ul><li>Not particularly useful with just two records, but very helpful when
-there are thousands.</li>
-</ul><div id="reading-other-data" class="callout challenge">
+<div id="reading-other-data" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
@@ -797,11 +808,11 @@ once again pass the column name <code>'country'</code> to the parameter
 <code>index_col</code> in order to index by country. The summary
 statistics can be displayed with the <code>DataFrame.describe()</code>
 method.</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" tabindex="-1" aria-label="code-block-19-1"></a>data_americas <span class="op">=</span> pd.read_csv(<span class="st">'data/gapminder_gdp_americas.csv'</span>, index_col<span class="op">=</span><span class="st">'country'</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" tabindex="-1" aria-label="code-block-19-2"></a>data_americas.describe()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1" aria-label="code-block-24-1"></a>data_americas <span class="op">=</span> pd.read_csv(<span class="st">'data/gapminder_gdp_americas.csv'</span>, index_col<span class="op">=</span><span class="st">'country'</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1" aria-label="code-block-24-2"></a>data_americas.describe()</span></code></pre>
 </div>
 </div>
 </div>
@@ -839,10 +850,10 @@ beginning of the DataFrame. We can specify the number of rows we wish to
 see by specifying the parameter <code>n</code> in our call to
 <code>data_americas.head()</code>. To view the first three rows,
 execute:</li>
-</ol><div class="codewrapper sourceCode" id="cb20">
+</ol><div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1" aria-label="code-block-20-1"></a>data_americas.head(n<span class="op">=</span><span class="dv">3</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" tabindex="-1" aria-label="code-block-25-1"></a>data_americas.head(n<span class="op">=</span><span class="dv">3</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -877,17 +888,17 @@ would use the command, <code>americas.tail(n=3)</code>, analogous to
 last three columns so we need to change our view and then use
 <code>tail()</code>. To do so, we create a new DataFrame in which rows
 and columns are switched:</li>
-</ol><div class="codewrapper sourceCode" id="cb22">
+</ol><div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1" aria-label="code-block-22-1"></a>americas_flipped <span class="op">=</span> data_americas.T</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" tabindex="-1" aria-label="code-block-27-1"></a>americas_flipped <span class="op">=</span> data_americas.T</span></code></pre>
 </div>
 <p>We can then view the last three columns of <code>americas</code> by
 viewing the last three rows of <code>americas_flipped</code>:</p>
-<div class="codewrapper sourceCode" id="cb23">
+<div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" tabindex="-1" aria-label="code-block-23-1"></a>americas_flipped.tail(n<span class="op">=</span><span class="dv">3</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" tabindex="-1" aria-label="code-block-28-1"></a>americas_flipped.tail(n<span class="op">=</span><span class="dv">3</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -914,17 +925,17 @@ gdpPercap_2007             18008.5       42951.7  10611.5   11415.8</code></pre>
 </div>
 <p>This shows the data that we want, but we may prefer to display three
 columns instead of three rows, so we can flip it back:</p>
-<div class="codewrapper sourceCode" id="cb25">
+<div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" tabindex="-1" aria-label="code-block-25-1"></a>americas_flipped.tail(n<span class="op">=</span><span class="dv">3</span>).T    </span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" tabindex="-1" aria-label="code-block-30-1"></a>americas_flipped.tail(n<span class="op">=</span><span class="dv">3</span>).T    </span></code></pre>
 </div>
 <p><strong>Note:</strong> we could have done the above in a single line
 of code by ‘chaining’ the commands:</p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" tabindex="-1" aria-label="code-block-26-1"></a>data_americas.T.tail(n<span class="op">=</span><span class="dv">3</span>).T</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" tabindex="-1" aria-label="code-block-31-1"></a>data_americas.T.tail(n<span class="op">=</span><span class="dv">3</span>).T</span></code></pre>
 </div>
 </div>
 </div>
@@ -969,10 +980,10 @@ called <code>microbes.csv</code>, which is located in a folder called
 <code>thesis</code> using ‘../’ and then into the folder
 <code>field_data</code> using ‘field_data/’. Then we can specify the
 filename `microbes.csv. The result is as follows:</p>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" tabindex="-1" aria-label="code-block-28-1"></a>data_microbes <span class="op">=</span> pd.read_csv(<span class="st">'../field_data/microbes.csv'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" tabindex="-1" aria-label="code-block-33-1"></a>data_microbes <span class="op">=</span> pd.read_csv(<span class="st">'../field_data/microbes.csv'</span>)</span></code></pre>
 </div>
 </div>
 </div>
@@ -987,9 +998,9 @@ filename `microbes.csv. The result is as follows:</p>
 <h3 class="callout-title">Writing Data</h3>
 <div class="callout-content">
 <p>As well as the <code>read_csv</code> function for reading data from a
-file, Pandas provides a <code>to_csv</code> function to write dataframes
+file, Pandas provides a <code>to_csv</code> function to write DataFrames
 to files. Applying what you’ve learned about reading from files, write
-one of your dataframes to a file called <code>processed.csv</code>. You
+one of your DataFrames to a file called <code>processed.csv</code>. You
 can use <code>help</code> to get information on how to use
 <code>to_csv</code>.</p>
 </div>
@@ -1004,18 +1015,18 @@ can use <code>help</code> to get information on how to use
 <div class="accordion-body">
 <p>In order to write the DataFrame <code>data_americas</code> to a file
 called <code>processed.csv</code>, execute the following command:</p>
-<div class="codewrapper sourceCode" id="cb29">
+<div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" tabindex="-1" aria-label="code-block-29-1"></a>data_americas.to_csv(<span class="st">'processed.csv'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" tabindex="-1" aria-label="code-block-34-1"></a>data_americas.to_csv(<span class="st">'processed.csv'</span>)</span></code></pre>
 </div>
 <p>For help on <code>read_csv</code> or <code>to_csv</code>, you could
 execute, for example:</p>
-<div class="codewrapper sourceCode" id="cb30">
+<div class="codewrapper sourceCode" id="cb35">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" tabindex="-1" aria-label="code-block-30-1"></a><span class="bu">help</span>(data_americas.to_csv)</span>
-<span id="cb30-2"><a href="#cb30-2" tabindex="-1" aria-label="code-block-30-2"></a><span class="bu">help</span>(pd.read_csv)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" tabindex="-1" aria-label="code-block-35-1"></a><span class="bu">help</span>(data_americas.to_csv)</span>
+<span id="cb35-2"><a href="#cb35-2" tabindex="-1" aria-label="code-block-35-2"></a><span class="bu">help</span>(pd.read_csv)</span></code></pre>
 </div>
 <p>Note that <code>help(to_csv)</code> or <code>help(pd.to_csv)</code>
 throws an error! This is due to the fact that <code>to_csv</code> is not
@@ -1038,11 +1049,11 @@ means you can only call it on an instance of a DataFrame e.g.,
 data.</li>
 <li>Use <code>index_col</code> to specify that a column’s values should
 be used as row headings.</li>
-<li>Use <code>DataFrame.info</code> to find out more about a
-dataframe.</li>
+<li>Use <code>DataFrame.info</code> to find out more about
+DataFrame.</li>
 <li>The <code>DataFrame.columns</code> variable stores information about
-the dataframe’s columns.</li>
-<li>Use <code>DataFrame.T</code> to transpose a dataframe.</li>
+the DataFrame’s columns.</li>
+<li>Use <code>DataFrame.T</code> to transpose a DataFrame.</li>
 <li>Use <code>DataFrame.describe</code> to get summary statistics about
 data.</li>
 </ul></div>
@@ -1108,8 +1119,8 @@ data.</li>
   "url": "uodataservices.github.io/python-novice-gapminder/09-reading-tabular.html",
   "identifier": "uodataservices.github.io/python-novice-gapminder/09-reading-tabular.html",
   "dateCreated": "2016-01-07",
-  "dateModified": "2026-10-05",
-  "datePublished": "2026-10-21"
+  "dateModified": "2026-10-26",
+  "datePublished": "2026-10-26"
 }
 
   </script><script>
