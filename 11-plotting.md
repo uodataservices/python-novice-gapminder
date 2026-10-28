@@ -7,7 +7,8 @@ exercises: 15
 ::::::::::::::::::::::::::::::::::::::: objectives
 
 - Create a time series plot showing a single data set.
-- Create a scatter plot showing relationship between two data sets.
+- Create a bar plot for a single data set.
+- Customize plots with Matplotlib.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -20,15 +21,13 @@ exercises: 15
 
 ## [`matplotlib`](https://matplotlib.org/) is the most widely used scientific plotting library in Python.
 
-- Commonly use a sub-library called [`matplotlib.pyplot`](https://matplotlib.org/stable/tutorials/introductory/pyplot.html).
-- The Jupyter Notebook will render plots inline by default.
+We commonly use a sub-library called [`matplotlib.pyplot`](https://matplotlib.org/stable/tutorials/introductory/pyplot.html).
 
 ```python
 import matplotlib.pyplot as plt
 ```
 
-- Simple plots are then (fairly) simple to create.
-
+Let's create a simple plot with two lists, one for time on the x-axis and another for position on the y-axis.
 ```python
 time = [0, 1, 2, 3]
 position = [0, 100, 200, 300]
@@ -82,15 +81,126 @@ gdp_americas.loc[:, "gdpPercap_1957"].hist()
 
 - To plot two or more variables, you can use the built-in Pandas [bar chart](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.bar.html) feature.
 
-- For example, to plot the GDP of each country in `gdp_americas` in 1952 as a bar chart, assign "country" to the x-axis and "gdpPerCap_195" to the y-axis.
+- For example, to plot the GDP of each country in `gdp_americas` in 1952 as a bar chart, assign "country" to the x-axis and `gdpPerCap_195` to the y-axis.
 
 ```python
 gdp_americas.plot.bar(x="country", y="gdpPercap_1952")
 ```
 ![](fig/09_bar.png)
 
-Pandas is great for making quick charts, but matplotlib will give you more control and customization options.
+## Plotting example: Tracing economic growth
+Let's say you're only interested in studying the Four Asian Tigers: Hong Kong, Singapore, South Korea, and Taiwan. You want only those rows, and in that order. 
 
+To start, let's read in a version of the `gdp_asia` data indexed by country. Then, we can use `.loc[]` with a list of rows: `["Singapore", "Taiwan", "Hong Kong China", "Korea Rep."]`.
+
+Because these are post-war phenomena, you are only interested in these economies as they have evolved since 1962, so pass in the range `"gdpPercap_1962":"gdpPercap_1997"` to `.loc[]`.
+
+```python
+import pandas as pd
+gdp_asia_country = pd.read_csv("../data/gapminder_gdp_asia.csv", index_col="country")
+tigers = gdp_asia_country.loc[["Singapore", "Taiwan", "Hong Kong China",
+                               "Korea Rep."], "gdpPercap_1962":"gdpPercap_1997"]
+tigers
+```
+```output
+	gdpPercap_1962 	gdpPercap_1967 	gdpPercap_1972 	gdpPercap_1977 	gdpPercap_1982 	gdpPercap_1987 	gdpPercap_1992 	gdpPercap_1997
+country 								
+Singapore 	3674.735572 	4977.418540 	8597.756202 	11210.089480 	15169.161120 	18861.530810 	24769.89120 	33519.47660
+Taiwan 	1822.879028 	2643.858681 	4062.523897 	5596.519826 	7426.354774 	11054.561750 	15215.65790 	20206.82098
+Hong Kong China 	4692.648272 	6197.962814 	8315.928145 	11186.141250 	14560.530510 	20038.472690 	24757.60301 	28377.63219
+Korea Rep. 	1536.344387 	2029.228142 	3030.876650 	4657.221020 	5622.942464 	8533.088805 	12104.27872 	15993.52796
+```
+
+If we try the default parameters (no arguments passed) with `.plot()`, we get a graph that's not quite what we want. The x and y axes are reversed.
+
+```python
+tigers.plot()
+```
+![](fig/11_tigers_plot_1.png)
+
+We can address this by plotting the DataFrame using the `.T` attribute to flip the x and y axes of the `tigers` DataFrame.
+
+```python
+tigers.T.plot()
+```
+![](fig/11_tigers_plot_2.png)
+
+Now, we'll fix the axes. 
+To adjust the column names, we'll apply a special [removeprefix](https://pandas.pydata.org/docs/reference/api/pandas.Series.str.removeprefix.html) method to remove the `gdpPercap_` prefix.
+
+
+```python
+tigers.columns = tigers.columns.str.removeprefix("gdpPercap_") 
+tigers
+```
+```output
+
+	1962 	1967 	1972 	1977 	1982 	1987 	1992 	1997
+country 								
+Singapore 	3674.735572 	4977.418540 	8597.756202 	11210.089480 	15169.161120 	18861.530810 	24769.89120 	33519.47660
+Taiwan 	1822.879028 	2643.858681 	4062.523897 	5596.519826 	7426.354774 	11054.561750 	15215.65790 	20206.82098
+Hong Kong China 	4692.648272 	6197.962814 	8315.928145 	11186.141250 	14560.530510 	20038.472690 	24757.60301 	28377.63219
+Korea Rep. 	1536.344387 	2029.228142 	3030.876650 	4657.221020 	5622.942464 	8533.088805 	12104.27872 	15993.52796
+```
+
+Let's try plotting the transposed version of our modified DataFrame again.
+
+```python
+tigers.T.plot()
+```
+![](fig/11_tigers_plot_3.png)
+
+We can combine plotting with other statistic methods by chaining them together. For example, let's plot the median GDP per capita of the Four Tigers between 1952 and 1997.
+
+```python
+tigers.median().plot() # Example of "chaining"
+```
+![](fig/11_tigers_plot_4.png)
+
+## Customizing plots
+We can use the `plt` module from `matplotlib` to customize the appearance of our plots.
+
+We can use the `plt.xlabel()` and `plt.ylabel()` functions to label the x and y axes of our plots.
+
+```python
+import matplotlib.pyplot as plt
+tigers.T.plot() # Example of "chaining"
+plt.ylabel('GDP per capita')
+plt.xlabel('Year')
+plt.show()
+```
+![](fig/11_tigers_plot_5.png)
+
+We can also customize the color of our plot. Let's try a grouped bar chart comparing the GDP per-capita of New Zealand and Australia. 
+
+This will require us to read in the `gapminder_gdp_oceania.csv` file and apply the same `.removeprefix()` we used before.
+
+```python
+gdp_oceania = pd.read_csv("data/gapminder_gdp_oceania.csv", 
+                          index_col="country")
+gdp_oceania.columns = gdp_oceania.columns.str.removeprefix("gdpPercap_")
+```
+
+Let's try plotting the `gdp_oceania` DataFrame with the default settings.
+
+```python
+gdp_oceania.T.plot.bar()
+```
+![](fig/11_oceania_plot_1.png)
+
+Let's add a title, axes, and color configuration options. Try turning the `stacked=` argument on and off to see what it does!
+
+```python
+gdp_oceania.T.plot.bar(color=["orange", "navy"], stacked=True)
+plt.title("Oceania Economic Growth")
+plt.ylabel('GDP per capita')
+plt.xlabel('Year')
+plt.show()
+```
+![](fig/11_oceania_plot_2.png)
+
+
+You can learn more about plotting configuration options in the [Pandas documentation](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.bar.html) and the [Matplotlib documentation](https://matplotlib.org/3.5.3/api/_as_gen/matplotlib.pyplot.html).
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -276,10 +386,8 @@ Whenever you are generating plots to go into a paper or a presentation, there ar
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
 - [`matplotlib`](https://matplotlib.org/) is the most widely used scientific plotting library in Python.
-- Plot data directly from a Pandas dataframe.
-- Select and transform data, then plot it.
+- You can plot data directly from a Pandas dataframe using `.plot()`.
 - Many styles of plot are available: see the [Python Graph Gallery](https://python-graph-gallery.com/matplotlib/) for more options.
-- Can plot many sets of data together.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

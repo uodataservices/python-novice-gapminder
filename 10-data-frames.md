@@ -188,12 +188,11 @@ gdpPercap_2007    4471.061906
 dtype: float64
 ```
 
-
-
 ## Use `DataFrame.iloc[..., ...]` to select values by their (entry) position
 
-To access a value at the position `[i,j]` of a DataFrame, where i and j are integers, we can use **iloc**. DataFrames provides an index as a way to identify the rows of the table; a row, then, has a position inside the table as well as a label, which uniquely identifies its entry in the DataFrame.
+To access a value at the position `[i,j]` of a DataFrame, where i and j are integers, we can use [**iloc**](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html). DataFrames provides an indexing as a way to identify each row, column, or cell.
 
+Let's practice retrieving values from the first five rows of `gdp_asia`.
 ```python
 gdp_asia.head(5)
 ```
@@ -207,9 +206,9 @@ Cambodia 	368.469286 	434.038336 	496.913648 	523.432314 	421.624026 	524.972183
 China    400.448611 	575.987001 	487.674018 	612.705693 	676.900092 	741.237470 	962.421381 	1378.904018 	1655.784158 	2289.234136 	3119.280896 	4959.114854
 ```
 
-The `.iloc` or "integer position based indexing" ,ethod is designed to behave like the indexing you've already used for strings and lists.
+The `.iloc` method is designed to behave like the integer-based indexing you've already used for strings and lists.
 
-To get a value at row i, column j use the following syntax for iloc. Remember, rows and columns are numbered starting at 0, just like in a string.
+To get a value at row `i`, column `j` use the following syntax for iloc. Remember, rows and columns are numbered starting at 0, just like in a string.
 
 ```python
 gdp_asia.iloc[0, 1] # Row, column form
@@ -220,7 +219,7 @@ np.float64(820.8530296)
 
 This gives us the GDP of Afghanistan in 1957 because `Afghanistan` is the first row and the `gdpPercap_1957` column is the second column.
 
-Just like with strings, we can pass in ranges indicated by `a:b` syntax to slice a range of columns or rows. Remember, ranges are inclusive at integer a of a:b but exclusive at integer b.
+Just like with strings, we can pass in ranges indicated by `a:b` syntax to slice a range of columns or rows. Remember, ranges are inclusive at integer `a` of `a:b` but exclusive at integer `b`.
 
 ```python
 gdp_asia.iloc[0:3, 1] # Second column of the first three rows
@@ -272,6 +271,7 @@ Name: Afghanistan, dtype: float64
 We can also use `.loc[i, j]` to [select values in a DataFrame by their label](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html#pandas.DataFrame.loc). Row indices can be numeric (default) or categorical (strings). Columns are almost always indexed by strings. Indexing with `.loc[i, j]` is also in row, column order.
 
 The following use of `.loc[]` selects the value from column "gdpPercap_2002" from the row named "China". 
+
 ```python
 gdp_asia.loc["China", "gdpPercap_2002"]
 ```
@@ -279,14 +279,14 @@ gdp_asia.loc["China", "gdpPercap_2002"]
 np.float64(3119.280896)
 ```
 
-## Use `:` on its own to mean all columns or all rows.
+### Use `:` on its own to mean all columns or all rows.
 
 To refer to all rows or all columns when slicing, use the `:` symbol.
 
+This selects only the `Singapore` row.
 ```python
 gdp_asia.loc["Singapore", :]
 ```
-
 ```output
 gdpPercap_1952     2315.138227
 gdpPercap_1957     2843.104409
@@ -303,6 +303,7 @@ gdpPercap_2007    47143.179640
 Name: Singapore, dtype: float64
 ```
 
+While this selects all values in the column `gdpPercap_1952`.
 ```python
 gdp_asia.loc[:, "gdpPercap_1952"]
 ```
@@ -344,8 +345,8 @@ Yemen Rep.               781.717576
 Name: gdpPercap_1952, dtype: float64
 ```
 
-## Select multiple columns or rows using `DataFrame.loc` and a named slice.
-We can also use `.loc[]` to return a range of consecutive columns or rows. However, slicing with **.loc[]** is **inclusive at both ends**. This is extremely confusing and is only done because it is designed to mimic R.
+### Select multiple columns or rows using `DataFrame.loc` and a named slice.
+We can also use `.loc[]` to return a range of consecutive columns or rows. However, slicing with **.loc[]** is **inclusive at both ends**. 
 
 ```python
 gdp_asia.loc["Pakistan":"Singapore", "gdpPercap_1957":"gdpPercap_1972"]
@@ -359,17 +360,14 @@ Saudi Arabia 	8157.591248 	11626.419750 	16903.048860 	24837.428650
 Singapore 	2843.104409 	3674.735572 	4977.418540 	8597.756202
 ```
 
-## Result of slicing can be used in further operations.
+## Results of slicing can be used in further operations.
 
-- Usually don't just print a slice.
-- All the statistical operators that work on entire dataframes
-  work the same way on slices.
-- E.g., calculate max of a slice.
+All statistical operators that work on DataFrames or Series
+  work the same way on slices. For example, we can calculate the `.max()` of a slice.
 
 ```python
 print(gdp_asia.loc["Pakistan":"Singapore", "gdpPercap_1957":"gdpPercap_1972"].max())
 ```
-
 ```output
 gdpPercap_1957     8157.591248
 gdpPercap_1962    11626.419750
@@ -411,7 +409,7 @@ Norway                True           True           True
 Poland               False          False          False
 ```
 
-## Select values or NaN using a Boolean mask.
+## Select values using a Boolean mask.
 
 - A frame full of Booleans is sometimes called a *mask* because of how it can be used.
 
